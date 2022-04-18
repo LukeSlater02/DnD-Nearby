@@ -5,7 +5,18 @@ export const Stats = () => {
         {
             name: "",
             level: 0,
-            str: ''
+            str: '',
+            strMod: '',
+            dex: '',
+            dexMod: '',
+            con: '',
+            conMod: '',
+            int: '',
+            intMod: '',
+            wis: '',
+            wisMod: '',
+            cha: '',
+            chaMod: '',
         }
     )
 
@@ -53,28 +64,93 @@ export const Stats = () => {
         }
     }
 
-    const handleBlur = (stat) => {   
-        document.getElementById("hello").innerHTML = calculateModifier(stat)
+    const handleBlur = (statVal, stat) => {   
+        const newSheet = { ...sheet }
+        newSheet[`${stat}Mod`] = calculateModifier(statVal)
+
+        updateSheet(newSheet)
     }
 
     return (
         <>
         <div>
-            <label>STR STAT:</label>
+            <label>STRENGTH</label>
             <input
-                type="text"
+                type="number"
                 id="str"
                 value={sheet.str}
                 onChange={handleInput}
                 required
                 autoFocus
                 autoComplete="off"
-                onBlur={() => handleBlur(sheet.str)}
-                placeholder="Enter your strength stat.">
+                onBlur={() => handleBlur(sheet.str, 'str')}>
             </input>
-            {console.log(sheet.str)}
+            <div>{sheet.strMod}</div>
 
-            <div>STR MOD: <span id="hello"></span></div>
+            <label>DEXTERITY</label>
+            <input
+                type="number"
+                id="dex"
+                value={sheet.dex}
+                onChange={handleInput}
+                required
+                autoFocus
+                autoComplete="off"
+                onBlur={() => handleBlur(sheet.dex, 'dex')}>
+            </input>
+            <div>{sheet.dexMod}</div>
+
+            <label>CONSTITUTION</label>
+            <input
+                type="number"
+                id="con"
+                value={sheet.con}
+                onChange={handleInput}
+                required
+                autoFocus
+                autoComplete="off"
+                onBlur={() => handleBlur(sheet.con, 'con')}>
+            </input>
+            <div>{sheet.conMod}</div>
+
+            <label>INTELLIGENCE</label>
+            <input
+                type="number"
+                id="int"
+                value={sheet.int}
+                onChange={handleInput}
+                required
+                autoFocus
+                autoComplete="off"
+                onBlur={() => handleBlur(sheet.int, 'int')}>
+            </input>
+            <div>{sheet.intMod}</div>
+
+            <label>WISDOM</label>
+            <input
+                type="number"
+                id="wis"
+                value={sheet.wis}
+                onChange={handleInput}
+                required
+                autoFocus
+                autoComplete="off"
+                onBlur={() => handleBlur(sheet.wis, 'wis')}>
+            </input>
+            <div>{sheet.wisMod}</div>
+
+            <label>CHARISMA</label>
+            <input
+                type="number"
+                id="cha"
+                value={sheet.cha}
+                onChange={handleInput}
+                required
+                autoFocus
+                autoComplete="off"
+                onBlur={() => handleBlur(sheet.cha, 'cha')}>
+            </input>
+            <div>{sheet.chaMod}</div>
 
         </div>
         </>
