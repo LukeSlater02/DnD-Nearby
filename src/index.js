@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { Stats } from './Stats';
+import { Stats } from './CharacterSheet/Stats';
+import { CharacterInfo } from './CharacterSheet/CharacterInfo';
 
 ReactDOM.render(
   <React.StrictMode>
+    <CharacterInfo />
     <Stats />
   </React.StrictMode>,
   document.getElementById('root')
