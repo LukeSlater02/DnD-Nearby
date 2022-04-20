@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getRogueWeapons } from "../RogueDataManager";
 
 export const Stats = () => {
     const [sheet, updateSheet] = useState(
@@ -19,7 +20,6 @@ export const Stats = () => {
             chaMod: '',
         }
     )
-
     const handleInput = event => {
         const newSheet = { ...sheet }
         let selectedVal = event.target.value

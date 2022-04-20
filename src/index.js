@@ -2,13 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { Stats } from './CharacterSheet/Stats';
-import { CharacterInfo } from './CharacterSheet/CharacterInfo';
+import { RogueCard } from './RogueCard';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CharacterInfo />
-    <Stats />
+    <RogueCard />
   </React.StrictMode>,
   document.getElementById('root')
 );
