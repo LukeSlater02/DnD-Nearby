@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getRogueWeapons } from "./RogueDataManager";
-import "./ClassCard.css"
+import "./ClassCard.scss"
 
 export const RogueCard = () => {
     const [weapons, setWeapons] = useState([])
