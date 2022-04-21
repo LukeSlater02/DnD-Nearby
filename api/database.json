@@ -1,19 +1,30 @@
 {
     "users": [
         {
-
-        }
+            "email": "lukeslater101@gmail.com",
+            "firstName": "Luke",
+            "lastName": "Slater",
+            "id": 2
+          }
     ],
     
     "characters": [
         {
-
-        }
-    ],
-
-    "alignments": [
-        {
-
+            "id": 1,
+            "classId": 8,
+            "userId": 1,
+            "level": 1,
+            "background": "",
+            "alignment": "",
+            "str": 0,
+            "dex": 0,
+            "con": 0,
+            "int": 0,
+            "wis": 0,
+            "cha": 0,
+            "proficiencyBonus": 0,
+            "hitPoints": 0,
+            "armorClass": 0
         }
     ],
 
@@ -28,7 +39,9 @@
             "wisSave": false,
             "chaSave": false,
             "hpPerLevel": 7,
-            "hpLevelOne": 12
+            "hpLevelOne": 12,
+            "hitDieSides": 12,
+            "icon": "./images/barbarian.svg"
         },
         {
             "id": 2,
@@ -40,7 +53,9 @@
             "wisSave": false,
             "chaSave": false,
             "hpPerLevel": 6,
-            "hpLevelOne": 10
+            "hpLevelOne": 10,
+            "hitDieSides": 10,
+            "icon": "./images/fighter.svg"
         },
         {
             "id": 3,
@@ -52,7 +67,9 @@
             "wisSave": false,
             "chaSave": true,
             "hpPerLevel": 5,
-            "hpLevelOne": 8
+            "hpLevelOne": 8,
+            "hitDieSides": 8,
+            "icon": "./images/bard.svg"
         },
         {
             "id": 4,
@@ -64,7 +81,9 @@
             "wisSave": true,
             "chaSave": true,
             "hpPerLevel": 5,
-            "hpLevelOne": 8
+            "hpLevelOne": 8,
+            "hitDieSides": 8,
+            "icon": "./images/cleric.svg"
         },
         {
             "id": 5,
@@ -76,7 +95,9 @@
             "wisSave": true,
             "chaSave": false,
             "hpPerLevel": 5,
-            "hpLevelOne": 8
+            "hpLevelOne": 8,
+            "hitDieSides": 8,
+            "icon": "./images/druid.svg"
         },
         {
             "id": 6,
@@ -88,7 +109,9 @@
             "wisSave": false,
             "chaSave": false,
             "hpPerLevel": 5,
-            "hpLevelOne": 8
+            "hpLevelOne": 8,
+            "hitDieSides": 8,
+            "icon": "./images/monk.svg"
         },
         {
             "id": 7,
@@ -100,7 +123,9 @@
             "wisSave": true,
             "chaSave": true,
             "hpPerLevel": 6,
-            "hpLevelOne": 10
+            "hpLevelOne": 10,
+            "hitDieSides": 10,
+            "icon": "./images/paladin.svg"
         },
         {
             "id": 8,
@@ -112,7 +137,9 @@
             "wisSave": false,
             "chaSave": false,
             "hpPerLevel": 7,
-            "hpLevelOne": 12
+            "hpLevelOne": 12,
+            "hitDieSides": 8,
+            "icon": "./images/rogue.svg"
         },
         {
             "id": 9,
@@ -124,7 +151,9 @@
             "wisSave": true,
             "chaSave": false,
             "hpPerLevel": 4,
-            "hpLevelOne": 6
+            "hpLevelOne": 6,
+            "hitDieSides": 6,
+            "icon": "./images/wizard.svg"
         },
         {
             "id": 10,
@@ -136,7 +165,23 @@
             "wisSave": true,
             "chaSave": true,
             "hpPerLevel": 5,
-            "hpLevelOne": 8
+            "hpLevelOne": 8,
+            "hitDieSides": 8,
+            "icon": "./images/warlock.svg"
+        },
+        {
+            "id": 11,
+            "className": "Sorcerer",
+            "dexSave": false,
+            "strSave": false,
+            "conSave": true,
+            "intSave": false,
+            "wisSave": false,
+            "chaSave": true,
+            "hpPerLevel": 4,
+            "hpLevelOne": 6,
+            "hitDieSides": 6,
+            "icon": "./images/sorcerer.svg"
         }
     ],
 

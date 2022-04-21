@@ -1,13 +1,411 @@
+@font-face {
+  src: url(../fonts/BreatheFire.ttf);
+  font-family: dragon;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Spectral', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+h2, h3, h4, h5 {
+  font-family: 'Spectral SC', serif;
+}
+
+h2 {
+  text-align: center;
+  font-size: xx-large;
+  text-decoration: underline;
+}
+
+.classCardsList {
+  display: -ms-grid;
+  display: grid;
+  gap: 3em;
+  -ms-grid-columns: (minmax(24.1em, 24.1em))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(24.1em, 24.1em));
+  justify-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.classCard {
+  text-align: center;
+  margin: 1em;
+  margin-bottom: 4em;
+  width: 20em;
+  padding: .5em;
+  border-left: 6px solid #080808;
+  border-right: 6px solid #080808;
+  border-radius: 5px;
+  font-size: medium;
+}
+
+.classCard section {
+  text-align: center;
+}
+
+.classCard img {
+  width: 50%;
+}
+
+.classCard h1 {
+  color: #080808;
+  font-size: 50px;
+  font-family: dragon;
+  margin-top: .2em;
+}
+
+.classCard .druid {
+  border-bottom: 0.5em solid #7a853b;
+  margin-bottom: 1em;
+}
+
+.classCard .rogue {
+  border-bottom: 0.5em solid #555752;
+  margin-bottom: 1em;
+}
+
+.classCard .sorcerer {
+  border-bottom: 0.5em solid #992e2e;
+  margin-bottom: 1em;
+}
+
+.classCard .warlock {
+  border-bottom: 0.5em solid #7b469b;
+  margin-bottom: 1em;
+}
+
+.classCard .wizard {
+  border-bottom: 0.5em solid #2a50a1;
+  margin-bottom: 1em;
+}
+
+.classCard .monk {
+  border-bottom: 0.5em solid #51a5c5;
+  margin-bottom: 1em;
+}
+
+.classCard .fighter {
+  border-bottom: 0.5em solid #7f513e;
+  margin-bottom: 1em;
+}
+
+.classCard .druid {
+  border-bottom: 0.5em solid #7a853b;
+  margin-bottom: 1em;
+}
+
+.classCard .cleric {
+  border-bottom: 0.5em solid #91a1b2;
+  margin-bottom: 1em;
+}
+
+.classCard .bard {
+  border-bottom: 0.5em solid #ab6dac;
+  margin-bottom: 1em;
+}
+
+.classCard .barbarian {
+  border-bottom: 0.5em solid #e7623e;
+  margin-bottom: 1em;
+}
+
+.classCard .paladin {
+  border-bottom: 0.5em solid #b59e54;
+  margin-bottom: 1em;
+}
+
+.druid button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.druid button:hover {
+  background-color: #7a853b;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #7a853b;
+  border-radius: 10px;
+}
+
+.warlock button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.warlock button:hover {
+  background-color: #7b469b;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #7b469b;
+  border-radius: 10px;
+}
+
+.paladin button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.paladin button:hover {
+  background-color: #b59e54;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #b59e54;
+  border-radius: 10px;
+}
+
+.wizard button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.wizard button:hover {
+  background-color: #2a50a1;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #2a50a1;
+  border-radius: 10px;
+}
+
+.monk button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.monk button:hover {
+  background-color: #51a5c5;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #51a5c5;
+  border-radius: 10px;
+}
+
+.barbarian button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.barbarian button:hover {
+  background-color: #e7623e;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #e7623e;
+  border-radius: 10px;
+}
+
+.fighter button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.fighter button:hover {
+  background-color: #7f513e;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #7f513e;
+  border-radius: 10px;
+}
+
+.sorcerer button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.sorcerer button:hover {
+  background-color: #992e2e;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #992e2e;
+  border-radius: 10px;
+}
+
+.bard button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.bard button:hover {
+  background-color: #ab6dac;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #ab6dac;
+  border-radius: 10px;
+}
+
+.rogue button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.rogue button:hover {
+  background-color: #555752;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #555752;
+  border-radius: 10px;
+}
+
+.cleric button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.cleric button:hover {
+  background-color: #91a1b2;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #91a1b2;
+  border-radius: 10px;
+}
+
+.class-icon {
+  width: 15%;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  color: lightgray;
+  background-color: #080808;
+  border-bottom: 5px #080808 solid;
+}
+
+nav h1 {
+  font-size: xx-large;
+  color: red;
+  font-family: 'Spectral SC', serif;
+}
+
+nav p {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+nav img {
+  width: 5%;
+  margin: 0;
+  margin-top: 0;
+}
+/*# sourceMappingURL=index.css.map */
