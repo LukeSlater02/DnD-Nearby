@@ -1,0 +1,204 @@
+@font-face {
+  src: url(../fonts/BreatheFire.ttf);
+  font-family: dragon;
+}
+
+@mixin sidebar {
+  border-left: 6px solid $vamp;
+  border-right: 6px solid $vamp;
+  border-radius: 5px;
+}
+
+@mixin classBorder($color) {
+  border-bottom: .5em solid $color;
+  margin-bottom: 1em;
+}
+
+@mixin classButton($color) {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: $vamp solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  
+  &:hover {
+    background-color: $color;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    border-color: $color;
+    border-radius: 10px;
+  }
+}
+
+$vamp: #080808;
+$paladin: #b59e54;
+$rogue: #555752;
+$monk: #51a5c5;
+$bard: #ab6dac;
+$cleric: #91a1b2;
+$warlock: #7b469b;
+$wizard: #2a50a1;
+$fighter: #7f513e;
+$sorcerer: #992e2e;
+$druid: #7a853b;
+$barbarian: #e7623e;
+
+
+body {
+  margin: 0;
+  font-family: 'Spectral', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+h2,h3,h4,h5 {
+  font-family: 'Spectral SC', serif;
+}
+
+h2 {
+  text-align: center;
+  font-size: xx-large;
+  text-decoration: underline;
+}
+
+.classCardsList {
+  display: grid;
+  gap: 3em;
+  grid-template-columns: repeat( auto-fit, minmax(24.1em, 24.1em) );
+  justify-items: center;
+  justify-content: space-evenly;
+}
+
+.classCard {
+  text-align: center;
+  margin: 1em;
+  margin-bottom: 4em;
+  width: 20em;
+  padding: .5em;
+  @include sidebar();
+  font-size: medium;
+
+  section {
+    text-align: center;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  h1{
+    color: $vamp;
+    font-size: 50px;
+    // text-transform: uppercase;
+    font-family: dragon;
+    margin-top: .2em;
+  }
+
+  .druid {
+    @include classBorder($druid);
+  }
+  .rogue {
+    @include classBorder($rogue)
+  }
+  .sorcerer {
+    @include classBorder($sorcerer)
+  }
+  .warlock {
+    @include classBorder($warlock)
+  }
+  .wizard {
+    @include classBorder($wizard)
+  }
+  .monk {
+    @include classBorder($monk)
+  }
+  .fighter {
+    @include classBorder($fighter)
+  }
+  .druid {
+    @include classBorder($druid)
+  }
+  .cleric {
+    @include classBorder($cleric)
+  }
+  .bard {
+    @include classBorder($bard)
+  }
+  .barbarian {
+    @include classBorder($barbarian)
+  }
+  .paladin {
+    @include classBorder($paladin)
+  }
+}
+
+.druid button {
+  @include classButton($druid)
+}
+.warlock button {
+  @include classButton($warlock)
+}
+.paladin button {
+  @include classButton($paladin)
+}
+.wizard button {
+  @include classButton($wizard)
+}
+.monk button {
+  @include classButton($monk)
+}
+.barbarian button {
+  @include classButton($barbarian)
+}
+.fighter button {
+  @include classButton($fighter)
+}
+.sorcerer button {
+  @include classButton($sorcerer)
+}
+.bard button {
+  @include classButton($bard)
+}
+.rogue button {
+  @include classButton($rogue)
+}
+.cleric button {
+  @include classButton($cleric)
+}
+.class-icon {
+  width: 15%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  h1 {
+      font-size: xx-large;
+      color: red;
+      font-family: 'Spectral SC', serif;
+  }
+  p{
+      font-size: x-large;
+      font-weight: bold;
+  }
+  img {
+    width: 5%;
+    margin: 0;
+    margin-top: 0;
+  }
+  color: lightgray;
+  background-color: $vamp;
+  border-bottom: 5px $vamp solid;
+}

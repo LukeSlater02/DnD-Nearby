@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAEA,AAAA,UAAU,CAAC;EACP,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,GAAG;EACV,gBAAgB,EANb,OAAO;CAOb",
-    "sources": [
-        "ClassCard.scss"
-    ],
-    "names": [],
-    "file": "ClassCard.css"
-}

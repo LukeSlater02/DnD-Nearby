@@ -1,0 +1,13 @@
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    h1 {
+        font-size: xx-large;
+    }
+    p{
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    background-color: $vamp;
+}

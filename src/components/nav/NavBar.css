@@ -1,0 +1,18 @@
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+nav h1 {
+  font-size: xx-large;
+}
+
+nav p {
+  font-size: x-large;
+  font-weight: bold;
+}
+/*# sourceMappingURL=NavBar.css.map */
