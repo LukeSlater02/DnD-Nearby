@@ -1,396 +1,382 @@
 {
-    "users": [
-        {
-            "email": "lukeslater101@gmail.com",
-            "firstName": "Luke",
-            "lastName": "Slater",
-            "id": 2
-          }
-    ],
-    
-    "characters": [
-        {
-            "id": 1,
-            "classId": 8,
-            "userId": 1,
-            "level": 1,
-            "background": "",
-            "alignment": "",
-            "str": 0,
-            "dex": 0,
-            "con": 0,
-            "int": 0,
-            "wis": 0,
-            "cha": 0,
-            "proficiencyBonus": 0,
-            "hitPoints": 0,
-            "armorClass": 0
-        }
-    ],
-
-    "classes": [
-        {
-            "id": 1,
-            "className": "Barbarian",
-            "dexSave": false,
-            "strSave": true,
-            "conSave": true,
-            "intSave": false,
-            "wisSave": false,
-            "chaSave": false,
-            "hpPerLevel": 7,
-            "hpLevelOne": 12,
-            "hitDieSides": 12,
-            "icon": "./images/barbarian.svg"
-        },
-        {
-            "id": 2,
-            "className": "Fighter",
-            "dexSave": false,
-            "strSave": true,
-            "conSave": true,
-            "intSave": false,
-            "wisSave": false,
-            "chaSave": false,
-            "hpPerLevel": 6,
-            "hpLevelOne": 10,
-            "hitDieSides": 10,
-            "icon": "./images/fighter.svg"
-        },
-        {
-            "id": 3,
-            "className": "Bard",
-            "dexSave": true,
-            "strSave": false,
-            "conSave": false,
-            "intSave": false,
-            "wisSave": false,
-            "chaSave": true,
-            "hpPerLevel": 5,
-            "hpLevelOne": 8,
-            "hitDieSides": 8,
-            "icon": "./images/bard.svg"
-        },
-        {
-            "id": 4,
-            "className": "Cleric",
-            "dexSave": false,
-            "strSave": false,
-            "conSave": false,
-            "intSave": false,
-            "wisSave": true,
-            "chaSave": true,
-            "hpPerLevel": 5,
-            "hpLevelOne": 8,
-            "hitDieSides": 8,
-            "icon": "./images/cleric.svg"
-        },
-        {
-            "id": 5,
-            "className": "Druid",
-            "dexSave": false,
-            "strSave": false,
-            "conSave": false,
-            "intSave": true,
-            "wisSave": true,
-            "chaSave": false,
-            "hpPerLevel": 5,
-            "hpLevelOne": 8,
-            "hitDieSides": 8,
-            "icon": "./images/druid.svg"
-        },
-        {
-            "id": 6,
-            "className": "Monk",
-            "dexSave": true,
-            "strSave": true,
-            "conSave": false,
-            "intSave": false,
-            "wisSave": false,
-            "chaSave": false,
-            "hpPerLevel": 5,
-            "hpLevelOne": 8,
-            "hitDieSides": 8,
-            "icon": "./images/monk.svg"
-        },
-        {
-            "id": 7,
-            "className": "Paladin",
-            "dexSave": false,
-            "strSave": false,
-            "conSave": false,
-            "intSave": false,
-            "wisSave": true,
-            "chaSave": true,
-            "hpPerLevel": 6,
-            "hpLevelOne": 10,
-            "hitDieSides": 10,
-            "icon": "./images/paladin.svg"
-        },
-        {
-            "id": 8,
-            "className": "Rogue",
-            "dexSave": true,
-            "strSave": false,
-            "conSave": false,
-            "intSave": true,
-            "wisSave": false,
-            "chaSave": false,
-            "hpPerLevel": 7,
-            "hpLevelOne": 12,
-            "hitDieSides": 8,
-            "icon": "./images/rogue.svg"
-        },
-        {
-            "id": 9,
-            "className": "Wizard",
-            "dexSave": false,
-            "strSave": false,
-            "conSave": false,
-            "intSave": true,
-            "wisSave": true,
-            "chaSave": false,
-            "hpPerLevel": 4,
-            "hpLevelOne": 6,
-            "hitDieSides": 6,
-            "icon": "./images/wizard.svg"
-        },
-        {
-            "id": 10,
-            "className": "Warlock",
-            "dexSave": false,
-            "strSave": false,
-            "conSave": false,
-            "intSave": false,
-            "wisSave": true,
-            "chaSave": true,
-            "hpPerLevel": 5,
-            "hpLevelOne": 8,
-            "hitDieSides": 8,
-            "icon": "./images/warlock.svg"
-        },
-        {
-            "id": 11,
-            "className": "Sorcerer",
-            "dexSave": false,
-            "strSave": false,
-            "conSave": true,
-            "intSave": false,
-            "wisSave": false,
-            "chaSave": true,
-            "hpPerLevel": 4,
-            "hpLevelOne": 6,
-            "hitDieSides": 6,
-            "icon": "./images/sorcerer.svg"
-        }
-    ],
-
-    "weapons": [
-        {
-            "id": 1,
-            "name": "Longsword",
-            "damageDieSides": 8
-        },
-        {
-            "id": 2,
-            "name": "Dagger",
-            "damageDieSides": 4
-        },
-        {
-            "id": 3,
-            "name": "Handaxe",
-            "damageDieSides": 6
-        },
-        {
-            "id": 4,
-            "name": "Javelin",
-            "damageDieSides": 6
-        },
-        {
-            "id": 5,
-            "name": "Mace",
-            "damageDieSides": 6
-        },
-        {
-            "id": 6,
-            "name": "Quarterstaff",
-            "damageDieSides": 6
-        },
-        {
-            "id": 7,
-            "name": "Spear",
-            "damageDieSides": 6
-        },
-        {
-            "id": 8,
-            "name": "Shortbow",
-            "damageDieSides": 6
-        },
-        {
-            "id": 9,
-            "name": "Rapier",
-            "damageDieSides": 8
-        },
-        {
-            "id": 10,
-            "name": "Scimitar",
-            "damageDieSides": 6
-        },
-        {
-            "id": 11,
-            "name": "Shortsword",
-            "damageDieSides": 6
-        },
-        {
-            "id": 12,
-            "name": "Greatsword",
-            "damageDieSides": 6,
-            "damageDieQuantity": 2
-        },
-        {
-            "id": 13,
-            "name": "Warhammer",
-            "damageDieSides": 8
-        },
-        {
-            "id": 14,
-            "name": "Maul",
-            "damageDieSides": 6,
-            "damageDieQuantity": 2
-        },
-        {
-            "id": 15,
-            "name": "Greataxe",
-            "damageDieSides": 12
-        },
-        {
-            "id": 16,
-            "name": "Longbow",
-            "damageDieSides": 8
-        }
-    ],
-
-    "armor": [
-        {
-            "id": 1,
-            "name": "Leather",
-            "armorClass": 11,
-            "addDex": true,
-            "dexMax": false
-        },
-        {
-            "id": 2,
-            "name": "Studded Leather",
-            "armorClass": 12,
-            "addDex": true,
-            "dexMax": true
-        },
-        {
-            "id": 3,
-            "name": "Chain Shirt",
-            "armorClass": 13,
-            "addDex": true,
-            "dexMax": true
-        },
-        {
-            "id": 1,
-            "name": "Scale Mail",
-            "armorClass": 14,
-            "addDex": true,
-            "dexMax": true
-        },
-        {
-            "id": 1,
-            "name": "Breastplate",
-            "armorClass": 14,
-            "addDex": true,
-            "dexMax": true
-        },
-        {
-            "id": 1,
-            "name": "Half Plate",
-            "armorClass": 15,
-            "addDex": true,
-            "dexMax": true
-        },
-        {
-            "id": 1,
-            "name": "Chain Mail",
-            "armorClass": 16,
-            "addDex": false
-        },
-        {
-            "id": 1,
-            "name": "Splint",
-            "armorClass": 17,
-            "addDex": false
-        },
-        {
-            "id": 1,
-            "name": "Plate",
-            "armorClass": 18,
-            "addDex": false
-        },
-        {
-            "id": 1,
-            "name": "Shield",
-            "armorClass": 2,
-            "addDex": false
-        }
-    ],
-
-    "skills": [
-        {
-
-        }
-    ],
-
-    "classWeapons": [
-        {
-            "id": 1,
-            "weaponId": 1,
-            "classId": 2
-        },
-        {
-            "id": 2,
-            "weaponId": 2,
-            "classId": 8
-        },
-        {
-            "id": 3,
-            "weaponId": 8,
-            "classId": 8
-        },
-        {
-            "id": 4,
-            "weaponId": 9,
-            "classId": 8
-        },
-        {
-            "id": 5,
-            "weaponId": 11,
-            "classId": 8
-        }
-    ],
-
-    "classArmor": [
-        {
-            "id": 1,
-            "classId": 8,
-            "armorId": 2
-
-        }
-    ],
-
-    "classSkills": [
-        {
-
-        }
-    ],
-
-    "characterWeapons": [
-        {
-
-        }
-    ]
+  "users": [
+    {
+      "email": "lukeslater101@gmail.com",
+      "firstName": "Luke",
+      "lastName": "Slater",
+      "id": 1
+    }
+  ],
+  "characters": [
+    {
+      "name": "",
+      "classId": 6,
+      "userId": 1,
+      "level": 1,
+      "background": "",
+      "alignment": "",
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0,
+      "hitPoints": 0,
+      "speed": 0,
+      "initiative": 0,
+      "armorClass": 0,
+      "id": 1
+    }
+  ],
+  "classes": [
+    {
+      "id": 1,
+      "className": "Barbarian",
+      "dexSave": false,
+      "strSave": true,
+      "conSave": true,
+      "intSave": false,
+      "wisSave": false,
+      "chaSave": false,
+      "hpPerLevel": 7,
+      "hpLevelOne": 12,
+      "hitDieSides": 12,
+      "icon": "./images/barbarian.svg"
+    },
+    {
+      "id": 2,
+      "className": "Fighter",
+      "dexSave": false,
+      "strSave": true,
+      "conSave": true,
+      "intSave": false,
+      "wisSave": false,
+      "chaSave": false,
+      "hpPerLevel": 6,
+      "hpLevelOne": 10,
+      "hitDieSides": 10,
+      "icon": "./images/fighter.svg"
+    },
+    {
+      "id": 3,
+      "className": "Bard",
+      "dexSave": true,
+      "strSave": false,
+      "conSave": false,
+      "intSave": false,
+      "wisSave": false,
+      "chaSave": true,
+      "hpPerLevel": 5,
+      "hpLevelOne": 8,
+      "hitDieSides": 8,
+      "icon": "./images/bard.svg"
+    },
+    {
+      "id": 4,
+      "className": "Cleric",
+      "dexSave": false,
+      "strSave": false,
+      "conSave": false,
+      "intSave": false,
+      "wisSave": true,
+      "chaSave": true,
+      "hpPerLevel": 5,
+      "hpLevelOne": 8,
+      "hitDieSides": 8,
+      "icon": "./images/cleric.svg"
+    },
+    {
+      "id": 5,
+      "className": "Druid",
+      "dexSave": false,
+      "strSave": false,
+      "conSave": false,
+      "intSave": true,
+      "wisSave": true,
+      "chaSave": false,
+      "hpPerLevel": 5,
+      "hpLevelOne": 8,
+      "hitDieSides": 8,
+      "icon": "./images/druid.svg"
+    },
+    {
+      "id": 6,
+      "className": "Monk",
+      "dexSave": true,
+      "strSave": true,
+      "conSave": false,
+      "intSave": false,
+      "wisSave": false,
+      "chaSave": false,
+      "hpPerLevel": 5,
+      "hpLevelOne": 8,
+      "hitDieSides": 8,
+      "icon": "./images/monk.svg"
+    },
+    {
+      "id": 7,
+      "className": "Paladin",
+      "dexSave": false,
+      "strSave": false,
+      "conSave": false,
+      "intSave": false,
+      "wisSave": true,
+      "chaSave": true,
+      "hpPerLevel": 6,
+      "hpLevelOne": 10,
+      "hitDieSides": 10,
+      "icon": "./images/paladin.svg"
+    },
+    {
+      "id": 8,
+      "className": "Rogue",
+      "dexSave": true,
+      "strSave": false,
+      "conSave": false,
+      "intSave": true,
+      "wisSave": false,
+      "chaSave": false,
+      "hpPerLevel": 7,
+      "hpLevelOne": 12,
+      "hitDieSides": 8,
+      "icon": "./images/rogue.svg"
+    },
+    {
+      "id": 9,
+      "className": "Wizard",
+      "dexSave": false,
+      "strSave": false,
+      "conSave": false,
+      "intSave": true,
+      "wisSave": true,
+      "chaSave": false,
+      "hpPerLevel": 4,
+      "hpLevelOne": 6,
+      "hitDieSides": 6,
+      "icon": "./images/wizard.svg"
+    },
+    {
+      "id": 10,
+      "className": "Warlock",
+      "dexSave": false,
+      "strSave": false,
+      "conSave": false,
+      "intSave": false,
+      "wisSave": true,
+      "chaSave": true,
+      "hpPerLevel": 5,
+      "hpLevelOne": 8,
+      "hitDieSides": 8,
+      "icon": "./images/warlock.svg"
+    },
+    {
+      "id": 11,
+      "className": "Sorcerer",
+      "dexSave": false,
+      "strSave": false,
+      "conSave": true,
+      "intSave": false,
+      "wisSave": false,
+      "chaSave": true,
+      "hpPerLevel": 4,
+      "hpLevelOne": 6,
+      "hitDieSides": 6,
+      "icon": "./images/sorcerer.svg"
+    }
+  ],
+  "weapons": [
+    {
+      "id": 1,
+      "name": "Longsword",
+      "damageDieSides": 8
+    },
+    {
+      "id": 2,
+      "name": "Dagger",
+      "damageDieSides": 4
+    },
+    {
+      "id": 3,
+      "name": "Handaxe",
+      "damageDieSides": 6
+    },
+    {
+      "id": 4,
+      "name": "Javelin",
+      "damageDieSides": 6
+    },
+    {
+      "id": 5,
+      "name": "Mace",
+      "damageDieSides": 6
+    },
+    {
+      "id": 6,
+      "name": "Quarterstaff",
+      "damageDieSides": 6
+    },
+    {
+      "id": 7,
+      "name": "Spear",
+      "damageDieSides": 6
+    },
+    {
+      "id": 8,
+      "name": "Shortbow",
+      "damageDieSides": 6
+    },
+    {
+      "id": 9,
+      "name": "Rapier",
+      "damageDieSides": 8
+    },
+    {
+      "id": 10,
+      "name": "Scimitar",
+      "damageDieSides": 6
+    },
+    {
+      "id": 11,
+      "name": "Shortsword",
+      "damageDieSides": 6
+    },
+    {
+      "id": 12,
+      "name": "Greatsword",
+      "damageDieSides": 6,
+      "damageDieQuantity": 2
+    },
+    {
+      "id": 13,
+      "name": "Warhammer",
+      "damageDieSides": 8
+    },
+    {
+      "id": 14,
+      "name": "Maul",
+      "damageDieSides": 6,
+      "damageDieQuantity": 2
+    },
+    {
+      "id": 15,
+      "name": "Greataxe",
+      "damageDieSides": 12
+    },
+    {
+      "id": 16,
+      "name": "Longbow",
+      "damageDieSides": 8
+    }
+  ],
+  "armor": [
+    {
+      "id": 1,
+      "name": "Leather",
+      "armorClass": 11,
+      "addDex": true,
+      "dexMax": false
+    },
+    {
+      "id": 2,
+      "name": "Studded Leather",
+      "armorClass": 12,
+      "addDex": true,
+      "dexMax": true
+    },
+    {
+      "id": 3,
+      "name": "Chain Shirt",
+      "armorClass": 13,
+      "addDex": true,
+      "dexMax": true
+    },
+    {
+      "id": 1,
+      "name": "Scale Mail",
+      "armorClass": 14,
+      "addDex": true,
+      "dexMax": true
+    },
+    {
+      "id": 1,
+      "name": "Breastplate",
+      "armorClass": 14,
+      "addDex": true,
+      "dexMax": true
+    },
+    {
+      "id": 1,
+      "name": "Half Plate",
+      "armorClass": 15,
+      "addDex": true,
+      "dexMax": true
+    },
+    {
+      "id": 1,
+      "name": "Chain Mail",
+      "armorClass": 16,
+      "addDex": false
+    },
+    {
+      "id": 1,
+      "name": "Splint",
+      "armorClass": 17,
+      "addDex": false
+    },
+    {
+      "id": 1,
+      "name": "Plate",
+      "armorClass": 18,
+      "addDex": false
+    },
+    {
+      "id": 1,
+      "name": "Shield",
+      "armorClass": 2,
+      "addDex": false
+    }
+  ],
+  "skills": [
+    {}
+  ],
+  "classWeapons": [
+    {
+      "id": 1,
+      "weaponId": 1,
+      "classId": 2
+    },
+    {
+      "id": 2,
+      "weaponId": 2,
+      "classId": 8
+    },
+    {
+      "id": 3,
+      "weaponId": 8,
+      "classId": 8
+    },
+    {
+      "id": 4,
+      "weaponId": 9,
+      "classId": 8
+    },
+    {
+      "id": 5,
+      "weaponId": 11,
+      "classId": 8
+    }
+  ],
+  "classArmor": [
+    {
+      "id": 1,
+      "classId": 8,
+      "armorId": 2
+    }
+  ],
+  "classSkills": [
+    {}
+  ],
+  "characterWeapons": [
+    {}
+  ]
 }

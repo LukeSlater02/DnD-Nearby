@@ -8,6 +8,10 @@ body {
   font-family: 'Spectral', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  min-height: 94.8vh;
+  position: relative;
+  padding-bottom: 3em;
 }
 
 code {
@@ -42,8 +46,8 @@ h2 {
   margin-bottom: 4em;
   width: 20em;
   padding: .5em;
-  border-left: 6px solid #080808;
-  border-right: 6px solid #080808;
+  border-left: 6px solid black;
+  border-right: 6px solid black;
   border-radius: 5px;
   font-size: medium;
 }
@@ -57,7 +61,7 @@ h2 {
 }
 
 .classCard h1 {
-  color: #080808;
+  color: black;
   font-size: 50px;
   font-family: dragon;
   margin-top: .2em;
@@ -404,8 +408,65 @@ nav p {
 }
 
 nav img {
-  width: 5%;
+  width: 7em;
+  min-width: 7em;
   margin: 0;
   margin-top: 0;
+}
+
+footer {
+  background-color: darkgray;
+  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+  height: 3em;
+  width: 100%;
+}
+
+.sheet-stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.character-sheet {
+  border-left: 6px solid black;
+  border-right: 6px solid black;
+  border-radius: 5px;
+  height: 45em;
+  width: 60em;
+  margin: auto;
+  margin-top: 1em;
+}
+
+.character-sheet header {
+  background-image: url("../public/images/sheetName.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 15em;
+  color: lightgray;
+}
+
+.character-sheet header input[type=text] {
+  width: 7em;
+}
+
+.character-sheet .info {
+  background: url("../public/images/sheetInfoBox.svg");
+  background-position: 0;
+  padding: 14px;
+  height: 10em;
+  background-size: cover;
+  width: 440px;
+  background-repeat: no-repeat;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  display: inline-block;
+  margin-left: 30em;
+  margin-top: 2.5em;
 }
 /*# sourceMappingURL=index.css.map */

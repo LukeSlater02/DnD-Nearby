@@ -3,9 +3,25 @@
   font-family: dragon;
 }
 
+$darkgray: #1f1f1f;
+$midgray: #353535;
+$lightgray: #b3b3b3;
+$vamp: #080808;
+$paladin: #b59e54;
+$rogue: #555752;
+$monk: #51a5c5;
+$bard: #ab6dac;
+$cleric: #91a1b2;
+$warlock: #7b469b;
+$wizard: #2a50a1;
+$fighter: #7f513e;
+$sorcerer: #992e2e;
+$druid: #7a853b;
+$barbarian: #e7623e;
+
 @mixin sidebar {
-  border-left: 6px solid $vamp;
-  border-right: 6px solid $vamp;
+  border-left: 6px solid black;
+  border-right: 6px solid black;
   border-radius: 5px;
 }
 
@@ -36,25 +52,15 @@
   }
 }
 
-$vamp: #080808;
-$paladin: #b59e54;
-$rogue: #555752;
-$monk: #51a5c5;
-$bard: #ab6dac;
-$cleric: #91a1b2;
-$warlock: #7b469b;
-$wizard: #2a50a1;
-$fighter: #7f513e;
-$sorcerer: #992e2e;
-$druid: #7a853b;
-$barbarian: #e7623e;
-
-
 body {
   margin: 0;
   font-family: 'Spectral', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  min-height: 94.8vh;
+  position: relative;
+  padding-bottom: 3em;
 }
 
 code {
@@ -99,7 +105,7 @@ h2 {
   }
 
   h1{
-    color: $vamp;
+    color: black;
     font-size: 50px;
     // text-transform: uppercase;
     font-family: dragon;
@@ -194,11 +200,60 @@ nav {
       font-weight: bold;
   }
   img {
-    width: 5%;
+    width: 7em;
+    min-width: 7em;
     margin: 0;
     margin-top: 0;
   }
   color: lightgray;
   background-color: $vamp;
   border-bottom: 5px $vamp solid;
+}
+
+footer {
+  background-color: darkgray;
+  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+  height: 3em;
+  width: 100%;
+}
+
+.sheet-stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.character-sheet {
+  @include sidebar();
+  height: 45em;
+  width: 60em;
+  margin: auto;
+  margin-top: 1em;
+
+  header {
+    background-image: url("../public/images/sheetName.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 15em;
+    input[type=text]{
+      width: 7em;
+    }
+    color: lightgray;
+  }
+
+  .info {
+    background: url("../public/images/sheetInfoBox.svg");
+    background-position: 0;
+    padding: 14px;
+    height: 10em;
+    background-size: cover;
+    width: 440px;
+    background-repeat: no-repeat;
+    box-sizing: content-box;
+    // max-height: 74px;
+    display: inline-block;
+    margin-left: 30em;
+    margin-top: 2.5em;
+  }
 }
