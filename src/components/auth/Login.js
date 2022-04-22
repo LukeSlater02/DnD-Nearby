@@ -28,7 +28,7 @@ export const Login = ({setAuthUser}) => {
 			if (exists) {
 				// The user id is saved under the key nutshell_user in session Storage. Change below if needed!
 				setAuthUser(exists)
-				navigate("/Home");
+				navigate("/home");
 			} else {
 				setExistDialog(true);
 			}

@@ -17,7 +17,7 @@ export const NavBar = ({clearUser}) => {
         <li className="navBar_item">
  
 
-          <Link className={`navbar__link ${location.pathname === '/Home' ? 'active':''}`} to="/Home"> <FontAwesomeIcon icon={faHouse} /> Dashboard</Link>
+          <Link className={`navbar__link ${location.pathname === '/home' ? 'active':''}`} to="/Home"> <FontAwesomeIcon icon={faHouse} /> Dashboard</Link>
         </li>
         <li className="navBar_item item_left">
           <Link className={`navbar__link ${location.pathname === '/articles' ? 'active':''}`} to="/articles"> <FontAwesomeIcon icon={faNewspaper} /> Articles</Link>

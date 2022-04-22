@@ -1,9 +1,9 @@
 import React from "react"
 import { Routes, Route, Outlet, Navigate } from "react-router-dom"
-import { Home } from "./components/Home"
 import { Login } from "./components/auth/Login"
 import { Register } from "./components/auth/Register"
 import { ClassList } from "./components/classes/ClassList"
+import { SheetEdit } from "./components/characterSheet/SheetEdit"
 
 export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
   const PrivateOutlet = () => {
@@ -13,7 +13,8 @@ export const ApplicationViews = ({isAuthenticated, setAuthUser}) => {
     <>
     <Routes>
       <Route path="/" element={<PrivateOutlet/>} >
-        <Route path='/Home' element={<ClassList/>}/>
+        <Route path='/home' element={<ClassList/>}/>
+        <Route path="/character-edit" element={<SheetEdit/>}/>
       </Route>
 
       <Route path="/login" element={<Login setAuthUser={setAuthUser}/>}/>
