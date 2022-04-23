@@ -34,9 +34,10 @@ export const ClassCard = ({ classObj}) => {
             wis: 0,
             cha: 0,
             hitPoints: 0,
-            armorClass: 0
+            speed: 0,
+            initiative: 0,
         }
-        addSheet(sheetObj).then(navigate('/character-edit')).then(setIsLoading(false))
+        addSheet(sheetObj).then(() => navigate('/character-edit')).then(setIsLoading(false))
     }
 
 

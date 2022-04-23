@@ -9,7 +9,6 @@
   ],
   "characters": [
     {
-      "name": "",
       "classId": 6,
       "userId": 1,
       "level": 1,
@@ -24,8 +23,24 @@
       "hitPoints": 0,
       "speed": 0,
       "initiative": 0,
-      "armorClass": 0,
       "id": 1
+    },
+    {
+      "classId": 3,
+      "userId": 1,
+      "level": 1,
+      "background": "",
+      "alignment": "",
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0,
+      "hitPoints": 0,
+      "speed": 0,
+      "initiative": 0,
+      "id": 2
     }
   ],
   "classes": [
