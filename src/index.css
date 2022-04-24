@@ -442,31 +442,4 @@ footer {
   margin: auto;
   margin-top: 1em;
 }
-
-.character-sheet header {
-  background-image: url("../public/images/sheetName.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 15em;
-  color: lightgray;
-}
-
-.character-sheet header input[type=text] {
-  width: 7em;
-}
-
-.character-sheet .info {
-  background: url("../public/images/sheetInfoBox.svg");
-  background-position: 0;
-  padding: 14px;
-  height: 10em;
-  background-size: cover;
-  width: 440px;
-  background-repeat: no-repeat;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-  display: inline-block;
-  margin-left: 30em;
-  margin-top: 2.5em;
-}
 /*# sourceMappingURL=index.css.map */

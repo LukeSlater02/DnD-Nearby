@@ -1,105 +1,144 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { createSheet } from "../../modules/SheetDataManager";
+import { getUserSheet } from "../../modules/SheetDataManager";
+import { getClassById } from "../../modules/ClassDataManager";
+import { calcPB, calculateModifier } from "./StatCalculations";
 
 // create a form that the user can input 1) Name, 2) Date and 3) City, then Click submit. 
 //on submit, we want to use the EventManager to add new event to DB, then route to the eventList. 
 
 export const SheetForm = () => {
-   
-
-    const [sheet, setSheet] = useState({
-            classId: 0,
-            userId: 0,
+    const [character, setCharacter] = useState(
+        {
             level: 1,
+            classId: 1,
             background: "",
             alignment: "",
-            str: 0,
-            dex: 0,
-            con: 0,
-            int: 0,
-            wis: 0,
-            cha: 0,
-            proficiencyBonus: 0,
+            race: "",
+            armorClass: 0,
+            str: 10,
+            dex: 10,
+            con: 10,
+            int: 10,
+            wis: 10,
+            cha: 10,
             hitPoints: 0,
-            armorClass: 0
-    })
-
-    const [isLoading, setIsLoading] = useState(false)
-
-    const formattedDate = event?.date ? epochDateConverter(event.date, 'yyy-MM-dd') : 'ss'
-  
-    const navigate = useNavigate();
-    const handleControlledInputChange = (e) => {
-        const isDate = e.target.id === 'date'
-      let epochDate = ''
-        if(e.target.id === 'date'){
-           epochDate = new Date(e.target.value).getTime()/1000
-     
-
-       }
-       console.log(e.target.value)
-        const newEvent = {...event}
-        let selectedVal = isDate? epochDate : e.target.value;
-   
-
-        newEvent[e.target.id] = selectedVal;
-        setEvent(newEvent);
-    }
-
-    const handleClickSaveEvent = (e) => {
-        e.preventDefault();
-        
-        if(event.name !== "" && event.date !== "" && event.location !== "") {
-            setIsLoading(true);
-            addEvent(event)
-            .then(() => navigate('/events'))
-        } else {
-            window.alert("Complete Each Field")
+            speed: 0,
+            initiative: 0
         }
-    }
-  
-    return (
-        <>
-            {console.log(sessionStorage.getItem("nutshell_user"))}
-            <form className="event__form">
-                <h2 className="event__header">Create New Event</h2>
-
-                <fieldset className="event__fields">
-                    <div>
-                        <label htmlFor="date">Date:</label>
-                        <input type="date" id="date" onChange={handleControlledInputChange} required className="form-control" placeholder="event date" value={formattedDate}/>
-                    </div>
-                </fieldset>
-
-                <fieldset className="event__fields">
-                    <div>
-                        <label htmlFor="name">Name:</label>
-                        <input type="text" id="name" onChange={handleControlledInputChange} required className="form-control name" placeholder="event name" value={event.name}/>
-                    </div>
-                </fieldset>
-
-
-                <fieldset className="event__fields">
-                    <div>
-                        <label htmlFor="location">Location:</label>
-                        <input type="text" id="location" onChange={handleControlledInputChange} required className="form-control location" placeholder="event location" value={event.location}/>
-                    </div>
-                </fieldset>
-
-                <button 
-				    type="button" 
-				    className="submit__event__button"
-				    disabled={isLoading}
-				    onClick={handleClickSaveEvent}>
-				    Save Event
-          </button>
-
-            </form>
-        </>
     )
 
+    const [charClass, setCharClass] = useState(
+        {
+            className: "",
+            dexSave: false,
+            strSave: false,
+            conSave: false,
+            intSave: false,
+            wisSave: false,
+            chaSave: false,
+            hpPerLevel: 0,
+            hpLevelOne: 0,
+            hitDieSides: 0,
+        }
+    )
+
+    const [weapons, setWeapons] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+    const [damageRollResult, setDamageRollResult] = useState("")
+    const [d20Result, setd20Result] = useState("")
+
+    let userId = parseInt(sessionStorage.getItem("dnd_user"))
+    let navigate = useNavigate()
+    let PB = calcPB(character.level)
+    let HP = calcHP(charClass, character)
+
+    useEffect(() => {
+        getUserSheet(userId).then(data => {
+            setCharacter(data[0])
+        })
+    }, [])
+
+    useEffect(() => {
+        getClassById(character.classId).then(c => setCharClass(c))
+    }, [character])
 
 
+    const rollDamage = (stat, sides, count) => {
+        let total = 0
+        for (let i = 0; i < parseInt(count); i++) {
+            total += Math.floor(Math.random() * parseInt(sides)) + 1
+        }
+        setDamageRollResult(total += parseInt(stat))
+    }
 
+    const rolld20 = (stat) => {
+        let total = 0
+        total += Math.floor(Math.random() * 20) + 1
+        setd20Result(total += parseInt(stat))
+    }
+    
+    const calcHP = (classObj, charObj) => {
+        let totalHP = 0
+        let lvlPastOne = charObj.level-1
+        let totalConMod = parseInt(calculateModifier(character.con)) * character.level
+        return classObj.hpLevelOne + classObj.hpPerLevel*lvlPastOne + totalConMod
+     
+     
+     }
+
+    calcHP(charClass, character)
+    
+    return (
+        <div className="character-sheet">
+            <header>
+                <section className="top-info">
+                {charClass.className} Level {character.level}
+                </section>
+            </header>
+
+            <section className="stats">
+
+            </section>
+
+            <section className="saves">
+            <h3>Saving Throws</h3>
+            {character.str + PB}
+            {charClass.strSave ? <input type="checkbox" defaultChecked={true} id="str" /> : <input type="checkbox" id="str" />} Strength <br></br>
+            {charClass.dexSave ? <input type="checkbox" defaultChecked={true} id="dex" /> : <input type="checkbox" id="dex" />} Dexterity <br></br>
+            {charClass.conSave ? <input type="checkbox" defaultChecked={true} id="con" /> : <input type="checkbox" id="con" />} Constitution <br></br>
+            {charClass.intSave ? <input type="checkbox" defaultChecked={true} id="int" /> : <input type="checkbox" id="int" />} Intelligence <br></br>
+            {charClass.wisSave ? <input type="checkbox" defaultChecked={true} id="wis" /> : <input type="checkbox" id="wis" />} Wisdom <br></br>
+            {charClass.chaSave ? <input type="checkbox" defaultChecked={true} id="cha" /> : <input type="checkbox" id="cha" />} Charisma <br></br>
+            </section>
+
+            <section className="mid-info">
+                <strong>Hit Points</strong> <br></br>
+                {HP} <br></br>
+
+                +{PB} <strong>Proficiency Bonus</strong> <br></br>
+                
+
+            </section>
+
+            <section className="weapons">
+                <button onClick={() => {
+                    rollDamage(calculateModifier(character.str), 6, 2)
+                    rolld20(calculateModifier(character.str))
+                }}>Longsword</button> <br></br>
+
+                <button onClick={() => {
+                    rollDamage(calculateModifier(character.dex), 8, 2)
+                    rolld20(calculateModifier(character.dex))
+                }}>Unarmed Strike</button> <br></br>
+            </section>
+
+            <section className="roll">
+            <strong>To Hit:</strong> {d20Result} <br></br>
+            <strong>Damage:</strong> {damageRollResult}
+            </section>
+
+            <button onClick={() => navigate("/character-edit")}>Edit</button>
+        </div>
+    )
 }
