@@ -52,8 +52,8 @@ export const calcPB = charLvl => {
             return 5
         case charLvl < 21:
             return 6
-        default: 
-        return 0
+        default:
+            return 0
     }
 }
 
@@ -87,8 +87,12 @@ export const calcMod = stat => {
             return '+5'
         case parsedStat <= 23:
             return '+6'
-        case parsedStat > 23:
-            return 'Stat too high to calculate modifier.'
+        case parsedStat <= 25:
+            return '+7'
+        case parsedStat <= 28:
+            return '+8'
+        case parsedStat >30:
+            return 'Stat too high to calculate modifier'
         default:
             return ''
     }
