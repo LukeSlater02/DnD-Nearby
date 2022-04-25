@@ -7,7 +7,6 @@ import { getAllWeapons } from "../../modules/WeaponDataManager";
 
 // create a form that the user can input 1) Name, 2) Date and 3) City, then Click submit. 
 //on submit, we want to use the EventManager to add new event to DB, then route to the eventList.
-
 export const SheetForm = () => {
     const [character, setCharacter] = useState(
         {
@@ -46,31 +45,15 @@ export const SheetForm = () => {
             survival: false,
         }
     )
-
-    const [charClass, setCharClass] = useState(
-        {
-            className: "",
-            dexSave: false,
-            strSave: false,
-            conSave: false,
-            intSave: false,
-            wisSave: false,
-            chaSave: false,
-            hpPerLevel: 0,
-            hpLevelOne: 0,
-            hitDieSides: 0,
-        }
-    )
-
     const [weapons, setWeapons] = useState([])
     const [damageRollResult, setDamageRollResult] = useState("")
     const [d20Result, setd20Result] = useState("")
 
-    const calcHP = (classObj, charObj) => {
+    const calcHP = (charObj) => {
         let totalHP = 0
         let lvlPastOne = charObj.level - 1
         let totalConMod = parseInt(calcMod(character.con)) * character.level
-        return classObj.hpLevelOne + classObj.hpPerLevel * lvlPastOne + totalConMod
+        return charObj.hpLevelOne + charObj.hpPerLevel * lvlPastOne + totalConMod
 
 
     }
@@ -78,17 +61,13 @@ export const SheetForm = () => {
     let userId = parseInt(sessionStorage.getItem("dnd_user"))
     let navigate = useNavigate()
     let PB = calcPB(character.level)
-    let HP = calcHP(charClass, character)
+    let HP = calcHP(character)
     let strMod = parseInt(calcMod(character.str))
     let dexMod = parseInt(calcMod(character.dex))
     let conMod = parseInt(calcMod(character.con))
     let intMod = parseInt(calcMod(character.int))
     let wisMod = parseInt(calcMod(character.wis))
     let chaMod = parseInt(calcMod(character.cha))
-
-    const getClass = (cId) => {
-        getClassById(cId).then(c => setCharClass(c))
-    }
 
     // const getWeapons = clId => {
     //     getWeaponsByClass(clId).then(c => setWeapons(c))
@@ -97,14 +76,13 @@ export const SheetForm = () => {
     useEffect(() => {
         getUserSheet(userId).then(data => {
             setCharacter(data[0])
-            getClass(data[0].classId)
             //getWeapons(data[0].classId)
         })
     }, [])
 
     useEffect(() => {
         getAllWeapons().then(setWeapons)
-    })
+    }, [])
 
     const rollDamage = (stat, count, sides) => {
         let total = 0
@@ -115,14 +93,23 @@ export const SheetForm = () => {
     }
 
     const rolld20 = (stat) => {
+        document.querySelector(".d20-roll").classList.remove("nat20", "nat1")
         let total = 0
         total += Math.floor(Math.random() * 20) + 1
-        setd20Result(total += parseInt(stat))
+        if (total == 20){
+            document.querySelector(".d20-roll").classList.add("nat20")
+            setd20Result(total += parseInt(stat))
+        } else if (total === 1){
+            document.querySelector(".d20-roll").classList.add("nat1")
+            setd20Result(total += parseInt(stat))
+        } else {
+            setd20Result(total += parseInt(stat))
+        }
     }
 
     const weaponAttack = (weapStat, weapSides, weapCount) => {
         rollDamage(parseInt(calcMod(character[`${weapStat}`])), weapCount, weapSides)
-        rolld20(parseInt(calcMod(character[`${weapStat}`])))
+        rolld20(parseInt(calcMod(character[`${weapStat}`])) + PB)
 
     }
 
@@ -143,14 +130,14 @@ export const SheetForm = () => {
             return <><input type="checkbox" checked={false} readOnly={true} /> {stat} <button className="stat-roll" onClick={() => rolld20(stat)}>{name}</button> <br></br></>
         }
     }
-
-    let counter = 0
-
     return (
         <div className="character-sheet">
+            {/* {console.log('%c Weapons Array', 'color: orange; font-weight: bold;')}
+            {console.table(weapons)} */}
+            
             <header>
                 <section className="top-info">
-                    {character.name} - {charClass.className} Level {character.level} <br></br>
+                    {character.name} - {character.className} Level {character.level} <br></br>
                     {character.background} {character.race} {character.alignment}
                 </section>
             </header>
@@ -234,17 +221,17 @@ export const SheetForm = () => {
                 <h4> +{PB} Proficiency Bonus</h4>
 
                 <h3>Saving Throws</h3>
-                {checkIfSaveProficient(charClass.strSave, strMod, "Strength")}
+                {checkIfSaveProficient(character.strSave, strMod, "Strength")}
 
-                {checkIfSaveProficient(charClass.dexSave, dexMod, "Dexterity")}
+                {checkIfSaveProficient(character.dexSave, dexMod, "Dexterity")}
 
-                {checkIfSaveProficient(charClass.conSave, conMod, "Constitution")}
+                {checkIfSaveProficient(character.conSave, conMod, "Constitution")}
 
-                {checkIfSaveProficient(charClass.intSave, intMod, "Intelligence")}
+                {checkIfSaveProficient(character.intSave, intMod, "Intelligence")}
 
-                {checkIfSaveProficient(charClass.wisSave, wisMod, "Wisdom")}
+                {checkIfSaveProficient(character.wisSave, wisMod, "Wisdom")}
 
-                {checkIfSaveProficient(charClass.chaSave, chaMod, "Charisma")}
+                {checkIfSaveProficient(character.chaSave, chaMod, "Charisma")}
             </section>
 
             <section className="mid-info">
@@ -274,11 +261,12 @@ export const SheetForm = () => {
             <section className="weapons">
                 <h4>Weapon Attacks</h4>
                 Weapon Stat: 
-                <select className="weapon-stat-select">
+                <select className="weapon-stat-select" defaultValue={strMod}>
                     <option value="str">STR</option>
                     <option value="dex">DEX</option>
                 </select>
 
+                Custom Modifier <input className="weapon-custom-modifier" type="number" defaultValue={0}></input>                                                                                   
                 {weapons.map(ele => {
                     return (
                         <section key={ele.id} className="weapon-attack">
@@ -288,8 +276,9 @@ export const SheetForm = () => {
                 })}
             </section>
 
+                
             <section className="roll">
-                <strong>d20 Roll:</strong> {d20Result} <br></br>
+                <strong>d20 Roll:</strong> <span className="d20-roll">{d20Result}</span> <br></br>
                 <strong>Damage:</strong> {damageRollResult}
             </section>
 

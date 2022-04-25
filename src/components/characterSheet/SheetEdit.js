@@ -68,7 +68,7 @@ export const SheetEdit = () => {
     }, [])
 
     const handleInput = event => {
-        if (event.target.id.includes("save")) {
+        if (event.target.id.includes("Save")) {
             let updatedCharClass = { ...charClass }
             updatedCharClass[event.target.id] = !updatedCharClass[event.target.id]
             setCharClass(updatedCharClass)
@@ -98,7 +98,7 @@ export const SheetEdit = () => {
     const updateCharacter = () => {
         setIsLoading(true)
 
-        const editedCharacter = {
+        let editedCharacter = {
             id: character.id,
             name: character.name,
             level: character.level || 1,
@@ -114,7 +114,7 @@ export const SheetEdit = () => {
             cha: character.cha || 0,
             hitPoints: character.hitPoints,
             speed: character.speed || 0,
-            initiative: character.initiative || character.dex,
+            initiative: character.initiative || parseInt(calcMod(character.dex)),
             armorClass: character.armorClass || 10 + parseInt(calcMod(character.dex)),
             acrobatics: character.acrobatics,
             animalHandling: character.animalHandling,
@@ -135,6 +135,9 @@ export const SheetEdit = () => {
             stealth: character.stealth,
             survival: character.survival,
         }
+
+        editedCharacter = {...editedCharacter, ...charClass}
+        editedCharacter.id = character.id
         updateSheet(editedCharacter).then(() => navigate("/character")).then(() => setIsLoading(false))
     }
 
@@ -205,16 +208,16 @@ export const SheetEdit = () => {
 
                 <input type="checkbox" id="survival-skill" onChange={handleInput} checked={character.survival}/> Survival <br></br>
             </section>
-{/* 
+
             <section className="saves-proficiency">
                 <h3>Saving Throws</h3>
-                {charClass.strSave ? <input type="checkbox" defaultChecked={true} id="strSave" onChange={handleInput} /> : <input type="checkbox" id="str" onChange={handleInput} />} Strength <br></br>
-                {charClass.dexSave ? <input type="checkbox" defaultChecked={true} id="dexSave" onChange={handleInput} /> : <input type="checkbox" id="dex" onChange={handleInput} />} Dexterity <br></br>
-                {charClass.conSave ? <input type="checkbox" defaultChecked={true} id="conSave" onChange={handleInput} /> : <input type="checkbox" id="con" onChange={handleInput} />} Constitution <br></br>
-                {charClass.intSave ? <input type="checkbox" defaultChecked={true} id="intSave" onChange={handleInput} /> : <input type="checkbox" id="int" onChange={handleInput} />} Intelligence <br></br>
-                {charClass.wisSave ? <input type="checkbox" defaultChecked={true} id="wisSave" onChange={handleInput} /> : <input type="checkbox" id="wis" onChange={handleInput} />} Wisdom <br></br>
-                {charClass.chaSave ? <input type="checkbox" defaultChecked={true} id="chaSave" onChange={handleInput} /> : <input type="checkbox" id="cha" onChange={handleInput} />} Charisma <br></br>
-            </section> */}
+                <input type="checkbox" id="strSave" onChange={handleInput} checked={charClass.strSave}/> Strength <br></br>
+                <input type="checkbox" id="dexSave" onChange={handleInput} checked={charClass.dexSave}/> Dexterity <br></br>
+                <input type="checkbox" id="conSave" onChange={handleInput} checked={charClass.conSave}/> Constitution <br></br>
+                <input type="checkbox" id="intSave" onChange={handleInput} checked={charClass.intSave}/> Intelligence <br></br>
+                <input type="checkbox" id="wisSave" onChange={handleInput} checked={charClass.wisSave}/> Wisdom <br></br>
+                <input type="checkbox" id="chaSave" onChange={handleInput} checked={charClass.chaSave}/> Charisma <br></br>
+            </section>
 
             <section className="skills">
 
