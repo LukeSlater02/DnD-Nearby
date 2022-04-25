@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom"
 export const SheetEdit = () => {
     const [character, setCharacter] = useState(
         {
+            name: "",
             level: 1,
             classId: '',
             background: "",
@@ -22,7 +23,25 @@ export const SheetEdit = () => {
             cha: '',
             hitPoints: '',
             speed: '',
-            initiative: ''
+            initiative: '',
+            acrobatics: false,
+            animalHandling: false,
+            arcana: false,
+            athletics: false,
+            deception: false,
+            history: false,
+            insight: false,
+            intimidation: false,
+            investigation: false,
+            medicine: false,
+            nature: false,
+            perception: false,
+            performance: false,
+            persuasion: false,
+            religion: false,
+            sleightOfHand: false,
+            stealth: false,
+            survival: false,
         }
     )
 
@@ -48,16 +67,22 @@ export const SheetEdit = () => {
     }, [])
 
     const handleInput = event => {
-        if (event.target.type === "checkbox"){
-            let updatedCharClass = {...charClass}
-            updatedCharClass[`${event.target.id}Save`] = !updatedCharClass[`${event.target.id}Save`]
+        if (event.target.id.includes("save")) {
+            let updatedCharClass = { ...charClass }
+            updatedCharClass[event.target.id] = !updatedCharClass[event.target.id]
             setCharClass(updatedCharClass)
+        } 
+        else if (event.target.id.includes("-skill")) {
+            let newCharacter = { ...character }
+            console.log("event ran");
+            newCharacter[event.target.id.split("-")[0]] = !newCharacter[event.target.id.split("-")[0]]
+            setCharacter(newCharacter)
         } 
         else {
             let newCharacter = { ...character }
             let input = event.target.value
 
-            if (event.target.type === "number"){
+            if (event.target.type === "number") {
                 input = parseInt(input)
             }
 
@@ -75,89 +100,165 @@ export const SheetEdit = () => {
 
         const editedCharacter = {
             id: character.id,
+            name: character.name,
             level: character.level,
             classId: character.classId,
             background: character.background,
             alignment: character.alignment,
             race: character.race,
-            armorClass: character.armorClass,
-            str: character.str,
-            dex: character.dex,
-            con: character.con,
-            int: character.int,
-            wis: character.wis,
-            cha: character.cha,
+            armorClass: character.armorClass || 0,
+            str: character.str || 0,
+            dex: character.dex || 0,
+            con: character.con || 0,
+            int: character.int || 0,
+            wis: character.wis || 0,
+            cha: character.cha || 0,
             hitPoints: character.hitPoints,
             speed: character.speed,
-            initiative: character.initiative,
+            initiative: character.initiative || character.dex,
+            acrobatics: character.acrobatics || 0,
+            animalHandling: character.animalHandling,
+            arcana: character.arcana,
+            athletics: character.athletics,
+            deception: character.deception,
+            history: character.history,
+            insight: character.insight,
+            intimidation: character.intimidation,
+            investigation: character.investigation,
+            medicine: character.medicine,
+            nature: character.nature,
+            perception: character.perception,
+            performance: character.performance,
+            persuasion: character.persuasion,
+            religion: character.religion,
+            sleightOfHand: character.sleightOfHand,
+            stealth: character.stealth,
+            survival: character.survival,
         }
         updateSheet(editedCharacter).then(() => navigate("/character")).then(() => setIsLoading(false))
     }
 
 
-return (
-    <div className="character-sheet">
-        <header>
-            <section className="top-info">
-                Alignment<input type="text" id="alignment" value={character.alignment} onChange={handleInput} autoComplete="off"></input>
-                Class: {charClass.className} <label htmlFor="sheet-text">Level</label> <input name="sheet-text" type="number" value={character.level} onChange={handleInput} id="level" autoComplete="off"></input>
-                <label htmlFor="sheet-text">Background</label> <input name="sheet-text" type="text" value={character.background} onChange={handleInput} id="background" autoComplete="off"></input>
-                <label htmlFor="sheet-text">Race</label> <input name="sheet-text" type="text" value={character.race} onChange={handleInput} id="race" autoComplete="off"></input>
+    return (
+        <div className="character-sheet">
+            <header>
+                <section className="top-info">
+                    <label htmlFor="sheet-text">Name</label> <input name="sheet-text" type="text" value={character.name} onChange={handleInput} id="name" autoComplete="off"></input>
+                    Alignment<input type="text" id="alignment" value={character.alignment} onChange={handleInput} autoComplete="off"></input>
+                    Class: {charClass.className} <label htmlFor="sheet-text">Level</label> <input name="sheet-text" type="number" value={character.level} onChange={handleInput} id="level" autoComplete="off"></input>
+                    <label htmlFor="sheet-text">Background</label> <input name="sheet-text" type="text" value={character.background} onChange={handleInput} id="background" autoComplete="off"></input>
+                    <label htmlFor="sheet-text">Race</label> <input name="sheet-text" type="text" value={character.race} onChange={handleInput} id="race" autoComplete="off"></input>
+                </section>
+            </header>
+
+            <section className="mid-info">
+                <label htmlFor="sheet-text">Armor Class</label> <input name="sheet-text" type="number" value={character.armorClass} onChange={handleInput} id="armorClass" autoComplete="off"></input>
+                <label htmlFor="sheet-text">Initiative</label> <input name="sheet-text" type="number" value={character.initiative} onChange={handleInput} id="initiative" autoComplete="off" placeholder={character.dex}></input>
+                <label htmlFor="sheet-text">Speed</label> <input name="sheet-text" value={character.speed} type="number" onChange={handleInput} id="speed" autoComplete="off"></input>
+                {/* <label htmlFor="sheet-text">Hit Points</label> <input name="sheet-text" type="text" id="hitPoints" autoComplete="off"></input> */}
             </section>
-        </header>
 
-        <section className="mid-info">
-            <label htmlFor="sheet-text">Armor Class</label> <input name="sheet-text" type="number" value={character.armorClass} onChange={handleInput} id="armorClass" autoComplete="off"></input>
-            <label htmlFor="sheet-text">Initiative</label> <input name="sheet-text" type="number" id="initiative" autoComplete="off"></input>
-            <label htmlFor="sheet-text">Speed</label> <input name="sheet-text" value={character.speed} type="number" onChange={handleInput} id="speed" autoComplete="off"></input>
-            {/* <label htmlFor="sheet-text">Hit Points</label> <input name="sheet-text" type="text" id="hitPoints" autoComplete="off"></input> */}
-        </section>
+            <section className="stats">
+                <label htmlFor="sheet-text">STR</label> <input name="sheet-text" type="number" id="str" value={character.str} onChange={handleInput} autoComplete="off"></input>
+                <label htmlFor="sheet-text">DEX</label> <input name="sheet-text" type="number" id="dex" value={character.dex} onChange={handleInput} autoComplete="off"></input>
+                <label htmlFor="sheet-text">CON</label> <input name="sheet-text" type="number" id="con" value={character.con} onChange={handleInput} autoComplete="off"></input>
+                <label htmlFor="sheet-text">INT</label> <input name="sheet-text" type="number" id="int" value={character.int} onChange={handleInput} autoComplete="off"></input>
+                <label htmlFor="sheet-text">WIS</label> <input name="sheet-text" type="number" id="wis" value={character.wis} onChange={handleInput} autoComplete="off"></input>
+                <label htmlFor="sheet-text">CHA</label> <input name="sheet-text" type="number" id="cha" value={character.cha} onChange={handleInput} autoComplete="off"></input>
+            </section>
 
-        <section className="stats">
-            <label htmlFor="sheet-text">STR</label> <input name="sheet-text" type="number" id="str" value={character.str} onChange={handleInput} autoComplete="off"></input>
-            <label htmlFor="sheet-text">DEX</label> <input name="sheet-text" type="number" id="dex" value={character.dex} onChange={handleInput} autoComplete="off"></input>
-            <label htmlFor="sheet-text">CON</label> <input name="sheet-text" type="number" id="con" value={character.con} onChange={handleInput} autoComplete="off"></input>
-            <label htmlFor="sheet-text">INT</label> <input name="sheet-text" type="number" id="int" value={character.int} onChange={handleInput} autoComplete="off"></input>
-            <label htmlFor="sheet-text">WIS</label> <input name="sheet-text" type="number" id="wis" value={character.wis} onChange={handleInput} autoComplete="off"></input>
-            <label htmlFor="sheet-text">CHA</label> <input name="sheet-text" type="number" id="cha" value={character.cha} onChange={handleInput} autoComplete="off"></input>
-        </section>
+            <section className="skills">
+                {character.acrobatics ? <input type="checkbox" id="acrobatics-skill" onChange={handleInput} defaultChecked={true}/>
+                    : <input type="checkbox" id="acrobatics-skill" onChange={handleInput}/>} Acrobatics <br></br>
 
-        <section className="saves-proficiency">
-            <h3>Saving Throws</h3>
-            {charClass.strSave ? <input type="checkbox" defaultChecked={true} id="str" onChange={handleInput} /> : <input type="checkbox" id="str" onChange={handleInput} />} Strength <br></br>
-            {charClass.dexSave ? <input type="checkbox" defaultChecked={true} id="dex" onChange={handleInput} /> : <input type="checkbox" id="dex" onChange={handleInput} />} Dexterity <br></br>
-            {charClass.conSave ? <input type="checkbox" defaultChecked={true} id="con" onChange={handleInput} /> : <input type="checkbox" id="con" onChange={handleInput} />} Constitution <br></br>
-            {charClass.intSave ? <input type="checkbox" defaultChecked={true} id="int" onChange={handleInput} /> : <input type="checkbox" id="int" onChange={handleInput} />} Intelligence <br></br>
-            {charClass.wisSave ? <input type="checkbox" defaultChecked={true} id="wis" onChange={handleInput} /> : <input type="checkbox" id="wis" onChange={handleInput} />} Wisdom <br></br>
-            {charClass.chaSave ? <input type="checkbox" defaultChecked={true} id="cha" onChange={handleInput} /> : <input type="checkbox" id="cha" onChange={handleInput} />} Charisma <br></br>
-        </section>
+                {character.animalHandling ? <input type="checkbox" defaultChecked={true} id="animalHandling-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="animalHandling-skill" onChange={handleInput}/>} Animal Handling <br></br>
 
-        <section className="skills">
+                {character.arcana ? <input type="checkbox" defaultChecked={true} id="arcana-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="arcana-skill" onChange={handleInput}/>} Arcana <br></br>
 
-        </section>
+                {character.athletics ? <input type="checkbox" defaultChecked={true} id="athletics-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="athletics-skill" onChange={handleInput}/>} Athletics <br></br>
 
-        <section className="weapons">
-            <h3>Choose up to 3 Weapons</h3>
-            <select>
-                <option>---</option>
-                {weapons.map(w => {
-                    return <option id={w.id} value={w.name} key={w.id}>{w.name}</option>
-                })}
-            </select>
-            <select>
-                <option>---</option>
-                {weapons.map(w => {
-                    return <option id={w.id} value={w.name} key={w.id}>{w.name}</option>
-                })}
-            </select>
-            <select>
-                <option>---</option>
-                {weapons.map(w => {
-                    return <option id={w.id} value={w.name} key={w.id}>{w.name}</option>
-                })}
-            </select>
-        </section>
-        <button onClick={updateCharacter}>SAVE</button>
-    </div>
-)
+                {character.deception ? <input type="checkbox" defaultChecked={true} id="deception-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="deception-skill" onChange={handleInput}/>} Deception <br></br>
+
+                {character.history ? <input type="checkbox" id="history-skill" defaultChecked={true} onChange={handleInput}/>
+                    : <input type="checkbox" id="history-skill" onChange={handleInput}/>} History <br></br>
+
+                {character.insight ? <input type="checkbox" defaultChecked={true} id="insight-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="insight-skill" onChange={handleInput}/>} Insight <br></br>
+
+                {character.intimidation ? <input type="checkbox" defaultChecked={true} id="intimidation-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="intimidation-skill" onChange={handleInput}/>} Intimidation <br></br>
+
+                {character.investigation ? <input type="checkbox" defaultChecked={true} id="investigation-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="investigation-skill" onChange={handleInput}/>} Investigation <br></br>
+
+                {character.medicine ? <input type="checkbox" defaultChecked={true} id="medicine-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="medicine-skill" onChange={handleInput}/>} Medicine <br></br>
+
+                {character.nature ? <input type="checkbox" defaultChecked={true} id="nature-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="nature-skill" onChange={handleInput}/>} Nature <br></br>
+
+                {character.perception ? <input type="checkbox" defaultChecked={true} id="perception-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="perception-skill" onChange={handleInput}/>} Perception <br></br>
+
+                {character.performance ? <input type="checkbox" defaultChecked={true} id="performance-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="performance-skill" onChange={handleInput}/>} Performance <br></br>
+
+                {character.persuasion ? <input type="checkbox" defaultChecked={true} id="persuasion-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="persuasion-skill" onChange={handleInput}/>} Persuasion <br></br>
+
+                {character.religion ? <input type="checkbox" defaultChecked={true} id="religion-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="religion-skill" onChange={handleInput}/>} Religion <br></br>
+
+                {character.sleightOfHand ? <input type="checkbox" defaultChecked={true} id="sleightOfHand-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="sleightOfHand-skill" onChange={handleInput}/>} Sleight Of Hand <br></br>
+
+                {character.stealth ? <input type="checkbox" defaultChecked={true} id="stealth-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="stealth-skill" onChange={handleInput}/>} Stealth <br></br>
+
+                {character.survival ? <input type="checkbox" defaultChecked={true} id="survival-skill" onChange={handleInput}/>
+                    : <input type="checkbox" id="survival-skill" onChange={handleInput}/>} Survival <br></br>
+            </section>
+
+            <section className="saves-proficiency">
+                <h3>Saving Throws</h3>
+                {charClass.strSave ? <input type="checkbox" defaultChecked={true} id="strSave" onChange={handleInput} /> : <input type="checkbox" id="str" onChange={handleInput} />} Strength <br></br>
+                {charClass.dexSave ? <input type="checkbox" defaultChecked={true} id="dexSave" onChange={handleInput} /> : <input type="checkbox" id="dex" onChange={handleInput} />} Dexterity <br></br>
+                {charClass.conSave ? <input type="checkbox" defaultChecked={true} id="conSave" onChange={handleInput} /> : <input type="checkbox" id="con" onChange={handleInput} />} Constitution <br></br>
+                {charClass.intSave ? <input type="checkbox" defaultChecked={true} id="intSave" onChange={handleInput} /> : <input type="checkbox" id="int" onChange={handleInput} />} Intelligence <br></br>
+                {charClass.wisSave ? <input type="checkbox" defaultChecked={true} id="wisSave" onChange={handleInput} /> : <input type="checkbox" id="wis" onChange={handleInput} />} Wisdom <br></br>
+                {charClass.chaSave ? <input type="checkbox" defaultChecked={true} id="chaSave" onChange={handleInput} /> : <input type="checkbox" id="cha" onChange={handleInput} />} Charisma <br></br>
+            </section>
+
+            <section className="skills">
+
+            </section>
+
+            <section className="weapons">
+                <h3>Choose up to 3 Weapons</h3>
+                <select>
+                    <option>---</option>
+                    {weapons.map(w => {
+                        return <option id={w.id} value={w.name} key={w.id}>{w.name}</option>
+                    })}
+                </select>
+                <select>
+                    <option>---</option>
+                    {weapons.map(w => {
+                        return <option id={w.id} value={w.name} key={w.id}>{w.name}</option>
+                    })}
+                </select>
+                <select>
+                    <option>---</option>
+                    {weapons.map(w => {
+                        return <option id={w.id} value={w.name} key={w.id}>{w.name}</option>
+                    })}
+                </select>
+            </section>
+            <button onClick={updateCharacter}>SAVE</button>
+        </div>
+    )
 }

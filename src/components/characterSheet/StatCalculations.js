@@ -16,7 +16,7 @@ export const calcPB = charLvl => {
 }
 
 
-export const calculateModifier = stat => {
+export const calcMod = stat => {
     let parsedStat = parseInt(stat)
     switch (true) {
         case parsedStat === 1:
