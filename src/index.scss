@@ -58,7 +58,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
-  min-height: 94.8vh;
+  min-height: 95vh;
   position: relative;
   padding-bottom: 3em;
 }
@@ -230,6 +230,22 @@ footer {
   width: 60em;
   margin: auto;
   margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  .statName {
+    font-variant-caps: all-small-caps;
+  }
+
+  .statBox {
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 6em;
+    padding: .3em;
+    font-weight: bold;
+    margin-bottom: .3em;
+  }
 
   // header {
   //   background-image: url("../public/images/sheetName.svg");
