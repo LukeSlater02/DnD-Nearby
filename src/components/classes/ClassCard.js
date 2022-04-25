@@ -29,7 +29,7 @@ export const ClassCard = ({ classObj}) => {
             background: "",
             alignment: "",
             race: "",
-            armorClass: '',
+            armorClass: 10,
             str: '',
             dex: '',
             con: '',
@@ -66,7 +66,7 @@ export const ClassCard = ({ classObj}) => {
 
     return (
         <div className={`classCard ${classObj.className.toLowerCase()}`}>
-            <section className={classObj.className.toLowerCase()}><img className={`class-icon`} src={`${classObj.icon}`}></img><h1>{classObj.className}</h1></section>
+            <section className={classObj.className.toLowerCase()}><img className={`class-icon`} src={`${classObj.icon}`}/><h1>{classObj.className}</h1></section>
             <strong>Hit Die:</strong> d{classObj.hitDieSides} <br></br>
             <strong>Saves:</strong> {saves.join(" and ")}<br></br>
             {/* <strong>Primary Weapons:</strong> {weapons.map(function(item, index) {

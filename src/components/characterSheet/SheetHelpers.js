@@ -1,3 +1,45 @@
+import { Checkbox, FormControlLabel } from "@mui/material";
+import { red } from "@mui/material/colors";
+import { green } from "@mui/material/colors";
+import React, { useState } from "react";
+
+
+export const DeathSaveSuccess = () => {
+    const [checked, setChecked] = useState(false)
+    return (
+        <FormControlLabel
+            control={<Checkbox
+                checked={checked}
+                sx={{
+                    '&.Mui-checked': {
+                        color: green[600],
+                    },
+                }}
+            />}
+            onChange={(e) => setChecked(e.target.checked)}
+            color="success"
+        />
+    )
+}
+
+export const DeathSaveFail = () => {
+    const [checked, setChecked] = useState(false)
+    return (
+        <FormControlLabel
+            control={<Checkbox
+                checked={checked}
+                sx={{
+                    '&.Mui-checked': {
+                        color: red[600],
+                    },
+                }}
+            />}
+            onChange={(e) => setChecked(e.target.checked)}
+            color="success"
+        />
+    )
+}
+
 export const calcPB = charLvl => {
     switch (true) {
         case charLvl < 5:

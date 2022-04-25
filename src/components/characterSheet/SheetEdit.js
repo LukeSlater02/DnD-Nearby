@@ -4,6 +4,7 @@ import { getClassById } from "../../modules/ClassDataManager"
 import { getAllWeapons } from "../../modules/WeaponDataManager"
 import { updateSheet } from "../../modules/SheetDataManager"
 import { useNavigate } from "react-router-dom"
+import { calcMod } from "./SheetHelpers"
 
 export const SheetEdit = () => {
     const [character, setCharacter] = useState(
@@ -14,7 +15,7 @@ export const SheetEdit = () => {
             background: "",
             alignment: "",
             race: "",
-            armorClass: '',
+            armorClass: 10,
             str: '',
             dex: '',
             con: '',
@@ -24,7 +25,7 @@ export const SheetEdit = () => {
             hitPoints: '',
             speed: '',
             initiative: '',
-            acrobatics: false,
+            acrobatics: "",
             animalHandling: false,
             arcana: false,
             athletics: false,
@@ -71,10 +72,9 @@ export const SheetEdit = () => {
             let updatedCharClass = { ...charClass }
             updatedCharClass[event.target.id] = !updatedCharClass[event.target.id]
             setCharClass(updatedCharClass)
-        } 
+        }
         else if (event.target.id.includes("-skill")) {
             let newCharacter = { ...character }
-            console.log("event ran");
             newCharacter[event.target.id.split("-")[0]] = !newCharacter[event.target.id.split("-")[0]]
             setCharacter(newCharacter)
         } 
@@ -101,12 +101,11 @@ export const SheetEdit = () => {
         const editedCharacter = {
             id: character.id,
             name: character.name,
-            level: character.level,
+            level: character.level || 1,
             classId: character.classId,
             background: character.background,
             alignment: character.alignment,
             race: character.race,
-            armorClass: character.armorClass || 0,
             str: character.str || 0,
             dex: character.dex || 0,
             con: character.con || 0,
@@ -114,9 +113,10 @@ export const SheetEdit = () => {
             wis: character.wis || 0,
             cha: character.cha || 0,
             hitPoints: character.hitPoints,
-            speed: character.speed,
+            speed: character.speed || 0,
             initiative: character.initiative || character.dex,
-            acrobatics: character.acrobatics || 0,
+            armorClass: character.armorClass || 10 + parseInt(calcMod(character.dex)),
+            acrobatics: character.acrobatics,
             animalHandling: character.animalHandling,
             arcana: character.arcana,
             athletics: character.athletics,
@@ -168,61 +168,44 @@ export const SheetEdit = () => {
             </section>
 
             <section className="skills">
-                {character.acrobatics ? <input type="checkbox" id="acrobatics-skill" onChange={handleInput} defaultChecked={true}/>
-                    : <input type="checkbox" id="acrobatics-skill" onChange={handleInput}/>} Acrobatics <br></br>
+    
+                <input type="checkbox" id="acrobatics-skill" onChange={handleInput} checked={character.acrobatics}/> Acrobatics <br></br>
 
-                {character.animalHandling ? <input type="checkbox" defaultChecked={true} id="animalHandling-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="animalHandling-skill" onChange={handleInput}/>} Animal Handling <br></br>
+                <input type="checkbox" id="animalHandling-skill" onChange={handleInput} checked={character.animalHandling}/> Animal Handling <br></br>
 
-                {character.arcana ? <input type="checkbox" defaultChecked={true} id="arcana-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="arcana-skill" onChange={handleInput}/>} Arcana <br></br>
+                <input type="checkbox" id="arcana-skill" onChange={handleInput} checked={character.arcana}/> Arcana <br></br>
 
-                {character.athletics ? <input type="checkbox" defaultChecked={true} id="athletics-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="athletics-skill" onChange={handleInput}/>} Athletics <br></br>
+                <input type="checkbox" id="athletics-skill" onChange={handleInput} checked={character.athletics}/> Athletics <br></br>
 
-                {character.deception ? <input type="checkbox" defaultChecked={true} id="deception-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="deception-skill" onChange={handleInput}/>} Deception <br></br>
+                <input type="checkbox" id="deception-skill" onChange={handleInput} checked={character.deception}/> Deception <br></br>
 
-                {character.history ? <input type="checkbox" id="history-skill" defaultChecked={true} onChange={handleInput}/>
-                    : <input type="checkbox" id="history-skill" onChange={handleInput}/>} History <br></br>
+                <input type="checkbox" id="history-skill" onChange={handleInput} checked={character.history}/> History <br></br>
 
-                {character.insight ? <input type="checkbox" defaultChecked={true} id="insight-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="insight-skill" onChange={handleInput}/>} Insight <br></br>
+                <input type="checkbox" id="insight-skill" onChange={handleInput} checked={character.insight}/> Insight <br></br>
 
-                {character.intimidation ? <input type="checkbox" defaultChecked={true} id="intimidation-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="intimidation-skill" onChange={handleInput}/>} Intimidation <br></br>
+                <input type="checkbox" id="intimidation-skill" onChange={handleInput} checked={character.intimidation}/> Intimidation <br></br>
 
-                {character.investigation ? <input type="checkbox" defaultChecked={true} id="investigation-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="investigation-skill" onChange={handleInput}/>} Investigation <br></br>
+                <input type="checkbox" id="investigation-skill" onChange={handleInput} checked={character.investigation}/> Investigation <br></br>
 
-                {character.medicine ? <input type="checkbox" defaultChecked={true} id="medicine-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="medicine-skill" onChange={handleInput}/>} Medicine <br></br>
+                <input type="checkbox" id="medicine-skill" onChange={handleInput} checked={character.medicine}/> Medicine <br></br>
 
-                {character.nature ? <input type="checkbox" defaultChecked={true} id="nature-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="nature-skill" onChange={handleInput}/>} Nature <br></br>
+                <input type="checkbox" id="nature-skill" onChange={handleInput} checked={character.nature}/> Nature <br></br>
 
-                {character.perception ? <input type="checkbox" defaultChecked={true} id="perception-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="perception-skill" onChange={handleInput}/>} Perception <br></br>
+                <input type="checkbox" id="perception-skill" onChange={handleInput} checked={character.perception}/> Perception <br></br>
 
-                {character.performance ? <input type="checkbox" defaultChecked={true} id="performance-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="performance-skill" onChange={handleInput}/>} Performance <br></br>
+                <input type="checkbox" id="performance-skill" onChange={handleInput} checked={character.performance}/> Performance <br></br>
 
-                {character.persuasion ? <input type="checkbox" defaultChecked={true} id="persuasion-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="persuasion-skill" onChange={handleInput}/>} Persuasion <br></br>
+                <input type="checkbox" id="persuasion-skill" onChange={handleInput} checked={character.persuasion}/> Persuasion <br></br>
 
-                {character.religion ? <input type="checkbox" defaultChecked={true} id="religion-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="religion-skill" onChange={handleInput}/>} Religion <br></br>
+                <input type="checkbox" id="religion-skill" onChange={handleInput} checked={character.religion}/> Religion <br></br>
 
-                {character.sleightOfHand ? <input type="checkbox" defaultChecked={true} id="sleightOfHand-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="sleightOfHand-skill" onChange={handleInput}/>} Sleight Of Hand <br></br>
+                <input type="checkbox" id="sleightOfHand-skill" onChange={handleInput} checked={character.sleightOfHand}/> Sleight Of Hand <br></br>
 
-                {character.stealth ? <input type="checkbox" defaultChecked={true} id="stealth-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="stealth-skill" onChange={handleInput}/>} Stealth <br></br>
+                <input type="checkbox" id="stealth-skill" onChange={handleInput} checked={character.stealth}/> Stealth <br></br>
 
-                {character.survival ? <input type="checkbox" defaultChecked={true} id="survival-skill" onChange={handleInput}/>
-                    : <input type="checkbox" id="survival-skill" onChange={handleInput}/>} Survival <br></br>
+                <input type="checkbox" id="survival-skill" onChange={handleInput} checked={character.survival}/> Survival <br></br>
             </section>
-
+{/* 
             <section className="saves-proficiency">
                 <h3>Saving Throws</h3>
                 {charClass.strSave ? <input type="checkbox" defaultChecked={true} id="strSave" onChange={handleInput} /> : <input type="checkbox" id="str" onChange={handleInput} />} Strength <br></br>
@@ -231,12 +214,12 @@ export const SheetEdit = () => {
                 {charClass.intSave ? <input type="checkbox" defaultChecked={true} id="intSave" onChange={handleInput} /> : <input type="checkbox" id="int" onChange={handleInput} />} Intelligence <br></br>
                 {charClass.wisSave ? <input type="checkbox" defaultChecked={true} id="wisSave" onChange={handleInput} /> : <input type="checkbox" id="wis" onChange={handleInput} />} Wisdom <br></br>
                 {charClass.chaSave ? <input type="checkbox" defaultChecked={true} id="chaSave" onChange={handleInput} /> : <input type="checkbox" id="cha" onChange={handleInput} />} Charisma <br></br>
-            </section>
+            </section> */}
 
             <section className="skills">
 
             </section>
-
+{/* 
             <section className="weapons">
                 <h3>Choose up to 3 Weapons</h3>
                 <select>
@@ -257,7 +240,7 @@ export const SheetEdit = () => {
                         return <option id={w.id} value={w.name} key={w.id}>{w.name}</option>
                     })}
                 </select>
-            </section>
+            </section> */}
             <button onClick={updateCharacter}>SAVE</button>
         </div>
     )

@@ -12,21 +12,21 @@
       "classId": 8,
       "userId": 1,
       "name": "Robin Steel",
-      "level": 5,
+      "level": 7,
       "background": "Criminal",
       "alignment": "Chaotic Neutral",
       "race": "Half-Elf",
-      "armorClass": 16,
+      "armorClass": 10,
       "str": 8,
       "dex": 18,
       "con": 12,
-      "int": 14,
-      "wis": 10,
+      "int": 12,
+      "wis": 14,
       "cha": 16,
       "hitPoints": "",
       "speed": 30,
-      "initiative": 4,
-      "acrobatics": 0,
+      "initiative": 18,
+      "acrobatics": true,
       "animalHandling": false,
       "arcana": false,
       "athletics": false,
@@ -36,10 +36,10 @@
       "intimidation": false,
       "investigation": false,
       "medicine": false,
-      "nature": true,
+      "nature": false,
       "perception": true,
       "performance": false,
-      "persuasion": false,
+      "persuasion": true,
       "religion": false,
       "sleightOfHand": true,
       "stealth": true,
@@ -212,7 +212,9 @@
     {
       "id": 2,
       "name": "Dagger",
-      "damageDieSides": 4
+      "damageDieSides": 4,
+      "dieCount": 1,
+      "stat": "dex"
     },
     {
       "id": 3,
@@ -242,12 +244,16 @@
     {
       "id": 8,
       "name": "Shortbow",
-      "damageDieSides": 6
+      "damageDieSides": 6,
+      "dieCount": 1,
+      "stat": "dex"
     },
     {
       "id": 9,
       "name": "Rapier",
-      "damageDieSides": 8
+      "damageDieSides": 8,
+      "dieCount": 1,
+      "stat": "dex"
     },
     {
       "id": 10,
@@ -257,7 +263,9 @@
     {
       "id": 11,
       "name": "Shortsword",
-      "damageDieSides": 6
+      "damageDieSides": 6,
+      "dieCount": 1,
+      "stat": "dex"
     },
     {
       "id": 12,
