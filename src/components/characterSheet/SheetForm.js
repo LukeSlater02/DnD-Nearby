@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getUserSheet } from "../../modules/SheetDataManager";
 import { getClassById } from "../../modules/ClassDataManager";
-import { calcPB, calcMod } from "./StatCalculations";
+import { calcPB, calcMod, DeathSaveFail, DeathSaveSuccess } from "./SheetHelpers";
+import { getAllWeapons } from "../../modules/WeaponDataManager";
 
 // create a form that the user can input 1) Name, 2) Date and 3) City, then Click submit. 
-//on submit, we want to use the EventManager to add new event to DB, then route to the eventList. 
+//on submit, we want to use the EventManager to add new event to DB, then route to the eventList.
 
 export const SheetForm = () => {
     const [character, setCharacter] = useState(
         {
             level: 1,
-            classId: 1,
+            classId: null,
             background: "",
             alignment: "",
             race: "",
@@ -62,7 +63,6 @@ export const SheetForm = () => {
     )
 
     const [weapons, setWeapons] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
     const [damageRollResult, setDamageRollResult] = useState("")
     const [d20Result, setd20Result] = useState("")
 
@@ -86,18 +86,27 @@ export const SheetForm = () => {
     let wisMod = parseInt(calcMod(character.wis))
     let chaMod = parseInt(calcMod(character.cha))
 
+    const getClass = (cId) => {
+        getClassById(cId).then(c => setCharClass(c))
+    }
+
+    // const getWeapons = clId => {
+    //     getWeaponsByClass(clId).then(c => setWeapons(c))
+    // }
+
     useEffect(() => {
         getUserSheet(userId).then(data => {
             setCharacter(data[0])
+            getClass(data[0].classId)
+            //getWeapons(data[0].classId)
         })
     }, [])
 
     useEffect(() => {
-        getClassById(character.classId).then(c => setCharClass(c))
-    }, [character])
+        getAllWeapons().then(setWeapons)
+    })
 
-
-    const rollDamage = (stat, sides, count) => {
+    const rollDamage = (stat, count, sides) => {
         let total = 0
         for (let i = 0; i < parseInt(count); i++) {
             total += Math.floor(Math.random() * parseInt(sides)) + 1
@@ -111,14 +120,38 @@ export const SheetForm = () => {
         setd20Result(total += parseInt(stat))
     }
 
+    const weaponAttack = (weapStat, weapSides, weapCount) => {
+        rollDamage(parseInt(calcMod(character[`${weapStat}`])), weapCount, weapSides)
+        rolld20(parseInt(calcMod(character[`${weapStat}`])))
+
+    }
+
+    const checkIfSkillProficient = (skill, stat) => {
+        if (character[skill]) {
+            return <><input type="checkbox" checked={true} readOnly={true} /> {stat + PB} <button className="stat-roll" onClick={() => rolld20(stat + PB)}>{skill}</button> <br></br></>
+
+        } else {
+            return <><input type="checkbox" checked={false} readOnly={true} /> {stat} <button className="stat-roll" onClick={() => rolld20(stat)}>{skill}</button> <br></br></>
+        }
+    }
+
+    const checkIfSaveProficient = (skill, stat, name) => {
+        if (skill) {
+            return <><input type="checkbox" checked={true} readOnly={true} /> {stat + PB} <button className="stat-roll" onClick={() => rolld20(stat + PB)}>{name}</button> <br></br></>
+
+        } else {
+            return <><input type="checkbox" checked={false} readOnly={true} /> {stat} <button className="stat-roll" onClick={() => rolld20(stat)}>{name}</button> <br></br></>
+        }
+    }
+
+    let counter = 0
 
     return (
         <div className="character-sheet">
-            {console.log(dexMod)}
             <header>
                 <section className="top-info">
-                    {character.name} - {charClass.className} Level {character.level} {character.background} <br></br>
-                    {character.race} {character.alignment}
+                    {character.name} - {charClass.className} Level {character.level} <br></br>
+                    {character.background} {character.race} {character.alignment}
                 </section>
             </header>
 
@@ -126,91 +159,73 @@ export const SheetForm = () => {
                 <div className="statBox">
                     {character.str} <br></br>
                     {calcMod(character.str)}<br></br>
-                    <span className="statName">strength</span>
+                    <button onClick={()=> rolld20(strMod)} className="statName">strength</button>
                 </div>
                 <div className="statBox">
                     {character.dex} <br></br>
                     {calcMod(character.dex)} <br></br>
-                    <span className="statName">Dexterity</span>
+                    <button onClick={()=> rolld20(dexMod)} className="statName">Dexterity</button>
                 </div>
                 <div className="statBox">
                     {character.con} <br></br>
                     {calcMod(character.con)} <br></br>
-                    <span className="statName">Constitution</span>
+                    <button onClick={()=> rolld20(conMod)} className="statName">Constitution</button>
                 </div>
                 <div className="statBox">
                     {character.int} <br></br>
                     {calcMod(character.int)} <br></br>
-                    <span className="statName">Intelligence</span>
+                    <button onClick={()=> rolld20(intMod)} className="statName">Intelligence</button>
                 </div>
                 <div className="statBox">
                     {character.wis} <br></br>
                     {calcMod(character.wis)} <br></br>
-                    <span className="statName">Wisdom</span>
+                    <button onClick={()=> rolld20(wisMod)} className="statName">Wisdom</button>
                 </div>
                 <div className="statBox">
                     {character.cha} <br></br>
                     {calcMod(character.cha)} <br></br>
-                    <span className="statName">Charisma</span>
+                    <button onClick={()=> rolld20(chaMod)} className="statName">Charisma</button>
                 </div>
 
 
             </section>
 
             <section className="skills">
-                {character.acrobatics ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.acrobatics ? dexMod + PB : dexMod} <button className="statRoll" onClick={() => rolld20(dexMod)}>Acrobatics</button> <br></br>
+                {checkIfSkillProficient("acrobatics", dexMod)}
 
-                {character.animalHandling ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.animalHandling ? wisMod + PB : wisMod} <button className="statRoll" onClick={() => rolld20(wisMod)}>Animal Handling</button> <br></br>
+                {checkIfSkillProficient("animal handling", wisMod)}
 
-                {character.arcana ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.arcana ? intMod + PB : intMod} <button className="statRoll" onClick={() => rolld20(intMod)}>Arcana</button> <br></br>
+                {checkIfSkillProficient("arcana", intMod)}
 
-                {character.athletics ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.athletics ? strMod + PB : strMod} <button className="statRoll" onClick={() => rolld20(strMod)}>Athletics</button> <br></br>
+                {checkIfSkillProficient("athletics", strMod)}
 
-                {character.deception ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.deception ? chaMod + PB : chaMod} <button className="statRoll" onClick={() => rolld20(chaMod)}>Deception</button> <br></br>
+                {checkIfSkillProficient("deception", chaMod)}
 
-                {character.history ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.history ? intMod + PB : intMod} <button className="statRoll" onClick={() => rolld20(intMod)}>History</button> <br></br>
+                {checkIfSkillProficient("history", intMod)}
 
-                {character.insight ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.insight ? wisMod + PB : wisMod} <button className="statRoll" onClick={() => rolld20(wisMod)}>Insight</button> <br></br>
+                {checkIfSkillProficient("insight", wisMod)}
 
-                {character.intimidation ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.intimidation ? chaMod + PB : chaMod} <button className="statRoll" onClick={() => rolld20(chaMod)}>Intimidation</button> <br></br>
+                {checkIfSkillProficient("intimidation", chaMod)}
 
-                {character.investigation ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.investigation ? intMod + PB : intMod} <button className="statRoll" onClick={() => rolld20(intMod)}>Investigation</button> <br></br>
+                {checkIfSkillProficient("investigation", intMod)}
 
-                {character.medicine ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.medicine ? wisMod + PB : wisMod} <button className="statRoll" onClick={() => rolld20(wisMod)}>Medicine</button> <br></br>
+                {checkIfSkillProficient("medicine", wisMod)}
 
-                {character.nature ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.nature ? intMod + PB : intMod} <button className="statRoll" onClick={() => rolld20(intMod)}>Nature</button> <br></br>
+                {checkIfSkillProficient("nature", intMod)}
 
-                {character.perception ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.perception ? wisMod + PB : wisMod} <button className="statRoll" onClick={() => rolld20(wisMod)}>Perception</button> <br></br>
+                {checkIfSkillProficient("perception", wisMod)}
 
-                {character.performance ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.performance ? chaMod + PB : chaMod} <button className="statRoll" onClick={() => rolld20(chaMod)}>Performance</button> <br></br>
+                {checkIfSkillProficient("performance", chaMod)}
 
-                {character.persuasion ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.persuasion ? chaMod + PB : chaMod} <button className="statRoll" onClick={() => rolld20(chaMod)}>Persuasion</button> <br></br>
+                {checkIfSkillProficient("persuasion", chaMod)}
 
-                {character.religion ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.religion ? intMod + PB : intMod} <button className="statRoll" onClick={() => rolld20(intMod)}>Religion</button> <br></br>
+                {checkIfSkillProficient("religion", intMod)}
 
-                {character.sleightOfHand ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.sleightOfHand ? dexMod + PB : dexMod} <button className="statRoll" onClick={() => rolld20(dexMod)}>Sleight of Hand</button> <br></br>
+                {checkIfSkillProficient("sleight of hand", dexMod)}
 
-                {character.stealth ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.stealth ? dexMod + PB : dexMod} <button className="statRoll" onClick={() => rolld20(dexMod)}>Stealth</button> <br></br>
+                {checkIfSkillProficient("stealth", dexMod)}
 
-                {character.survival ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {character.survival ? wisMod + PB : wisMod} <button className="statRoll" onClick={() => rolld20(wisMod)}>Survival</button> <br></br>
+                {checkIfSkillProficient("survival", wisMod)}
             </section>
 
 
@@ -219,23 +234,17 @@ export const SheetForm = () => {
                 <h4> +{PB} Proficiency Bonus</h4>
 
                 <h3>Saving Throws</h3>
-                {charClass.strSave ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {charClass.strSave ? strMod + PB : strMod} <button className="statRoll" onClick={() => rolld20(strMod)}>Strength</button> <br></br>
+                {checkIfSaveProficient(charClass.strSave, strMod, "Strength")}
 
-                {charClass.dexSave ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {charClass.dexSave ? dexMod + PB : dexMod} <button className="statRoll" onClick={() => rolld20(dexMod)}>Dexterity</button> <br></br>
+                {checkIfSaveProficient(charClass.dexSave, dexMod, "Dexterity")}
 
-                {charClass.conSave ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {charClass.conSave ? conMod + PB : conMod} <button className="statRoll" onClick={() => rolld20(conMod)}>Constitution</button> <br></br>
+                {checkIfSaveProficient(charClass.conSave, conMod, "Constitution")}
 
-                {charClass.intSave ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {charClass.intSave ? intMod + PB : intMod} <button className="statRoll" onClick={() => rolld20(intMod)}>Intelligence</button> <br></br>
+                {checkIfSaveProficient(charClass.intSave, intMod, "Intelligence")}
 
-                {charClass.wisSave ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {charClass.wisSave ? wisMod + PB : wisMod} <button className="statRoll" onClick={() => rolld20(wisMod)}>Wisdom</button> <br></br>
+                {checkIfSaveProficient(charClass.wisSave, wisMod, "Wisdom")}
 
-                {charClass.chaSave ? <input type="checkbox" checked={true} readOnly={true} />
-                    : <input type="checkbox" checked={false} readOnly={true} />} {charClass.chaSave ? chaMod + PB : chaMod} <button className="statRoll" onClick={() => rolld20(chaMod)}>Charisma</button> <br></br>
+                {checkIfSaveProficient(charClass.chaSave, chaMod, "Charisma")}
             </section>
 
             <section className="mid-info">
@@ -258,20 +267,25 @@ export const SheetForm = () => {
                 <input type="number" placeholder={character.level}></input> / {character.level} <br></br>
 
                 <strong>Death Saves</strong> <br></br>
-                Successes <input type="checkbox"></input> <input type="checkbox"></input> <input type="checkbox"></input> <br></br>
-                Failures <input type="checkbox"></input> <input type="checkbox"></input> <input type="checkbox"></input>
+                Successes <DeathSaveSuccess /><DeathSaveSuccess /><DeathSaveSuccess /> <br></br>
+                Failures <DeathSaveFail /><DeathSaveFail /><DeathSaveFail />
             </section>
 
             <section className="weapons">
-                <button onClick={() => {
-                    rollDamage(calcMod(character.str), 6, 2)
-                    rolld20(calcMod(character.str))
-                }}>Longsword</button> <br></br>
+                <h4>Weapon Attacks</h4>
+                Weapon Stat: 
+                <select className="weapon-stat-select">
+                    <option value="str">STR</option>
+                    <option value="dex">DEX</option>
+                </select>
 
-                <button onClick={() => {
-                    rollDamage(calcMod(character.dex), 8, 2)
-                    rolld20(calcMod(character.dex))
-                }}>Unarmed Strike</button> <br></br>
+                {weapons.map(ele => {
+                    return (
+                        <section key={ele.id} className="weapon-attack">
+                            <button onClick={() => weaponAttack(document.querySelector(".weapon-stat-select").value, ele.damageDieSides, ele.dieCount)}>{ele.name}</button>
+                        </section>
+                    )
+                })}
             </section>
 
             <section className="roll">
@@ -283,3 +297,4 @@ export const SheetForm = () => {
         </div>
     )
 }
+

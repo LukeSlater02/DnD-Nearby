@@ -460,4 +460,12 @@ footer {
   font-weight: bold;
   margin-bottom: .3em;
 }
+
+.character-sheet .stat-roll {
+  text-transform: capitalize;
+}
+
+input[type=checkbox] {
+  background-color: red;
+}
 /*# sourceMappingURL=index.css.map */

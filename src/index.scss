@@ -233,6 +233,10 @@ footer {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
 
+  input[type=button] {
+    
+  }
+
   .statName {
     font-variant-caps: all-small-caps;
   }
@@ -245,6 +249,10 @@ footer {
     padding: .3em;
     font-weight: bold;
     margin-bottom: .3em;
+  }
+
+  .stat-roll {
+    text-transform: capitalize;
   }
 
   // header {
@@ -272,4 +280,8 @@ footer {
   //   margin-left: 30em;
   //   margin-top: 2.5em;
   // }
+}
+
+input[type=checkbox] {
+  background-color: red;
 }
