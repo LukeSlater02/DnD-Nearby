@@ -3,7 +3,6 @@ import { red } from "@mui/material/colors";
 import { green } from "@mui/material/colors";
 import React, { useState } from "react";
 
-
 export const DeathSaveSuccess = () => {
     const [checked, setChecked] = useState(false)
     return (
@@ -61,6 +60,8 @@ export const calcPB = charLvl => {
 export const calcMod = stat => {
     let parsedStat = parseInt(stat)
     switch (true) {
+        case parsedStat === '':
+            return '-5'
         case parsedStat === 1:
             return '-5'
         case parsedStat < 0:
@@ -91,7 +92,7 @@ export const calcMod = stat => {
             return '+7'
         case parsedStat <= 28:
             return '+8'
-        case parsedStat >30:
+        case parsedStat > 30:
             return 'Stat too high to calculate modifier'
         default:
             return ''
