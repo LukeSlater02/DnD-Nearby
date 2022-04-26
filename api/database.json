@@ -11,38 +11,38 @@
     {
       "classId": 6,
       "userId": 1,
-      "name": "Kasimir",
-      "level": 17,
-      "background": "Space Travelling Badass",
-      "alignment": "Neutral Good",
-      "race": "Elder Eladrin",
-      "armorClass": 22,
-      "str": 12,
-      "dex": 22,
-      "con": 16,
-      "int": 19,
-      "wis": 18,
-      "cha": 8,
+      "name": "",
+      "level": 1,
+      "background": "",
+      "alignment": "",
+      "race": "",
+      "armorClass": 10,
+      "str": 0,
+      "dex": 18,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0,
       "hitPoints": "",
-      "speed": 30,
-      "initiative": 6,
-      "acrobatics": true,
+      "speed": 0,
+      "initiative": 4,
+      "acrobatics": false,
       "animalHandling": false,
       "arcana": false,
-      "athletics": true,
+      "athletics": false,
       "deception": false,
-      "history": true,
-      "insight": true,
+      "history": false,
+      "insight": false,
       "intimidation": false,
       "investigation": false,
       "medicine": false,
       "nature": false,
-      "perception": true,
+      "perception": false,
       "performance": false,
       "persuasion": false,
       "religion": false,
       "sleightOfHand": false,
-      "stealth": true,
+      "stealth": false,
       "survival": false,
       "id": 1,
       "className": "Monk",
@@ -218,7 +218,9 @@
     {
       "id": 1,
       "name": "Longsword",
-      "damageDieSides": 8
+      "damageDieSides": 8,
+      "dieCount": 1,
+      "stat": "str"
     },
     {
       "id": 2,
@@ -230,27 +232,37 @@
     {
       "id": 3,
       "name": "Handaxe",
-      "damageDieSides": 6
+      "damageDieSides": 6,
+      "dieCount": 1,
+      "stat": "str"
     },
     {
       "id": 4,
       "name": "Javelin",
-      "damageDieSides": 6
+      "damageDieSides": 6,
+      "dieCount": 1,
+      "stat": "str"
     },
     {
       "id": 5,
       "name": "Mace",
-      "damageDieSides": 6
+      "damageDieSides": 6,
+      "dieCount": 1,
+      "stat": "str"
     },
     {
       "id": 6,
       "name": "Quarterstaff",
-      "damageDieSides": 6
+      "damageDieSides": 6,
+      "dieCount": 1,
+      "stat": "str"
     },
     {
       "id": 7,
       "name": "Spear",
-      "damageDieSides": 6
+      "damageDieSides": 6,
+      "dieCount": 1,
+      "stat": "str"
     },
     {
       "id": 8,
@@ -269,7 +281,9 @@
     {
       "id": 10,
       "name": "Scimitar",
-      "damageDieSides": 6
+      "damageDieSides": 6,
+      "dieCount": 1,
+      "stat": "dex"
     },
     {
       "id": 11,
@@ -282,28 +296,99 @@
       "id": 12,
       "name": "Greatsword",
       "damageDieSides": 6,
-      "damageDieQuantity": 2
+      "dieCount": 2,
+      "stat": "str"
     },
     {
       "id": 13,
       "name": "Warhammer",
-      "damageDieSides": 8
+      "damageDieSides": 8,
+      "dieCount": 1,
+      "stat": "str"
     },
     {
       "id": 14,
       "name": "Maul",
       "damageDieSides": 6,
-      "damageDieQuantity": 2
+      "dieCount": 2,
+      "stat": "str"
     },
     {
       "id": 15,
       "name": "Greataxe",
-      "damageDieSides": 12
+      "damageDieSides": 12,
+      "dieCount": 1,
+      "stat": "str"
     },
     {
       "id": 16,
       "name": "Longbow",
-      "damageDieSides": 8
+      "damageDieSides": 8,
+      "dieCount": 1,
+      "stat": "dex"
+    },
+    {
+      "id": 17,
+      "name": "Light Crossbow",
+      "damageDieSides": 8,
+      "dieCount": 1,
+      "stat": "dex"
+    },
+    {
+      "id": 18,
+      "name": "Hand Crossbow",
+      "damageDieSides": 6,
+      "dieCount": 1,
+      "stat": "dex"
+    },
+    {
+      "id": 19,
+      "name": "Heavy Crossbow",
+      "damageDieSides": 10,
+      "dieCount": 1,
+      "stat": "dex"
+    },
+    {
+      "id": 20,
+      "name": "Club",
+      "damageDieSides": 6,
+      "dieCount": 1,
+      "stat": "str"
+    },
+    {
+      "id": 21,
+      "name": "Martial Arts (d4)",
+      "damageDieSides": 4,
+      "dieCount": 1,
+      "stat": "dex"
+    },
+    {
+      "id": 22,
+      "name": "Martial Arts (d6)",
+      "damageDieSides": 6,
+      "dieCount": 1,
+      "stat": "dex"
+    },
+    {
+      "id": 23,
+      "name": "Martial Arts (d8)",
+      "damageDieSides": 8,
+      "dieCount": 1,
+      "stat": "dex"
+    },
+    {
+      "id": 24,
+      "name": "Martial Arts (d10)",
+      "damageDieSides": 10,
+      "dieCount": 1,
+      "stat": "dex"
+    },
+    {
+      "id": 25,
+      "name": "Dart",
+      "damageDieSides": 4,
+      "dieCount": 1,
+      "stat": "dex"
     }
   ],
   "armor": [
@@ -381,7 +466,252 @@
     {
       "id": 1,
       "weaponId": 1,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 2,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 3,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 4,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 5,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 6,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 7,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 8,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 9,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 10,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 11,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 12,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 13,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 14,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 15,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 16,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 17,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 18,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 19,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 20,
+      "classId": 1
+    },
+    {
+      "id": 1,
+      "weaponId": 1,
       "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 2,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 3,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 4,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 5,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 6,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 7,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 8,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 9,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 10,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 11,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 12,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 13,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 14,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 15,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 16,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 17,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 18,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 19,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 20,
+      "classId": 2
+    },
+    {
+      "id": 1,
+      "weaponId": 1,
+      "classId": 2
+    },
+    {
+      "id": 2,
+      "weaponId": 21,
+      "classId": 6
+    },
+    {
+      "id": 2,
+      "weaponId": 22,
+      "classId": 6
+    },
+    {
+      "id": 2,
+      "weaponId": 23,
+      "classId": 6
+    },
+    {
+      "id": 2,
+      "weaponId": 24,
+      "classId": 6
+    },
+    {
+      "id": 2,
+      "weaponId": 25,
+      "classId": 6
+    },
+    {
+      "id": 2,
+      "weaponId": 8,
+      "classId": 6
+    },
+    {
+      "id": 2,
+      "weaponId": 16,
+      "classId": 6
+    },
+    {
+      "id": 2,
+      "weaponId": 2,
+      "classId": 6
+    },
+    {
+      "id": 2,
+      "weaponId": 11,
+      "classId": 6
     },
     {
       "id": 2,
@@ -401,6 +731,21 @@
     {
       "id": 5,
       "weaponId": 11,
+      "classId": 8
+    },
+    {
+      "id": 5,
+      "weaponId": 18,
+      "classId": 8
+    },
+    {
+      "id": 5,
+      "weaponId": 16,
+      "classId": 8
+    },
+    {
+      "id": 5,
+      "weaponId": 1,
       "classId": 8
     }
   ],

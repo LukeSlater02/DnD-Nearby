@@ -23,3 +23,9 @@ export const updateSheet = editedSheet => {
         body: JSON.stringify(editedSheet)
     }).then(data => data.json())
 }
+
+export const deleteSheet = sheetId => {
+    return fetch(`${data}/characters/${sheetId}`, {
+        method: "DELETE"
+    }).then(res => res.json())
+}

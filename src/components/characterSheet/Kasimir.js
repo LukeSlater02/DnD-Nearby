@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./CharacterInfo.css"
+import "./Kasimir.css"
 
 export const CharacterInfo = () => {
     

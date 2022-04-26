@@ -15,7 +15,7 @@ export const SheetEdit = () => {
             background: "",
             alignment: "",
             race: "",
-            armorClass: 10,
+            armorClass: '',
             str: '',
             dex: '',
             con: '',
@@ -154,13 +154,6 @@ export const SheetEdit = () => {
                 </section>
             </header>
 
-            <section className="mid-info">
-                <label htmlFor="sheet-text">Armor Class</label> <input name="sheet-text" type="number" value={character.armorClass} onChange={handleInput} id="armorClass" autoComplete="off"></input>
-                <label htmlFor="sheet-text">Initiative</label> <input name="sheet-text" type="number" value={character.initiative} onChange={handleInput} id="initiative" autoComplete="off" placeholder={character.dex}></input>
-                <label htmlFor="sheet-text">Speed</label> <input name="sheet-text" value={character.speed} type="number" onChange={handleInput} id="speed" autoComplete="off"></input>
-                {/* <label htmlFor="sheet-text">Hit Points</label> <input name="sheet-text" type="text" id="hitPoints" autoComplete="off"></input> */}
-            </section>
-
             <section className="stats">
                 <label htmlFor="sheet-text">STR</label> <input name="sheet-text" type="number" id="str" value={character.str} onChange={handleInput} autoComplete="off"></input>
                 <label htmlFor="sheet-text">DEX</label> <input name="sheet-text" type="number" id="dex" value={character.dex} onChange={handleInput} autoComplete="off"></input>
@@ -168,6 +161,14 @@ export const SheetEdit = () => {
                 <label htmlFor="sheet-text">INT</label> <input name="sheet-text" type="number" id="int" value={character.int} onChange={handleInput} autoComplete="off"></input>
                 <label htmlFor="sheet-text">WIS</label> <input name="sheet-text" type="number" id="wis" value={character.wis} onChange={handleInput} autoComplete="off"></input>
                 <label htmlFor="sheet-text">CHA</label> <input name="sheet-text" type="number" id="cha" value={character.cha} onChange={handleInput} autoComplete="off"></input>
+            </section>
+
+            
+            <section className="mid-info">
+                <label htmlFor="sheet-text">Armor Class</label> <input name="sheet-text" type="number" value={character.armorClass} onChange={handleInput} id="armorClass" autoComplete="off" placeholder={10 + 6}></input>
+                <label htmlFor="sheet-text">Initiative</label> <input name="sheet-text" type="number" value={character.initiative} onChange={handleInput} id="initiative" autoComplete="off" placeholder={calcMod(character.dex)}></input>
+                <label htmlFor="sheet-text">Speed</label> <input name="sheet-text" value={character.speed} type="number" onChange={handleInput} id="speed" autoComplete="off"></input>
+                {/* <label htmlFor="sheet-text">Hit Points</label> <input name="sheet-text" type="text" id="hitPoints" autoComplete="off"></input> */}
             </section>
 
             <section className="skills">
