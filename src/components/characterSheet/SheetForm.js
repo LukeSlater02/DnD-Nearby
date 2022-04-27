@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { deleteSheet, getUserSheet, updateSheet } from "../../modules/SheetDataManager";
+import { useNavigate, useParams } from "react-router-dom";
+import { deleteSheet, getSheetById} from "../../modules/SheetDataManager";
 import { calcPB, calcMod, DeathSaveFail, DeathSaveSuccess } from "./SheetHelpers";
 import { getWeaponsByClass } from "../../modules/WeaponDataManager";
 
@@ -47,6 +47,11 @@ export const SheetForm = () => {
     const [weapons, setWeapons] = useState([])
     const [damageRollResult, setDamageRollResult] = useState("")
     const [d20Result, setd20Result] = useState("")
+    const [customMod, setCustomMod] = useState('')
+
+    const handleModInput = event => {
+        setCustomMod(parseInt(event.target.value) || "")
+    }
 
     const calcHP = (charObj) => {
         let totalHP = 0
@@ -57,7 +62,7 @@ export const SheetForm = () => {
 
     }
 
-    let userId = parseInt(sessionStorage.getItem("dnd_user"))
+    const {characterId} = useParams()
     let navigate = useNavigate()
     let PB = calcPB(character.level)
     let HP = calcHP(character)
@@ -73,9 +78,9 @@ export const SheetForm = () => {
     }
 
     useEffect(() => {
-        getUserSheet(userId).then(data => {
-            setCharacter(data[0])
-            getWeapons(data[0].classId)
+        getSheetById(characterId).then(data => {
+            setCharacter(data)
+            getWeapons(data.classId)
         })
     }, [])
 
@@ -85,7 +90,7 @@ export const SheetForm = () => {
         for (let i = 0; i < parseInt(count); i++) {
             total += Math.floor(Math.random() * parseInt(sides)) + 1
         }
-        setDamageRollResult(total += parseInt(stat))
+        setDamageRollResult(total += parseInt(stat) + customMod)
     }
 
     const addDiceText = () => {
@@ -99,12 +104,12 @@ export const SheetForm = () => {
         total += Math.floor(Math.random() * 20) + 1
         if (total == 20) {
             document.querySelector(".d20-roll").classList.add("nat20")
-            setd20Result(total += parseInt(stat))
+            setd20Result(total += parseInt(stat) + customMod)
         } else if (total === 1) {
             document.querySelector(".d20-roll").classList.add("nat1")
-            setd20Result(total += parseInt(stat))
+            setd20Result(total += parseInt(stat) + customMod)
         } else {
-            setd20Result(total += parseInt(stat))
+            setd20Result(total += parseInt(stat) + customMod)
         }
         activateModal()
         setTimeout(addDiceText, 900)
@@ -116,13 +121,13 @@ export const SheetForm = () => {
     const activateModal = () => {
         modal.classList.add('active')
         overlay.classList.add('active')
-        document.querySelector('.dice-roll-gif').setAttribute('src', './images/d20-dice.gif')
+        document.querySelector('.dice-roll-gif').setAttribute('src', "../images/d20-dice.gif")
     }
 
     const closeModal = () => {
         modal.classList.remove('active')
         overlay.classList.remove('active')
-        document.querySelector('.dice-roll-gif').setAttribute('src', './images/brushed-alum.png')
+        document.querySelector('.dice-roll-gif').setAttribute('src', "../images/d20-dice.gif")
         document.querySelector('.dice-text').classList.remove('text-active')
     }
 
@@ -256,6 +261,9 @@ export const SheetForm = () => {
                 </section>
 
                 <section className="mid-info">
+                    <strong>Custom Roll Modifier</strong>
+                    <input type="number" value={customMod} onChange={handleModInput}></input> <br></br>
+
                     <strong>Armor Class</strong> <br></br>
                     {character.armorClass} <br></br>
 
@@ -281,19 +289,24 @@ export const SheetForm = () => {
 
                 <section className="weapons">
                     <h4>Weapon Attacks</h4>
-                    Weapon Stat:
-                    <select className="weapon-stat-select" defaultValue={strMod}>
-                        <option value="str">STR</option>
-                        <option value="dex">DEX</option>
-                    </select>
-
-                    Custom Modifier <input className="weapon-custom-modifier" type="number" defaultValue={0}></input>
                     {weapons.map(ele => {
-                        return (
-                            <section key={ele.weapon.id} className="weapon-attack">
-                                <button onClick={() => weaponAttack(document.querySelector(".weapon-stat-select").value, ele.weapon.damageDieSides, ele.weapon.dieCount)}>{ele.weapon.name}</button>
-                            </section>
-                        )
+                        if (ele.weapon.name.includes("Martial Arts")) {
+                            for (let levelRangeNumber of ele.weapon.levelRange){
+                                if (levelRangeNumber === character.level) {
+                                    return (
+                                        <section key={ele.weapon.id} className="weapon-attack">
+                                            <button onClick={() => weaponAttack(ele.weapon.stat, ele.weapon.damageDieSides, ele.weapon.dieCount)}>{ele.weapon.name}</button>
+                                        </section>
+                                    )
+                                }
+                            }
+                        } else {
+                            return (
+                                <section key={ele.weapon.id} className="weapon-attack">
+                                    <button onClick={() => weaponAttack(ele.weapon.stat, ele.weapon.damageDieSides, ele.weapon.dieCount)}>{ele.weapon.name}</button>
+                                </section>
+                            )
+                        }
                     })}
                 </section>
 
@@ -303,10 +316,10 @@ export const SheetForm = () => {
                     <div className="dice-text" id="dice-text">
                         <span className="d20-roll">{d20Result}</span>
                     </div>
-                    {damageRollResult ? <div className="roll-result"><strong>Damage: {damageRollResult} </strong></div>: ''} 
+                    {damageRollResult ? <div className="roll-result"><strong>Damage: {damageRollResult}</strong></div> : ''}
                 </div>
 
-                <button onClick={() => navigate("/character-edit")}>Edit</button> <button onClick={() => deleteSheet(character.id).then(() => navigate("/home"))}>Delete</button>
+                <button onClick={() => navigate(`/character-edit/${characterId}`)}>Edit</button> <button onClick={() => deleteSheet(character.id).then(() => navigate("/home"))}>Delete</button>
             </div>
             <div id="overlay" className=""></div>
         </>

@@ -46,12 +46,10 @@ export const Login = ({setAuthUser}) => {
 					Close
 				</button>
 			</dialog>
-			<section>
+			<section className="dragon-img"></section>
+			<section >
 				<form className="form--login" onSubmit={handleLogin}>
-					<h1>D&D NEARBY</h1>
-					<h2>Sign In</h2>
 					<fieldset>
-						<label htmlFor="inputEmail"> Email Address</label>
 						<input
 							type="email"
 							id="email"
@@ -64,11 +62,11 @@ export const Login = ({setAuthUser}) => {
 						/>
 					</fieldset>
 					<fieldset>
-						<button type="submit">Sign in</button>
+						<button type="submit">Sign In</button>
 					</fieldset>
 				</form>
 			</section>
-			<section className="link--register">
+			<section className="link--register"> <br></br>
 				<Link to="/register">Register for an account</Link>
 			</section>
 		</main>

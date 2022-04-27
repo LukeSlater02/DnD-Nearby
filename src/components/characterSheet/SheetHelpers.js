@@ -61,7 +61,7 @@ export const calcMod = stat => {
     let parsedStat = parseInt(stat)
     switch (true) {
         case parsedStat === '':
-            return '-5'
+            return 0
         case parsedStat === 1:
             return '-5'
         case parsedStat < 0:
@@ -95,6 +95,6 @@ export const calcMod = stat => {
         case parsedStat > 30:
             return 'Stat too high to calculate modifier'
         default:
-            return ''
+            return 0
     }
 }

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
-import { getUserSheet } from "../../modules/SheetDataManager"
+import { getSheetById, getUserSheet } from "../../modules/SheetDataManager"
 import { getClassById } from "../../modules/ClassDataManager"
 import { getAllWeapons } from "../../modules/WeaponDataManager"
 import { updateSheet } from "../../modules/SheetDataManager"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { calcMod } from "./SheetHelpers"
+import { getArmorByClass } from "../../modules/ArmorDataManager"
 
 export const SheetEdit = () => {
     const [character, setCharacter] = useState(
@@ -49,13 +50,19 @@ export const SheetEdit = () => {
     const [charClass, setCharClass] = useState({})
     const [weapons, setWeapons] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [armorList, setArmorList] = useState([])
 
-    let userId = parseInt(sessionStorage.getItem("dnd_user"))
+    const {characterId} = useParams()
     let navigate = useNavigate()
 
+    const getArmor = id => {
+        getArmorByClass(id).then(setArmorList)
+    }
+
     useEffect(() => {
-        getUserSheet(userId).then(data => {
-            setCharacter(data[0])
+        getSheetById(characterId).then(data => {
+            setCharacter(data)
+            getArmor(data.classId)
         })
     }, [])
 
@@ -91,8 +98,23 @@ export const SheetEdit = () => {
         }
     }
 
-    const filterWeapons = event => {
-        //FIND WAY TO REMOVE SELECTED OPTIONS FROM OTHER SELECTS
+    const addDexToAC = armorObj => {
+        if (armorObj.addDex === true && armorObj.dexMax === false) {
+            return armorObj.armorClass + parseInt(calcMod(character.dex))
+        } else if (armorObj.addDex){
+            let dexMod = parseInt(calcMod(character.dex))
+            if (dexMod > 2) {
+                return armorObj.armorClass + 2
+            } else {
+                return armorObj.armorClass + parseInt(calcMod(character.dex))
+            }
+            
+        } else if (armorObj.name === "Unarmored Defense") {
+            return 10 + parseInt(calcMod(character.dex)) + parseInt(calcMod(character.wis))
+        } 
+        else {
+            return armorObj.armorClass
+        }
     }
 
     const updateCharacter = () => {
@@ -138,12 +160,13 @@ export const SheetEdit = () => {
 
         editedCharacter = {...editedCharacter, ...charClass}
         editedCharacter.id = character.id
-        updateSheet(editedCharacter).then(() => navigate("/character")).then(() => setIsLoading(false))
+        updateSheet(editedCharacter).then(data => navigate(`/character/${data.id}`)).then(() => setIsLoading(false))
     }
 
 
     return (
         <div className="character-sheet">
+            {console.log(armorList)}
             <header>
                 <section className="top-info">
                     <label htmlFor="sheet-text">Name</label> <input name="sheet-text" type="text" value={character.name} onChange={handleInput} id="name" autoComplete="off"></input>
@@ -163,12 +186,16 @@ export const SheetEdit = () => {
                 <label htmlFor="sheet-text">CHA</label> <input name="sheet-text" type="number" id="cha" value={character.cha} onChange={handleInput} autoComplete="off"></input>
             </section>
 
-            
-            <section className="mid-info">
-                <label htmlFor="sheet-text">Armor Class</label> <input name="sheet-text" type="number" value={character.armorClass} onChange={handleInput} id="armorClass" autoComplete="off" placeholder={10 + 6}></input>
-                <label htmlFor="sheet-text">Initiative</label> <input name="sheet-text" type="number" value={character.initiative} onChange={handleInput} id="initiative" autoComplete="off" placeholder={calcMod(character.dex)}></input>
-                <label htmlFor="sheet-text">Speed</label> <input name="sheet-text" value={character.speed} type="number" onChange={handleInput} id="speed" autoComplete="off"></input>
-                {/* <label htmlFor="sheet-text">Hit Points</label> <input name="sheet-text" type="text" id="hitPoints" autoComplete="off"></input> */}
+            <section className="armor">
+                <h3>Armor</h3>
+                <select id="armorClass" onChange={handleInput}>
+                    <option value={10 + parseInt(calcMod(character.dex))}>---</option>
+                    {armorList.map(a => {
+                        return (
+                            <option value={addDexToAC(a.armor)} key={a.id}>{a.armor.name}</option>
+                        )
+                    })}
+                </select>
             </section>
 
             <section className="skills">
@@ -219,9 +246,11 @@ export const SheetEdit = () => {
                 <input type="checkbox" id="wisSave" onChange={handleInput} checked={charClass.wisSave}/> Wisdom <br></br>
                 <input type="checkbox" id="chaSave" onChange={handleInput} checked={charClass.chaSave}/> Charisma <br></br>
             </section>
-
-            <section className="skills">
-
+                        
+            <section className="mid-info">
+                <label htmlFor="sheet-text">Armor Class</label> <input name="sheet-text" type="number" value={character.armorClass} onChange={handleInput} id="armorClass" autoComplete="off"></input>
+                <label htmlFor="sheet-text">Initiative</label> <input name="sheet-text" type="number" value={character.initiative} onChange={handleInput} id="initiative" autoComplete="off" placeholder={calcMod(character.dex)}></input>
+                <label htmlFor="sheet-text">Speed</label> <input name="sheet-text" value={character.speed} type="number" onChange={handleInput} id="speed" autoComplete="off"></input>
             </section>
 {/* 
             <section className="weapons">

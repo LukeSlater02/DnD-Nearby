@@ -18,10 +18,12 @@ export const ClassCard = ({ classObj}) => {
     
     const [isLoading, setIsLoading] = useState(false)
     let navigate = useNavigate()
+    let currentUserId = sessionStorage.getItem("dnd_user_name")
     
     const createSheet = e => {
         setIsLoading(true)
         let sheetObj = {
+            userId: currentUserId,
             classId: parseInt(e.target.id),
             userId: parseInt(sessionStorage.getItem("dnd_user")),
             name: "",
@@ -58,7 +60,7 @@ export const ClassCard = ({ classObj}) => {
             stealth: false,
             survival: false,
         }
-        addSheet(sheetObj).then(() => navigate('/character-edit')).then(setIsLoading(false))
+        addSheet(sheetObj).then(data => navigate(`/character-edit/${data.id}`)).then(setIsLoading(false))
     }
 
 
