@@ -17,10 +17,6 @@ body {
   font-family: 'Spectral', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 0;
-  min-height: 95vh;
-  position: relative;
-  padding-bottom: 3em;
 }
 
 code {
@@ -459,6 +455,13 @@ footer {
       grid-template-columns: repeat(6, 1fr);
 }
 
+.character-sheet .mid-info input[type=number] {
+  width: 3.5em;
+  outline: none;
+  border: none;
+  border-bottom: 1px black solid;
+}
+
 .character-sheet button {
   font-family: 'Spectral', serif;
   font-size: 14px;
@@ -618,5 +621,153 @@ footer {
 .dice-modal.active {
   -webkit-transform: translate(-50%, -50%) scale(1);
           transform: translate(-50%, -50%) scale(1);
+}
+
+.roster section {
+  margin-bottom: 2em;
+}
+
+.container--login {
+  width: 30%;
+  padding: 2em;
+  margin: auto;
+  text-align: center;
+}
+
+.container--login .form--login {
+  border-top: 5px solid #1f1f1f;
+  height: 9em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container--login .form--login fieldset {
+  width: 20em;
+  text-align: center;
+  border: none;
+  font-size: larger;
+}
+
+.container--login .form--login fieldset input[type=email] {
+  margin-top: 1em;
+  border: none;
+  border-bottom: 2px solid #080808;
+  font-size: large;
+  text-align: center;
+}
+
+.container--login .dragon-img {
+  background-color: white;
+  background-image: url(/public/images/dragonIcon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 240px;
+  background-position: center;
+}
+
+.container--login button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.container--login button:hover {
+  background-color: #DF0000;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #DF0000;
+  border-radius: 10px;
+}
+
+.container--login a {
+  color: #080808;
+}
+
+.container--login a:hover {
+  color: #DF0000;
+}
+
+.roster {
+  background-color: #1f1f1f;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/public/images/tavern.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.roster img {
+  height: 100px;
+  width: 100px;
+}
+
+.roster .tavern-characters {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding-top: 1em;
+  background-color: #1f1f1f;
+  width: 90%;
+  height: 13%;
+  border: 4px solid #080808;
+  border-radius: 5px;
+  border-top: none;
+  opacity: .95;
+  color: #b3b3b3;
+}
+
+.roster .tavern-characters a {
+  color: white;
+}
+
+.roster .character-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.roster button {
+  border: 2px #080808 solid;
+  border-radius: 10px;
+  padding: .3em;
+  width: 8em;
+}
+
+.roster button:hover {
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.roster h4 {
+  margin: 0;
+  padding: 0;
 }
 /*# sourceMappingURL=index.css.map */

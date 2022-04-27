@@ -9,10 +9,12 @@ export const NavBar = ({clearUser}) => {
     <nav>
         <img src="/images/highElf.svg"></img>
         <p>Flavor text</p>
-        <img src="/images/logo.svg"></img><h1>NEARBY</h1>
-        <p>Logout</p>
+        <Link to="/home"><img src="/images/logo.svg"></img></Link>
+        <h1>NEARBY</h1>
         <img src="/images/gauntletBanner.svg"></img>
         <img src="/images/harpersBanner.svg"></img>
+        <Link to="/the-tavern">The Tavern</Link>
+        {sessionStorage.getItem("dnd_user") != null ? <Link className="navbar__link" to="/login" onClick={clearUser}>Logout</Link> : ''}
       {/* <ul className="navBar">
         <li className="navBar_item">
  

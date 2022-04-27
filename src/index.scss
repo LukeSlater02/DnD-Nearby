@@ -8,6 +8,7 @@
   font-family: drawn;
 }
 
+$red: #DF0000;
 $darkgray: #1f1f1f;
 $midgray: #353535;
 $lightgray: #b3b3b3;
@@ -67,10 +68,6 @@ body {
   font-family: 'Spectral', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 0;
-  min-height: 95vh;
-  position: relative;
-  padding-bottom: 3em;
 }
 
 code {
@@ -272,7 +269,13 @@ footer {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
 
-  section {
+  .mid-info {
+    input[type=number]{
+      width: 3.5em;
+      outline: none;
+      border: none;
+      border-bottom: 1px black solid;
+    }
   }
 
   button {
@@ -326,21 +329,6 @@ footer {
   //     width: 7em;
   //   }
   //   color: lightgray;
-  // }
-
-  // .info {
-  //   background: url("../public/images/sheetInfoBox.svg");
-  //   background-position: 0;
-  //   padding: 14px;
-  //   height: 10em;
-  //   background-size: cover;
-  //   width: 440px;
-  //   background-repeat: no-repeat;
-  //   box-sizing: content-box;
-  //   // max-height: 74px;
-  //   display: inline-block;
-  //   margin-left: 30em;
-  //   margin-top: 2.5em;
   // }
 }
 
@@ -448,4 +436,119 @@ footer {
 
 .dice-modal.active {
   transform: translate(-50%, -50%) scale(1);
+}
+
+.roster {
+  section {
+    margin-bottom: 2em;
+  }
+}
+
+.container--login {
+  width: 30%;
+  padding: 2em;
+  margin: auto;
+  text-align: center;
+  .form--login {
+    // border: 5px solid $darkgray;
+    // border-radius: 200px;
+    border-top: 5px solid $darkgray;
+    height: 9em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    fieldset{
+      width: 20em;
+      text-align: center;
+      border: none;
+      font-size: larger;
+
+      input[type=email]{
+        margin-top: 1em;
+        border: none;
+        border-bottom: 2px solid $vamp;
+        font-size: large;
+        text-align: center;
+      }
+    }
+  }
+  .dragon-img {
+    background-color: white;
+    background-image: url(/public/images/dragonIcon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 240px;
+    background-position: center;
+  }
+
+  button {
+    @include classButton($red)
+  }
+
+  a {
+    color: $vamp;
+  }
+
+  a:hover {
+    color: $red;
+  }
+}
+
+.roster {
+  background-color: $darkgray;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/public/images/tavern.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .tavern-characters{
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1em;
+    background-color: $darkgray;
+    width: 90%;
+    height: 13%;
+    border: 4px solid $vamp;
+    border-radius: 5px;
+    border-top: none;
+    opacity: .95;
+    color: $lightgray;
+
+    a {
+      color: white;
+    }
+  }
+
+  .character-card {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  button {
+    border: 2px $vamp solid;
+    border-radius: 10px;
+    padding: .3em;
+    width: 8em;
+  }
+
+  button:hover {
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+    transform: scale(1.1);
+  }
+
+  h4 {
+    margin: 0;
+    padding: 0;
+  }
 }
