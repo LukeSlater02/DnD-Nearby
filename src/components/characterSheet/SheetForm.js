@@ -47,10 +47,10 @@ export const SheetForm = () => {
     const [weapons, setWeapons] = useState([])
     const [damageRollResult, setDamageRollResult] = useState("")
     const [d20Result, setd20Result] = useState("")
-    const [customMod, setCustomMod] = useState('')
+    const [customMod, setCustomMod] = useState(0)
 
     const handleModInput = event => {
-        setCustomMod(parseInt(event.target.value) || "")
+        setCustomMod(parseInt(event.target.value) || 0)
     }
 
     const calcHP = (charObj) => {

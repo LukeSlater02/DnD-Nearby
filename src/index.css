@@ -467,7 +467,14 @@ footer {
       grid-template-columns: repeat(6, 1fr);
 }
 
-.character-sheet .mid-info input[type=number] {
+.character-sheet input[type=text] {
+  border: none;
+  outline: none;
+  border: none;
+  border-bottom: 1px black solid;
+}
+
+.character-sheet input[type=number] {
   width: 3.5em;
   outline: none;
   border: none;
@@ -740,12 +747,14 @@ footer {
 
 .roster {
   background-color: #1f1f1f;
-  width: 100vw;
-  height: 100vh;
-  background-image: url("/public/images/tavern-gif.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  width: 100%;
+  height: 100%;
+  background-color: #1f1f1f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .roster .home {
@@ -755,6 +764,14 @@ footer {
 
 .roster .links {
   text-align: center;
+}
+
+.roster .img {
+  background-image: url("/public/images/tavern-gif.gif");
+  background-repeat: no-repeat;
+  background-size: 80em;
+  background-position: center;
+  width: 100%;
 }
 
 .roster .logo {
@@ -767,24 +784,24 @@ footer {
   width: 100px;
 }
 
-.roster .tavern-characters {
-  margin-left: auto;
-  margin-right: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  padding-top: 1em;
-  background-color: rgba(31, 31, 31, 0.5);
-  width: 90%;
-  min-width: 1200px;
-  height: 7em;
+.roster .flavor {
+  width: 16em;
+  color: #b3b3b3;
+  background-color: rgba(31, 31, 31, 0.7);
+  height: 25em;
   border: 4px solid #080808;
   border-top: none;
+  border-left: none;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.roster .tavern-characters {
+  padding-top: 1em;
+  width: 15em;
+  border: 5px #080808 solid;
+  border-top: none;
+  border-radius: 5px;
   color: #b3b3b3;
 }
 
@@ -802,17 +819,6 @@ footer {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   font-weight: bold;
-}
-
-.roster .character-card {
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
 }
 
 .roster button {
