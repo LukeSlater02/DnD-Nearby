@@ -16,55 +16,6 @@
   "characters": [
     {
       "userId": 1,
-      "classId": 6,
-      "name": "Kasimir",
-      "level": 17,
-      "background": "Far Traveler",
-      "alignment": "Neutral Good",
-      "race": "Elder Eladrin",
-      "armorClass": 22,
-      "str": 12,
-      "dex": 22,
-      "con": 16,
-      "int": 19,
-      "wis": 18,
-      "cha": 8,
-      "hitPoints": "",
-      "speed": 30,
-      "initiative": 6,
-      "acrobatics": true,
-      "animalHandling": false,
-      "arcana": false,
-      "athletics": true,
-      "deception": false,
-      "history": true,
-      "insight": true,
-      "intimidation": false,
-      "investigation": false,
-      "medicine": false,
-      "nature": false,
-      "perception": true,
-      "performance": false,
-      "persuasion": false,
-      "religion": false,
-      "sleightOfHand": false,
-      "stealth": true,
-      "survival": false,
-      "id": 1,
-      "className": "Monk",
-      "dexSave": true,
-      "strSave": true,
-      "conSave": true,
-      "intSave": true,
-      "wisSave": true,
-      "chaSave": true,
-      "hpPerLevel": 5,
-      "hpLevelOne": 8,
-      "hitDieSides": 8,
-      "icon": "./images/monk.svg"
-    },
-    {
-      "userId": 1,
       "classId": 7,
       "name": "Felix Meneldur",
       "level": 9,
@@ -110,7 +61,8 @@
       "hpPerLevel": 6,
       "hpLevelOne": 10,
       "hitDieSides": 10,
-      "icon": "./images/paladin.svg"
+      "icon": "./images/paladin.svg",
+      "desc": "A holy warrior bound to a sacred oath."
     },
     {
       "userId": 1,
@@ -209,44 +161,6 @@
       "hpLevelOne": 6,
       "hitDieSides": 6,
       "icon": "./images/wizard.svg"
-    },
-    {
-      "userId": 1,
-      "classId": 6,
-      "name": "",
-      "level": 1,
-      "background": "",
-      "alignment": "",
-      "race": "",
-      "armorClass": 10,
-      "str": "",
-      "dex": "",
-      "con": "",
-      "int": "",
-      "wis": "",
-      "cha": "",
-      "hitPoints": "",
-      "speed": "",
-      "initiative": "",
-      "acrobatics": false,
-      "animalHandling": false,
-      "arcana": false,
-      "athletics": false,
-      "deception": false,
-      "history": false,
-      "insight": false,
-      "intimidation": false,
-      "investigation": false,
-      "medicine": false,
-      "nature": false,
-      "perception": false,
-      "performance": false,
-      "persuasion": false,
-      "religion": false,
-      "sleightOfHand": false,
-      "stealth": false,
-      "survival": false,
-      "id": 5
     }
   ],
   "classes": [
@@ -262,7 +176,8 @@
       "hpPerLevel": 7,
       "hpLevelOne": 12,
       "hitDieSides": 12,
-      "icon": "./images/barbarian.svg"
+      "icon": "./images/barbarian.svg",
+      "desc": "A fierce warrior of primitive background who can enter a battle rage."
     },
     {
       "id": 2,
@@ -276,7 +191,8 @@
       "hpPerLevel": 6,
       "hpLevelOne": 10,
       "hitDieSides": 10,
-      "icon": "./images/fighter.svg"
+      "icon": "./images/fighter.svg",
+      "desc": "A master of martial combat, skilled with a variety of weapons and armor."
     },
     {
       "id": 3,
@@ -290,7 +206,8 @@
       "hpPerLevel": 5,
       "hpLevelOne": 8,
       "hitDieSides": 8,
-      "icon": "./images/bard.svg"
+      "icon": "./images/bard.svg",
+      "desc": "An inspiring magician whose power echoes the music of creation."
     },
     {
       "id": 4,
@@ -304,7 +221,8 @@
       "hpPerLevel": 5,
       "hpLevelOne": 8,
       "hitDieSides": 8,
-      "icon": "./images/cleric.svg"
+      "icon": "./images/cleric.svg",
+      "desc": "A priestly champion who wields divine magic in service of a higher power."
     },
     {
       "id": 5,
@@ -318,7 +236,8 @@
       "hpPerLevel": 5,
       "hpLevelOne": 8,
       "hitDieSides": 8,
-      "icon": "./images/druid.svg"
+      "icon": "./images/druid.svg",
+      "desc": "A priest of the Old Faith, wielding the powers of nature and adopting animal forms."
     },
     {
       "id": 6,
@@ -332,7 +251,8 @@
       "hpPerLevel": 5,
       "hpLevelOne": 8,
       "hitDieSides": 8,
-      "icon": "./images/monk.svg"
+      "icon": "./images/monk.svg",
+      "desc": "A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection."
     },
     {
       "id": 7,
@@ -346,7 +266,8 @@
       "hpPerLevel": 6,
       "hpLevelOne": 10,
       "hitDieSides": 10,
-      "icon": "./images/paladin.svg"
+      "icon": "./images/paladin.svg",
+      "desc": "A holy warrior bound to a sacred oath."
     },
     {
       "id": 8,
@@ -360,7 +281,8 @@
       "hpPerLevel": 7,
       "hpLevelOne": 12,
       "hitDieSides": 8,
-      "icon": "./images/rogue.svg"
+      "icon": "./images/rogue.svg",
+      "desc": "A scoundrel who uses stealth and trickery to overcome obstacles and enemies."
     },
     {
       "id": 9,
@@ -374,7 +296,8 @@
       "hpPerLevel": 4,
       "hpLevelOne": 6,
       "hitDieSides": 6,
-      "icon": "./images/wizard.svg"
+      "icon": "./images/wizard.svg",
+      "desc": "A scholarly magic-user capable of manipulating the structures of reality."
     },
     {
       "id": 10,
@@ -388,7 +311,8 @@
       "hpPerLevel": 5,
       "hpLevelOne": 8,
       "hitDieSides": 8,
-      "icon": "./images/warlock.svg"
+      "icon": "./images/warlock.svg",
+      "desc": "A wielder of magic that is derived from a bargain with an extraplanar entity."
     },
     {
       "id": 11,
@@ -402,7 +326,8 @@
       "hpPerLevel": 4,
       "hpLevelOne": 6,
       "hitDieSides": 6,
-      "icon": "./images/sorcerer.svg"
+      "icon": "./images/sorcerer.svg",
+      "desc": "A spellcaster who draws on inherent magic from a gift or bloodline."
     }
   ],
   "weapons": [

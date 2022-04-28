@@ -23,7 +23,6 @@ export const DnDMain = () => {
     
 return (
   <>
-  <NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/>
   <ApplicationViews setAuthUser={setAuthUser}
                 isAuthenticated={isAuthenticated}
                 setIsAuthenticated={setIsAuthenticated}/>

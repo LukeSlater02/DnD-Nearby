@@ -9,7 +9,7 @@
 }
 
 $red: #DF0000;
-$darkgray: #1f1f1f;
+$darkgray: rgb(31, 31, 31);
 $midgray: #353535;
 $lightgray: #b3b3b3;
 $vamp: #080808;
@@ -68,6 +68,7 @@ body {
   font-family: 'Spectral', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
 }
 
 code {
@@ -234,6 +235,16 @@ nav {
     font-weight: bold;
   }
 
+  a {
+    color: $lightgray;
+
+    &:hover {
+      transform: scale(1.1);
+      color: white;
+      font-weight: bold;
+    }
+  }
+
   img {
     width: 7em;
     min-width: 7em;
@@ -269,14 +280,21 @@ footer {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
 
-  .mid-info {
-    input[type=number]{
-      width: 3.5em;
-      outline: none;
-      border: none;
-      border-bottom: 1px black solid;
-    }
+  input[type=text] {
+    border: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px black solid;
   }
+
+
+  input[type=number] {
+    width: 3.5em;
+    outline: none;
+    border: none;
+    border-bottom: 1px black solid;
+  }
+
 
   button {
     font-family: 'Spectral', serif;
@@ -312,7 +330,7 @@ footer {
     margin-bottom: .3em;
   }
 
-  input[type=checkbox]{
+  input[type=checkbox] {
     outline: none;
   }
 
@@ -445,34 +463,46 @@ footer {
 }
 
 .container--login {
-  width: 30%;
+  width: 45em;
   padding: 2em;
   margin: auto;
   text-align: center;
+
   .form--login {
-    // border: 5px solid $darkgray;
-    // border-radius: 200px;
-    border-top: 5px solid $darkgray;
+    border: 5px solid $darkgray;
+    border-radius: 200px;
+    // border-top: 7px solid $darkgray;
     height: 9em;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    fieldset{
+    fieldset {
       width: 20em;
-      text-align: center;
       border: none;
       font-size: larger;
 
-      input[type=email]{
+      input[type=email] {
         margin-top: 1em;
         border: none;
         border-bottom: 2px solid $vamp;
         font-size: large;
-        text-align: center;
+
+        &::placeholder {
+          text-align: center;
+        }
+
+        &:focus {
+          border: none;
+          border-bottom: 2px solid $vamp;
+          outline: none;
+        }
       }
+
+
     }
   }
+
   .dragon-img {
     background-color: white;
     background-image: url(/public/images/dragonIcon.png);
@@ -498,39 +528,82 @@ footer {
 
 .roster {
   background-color: $darkgray;
-  width: 100vw;
-  height: 100vh;
-  background-image: url("/public/images/tavern.jpg");
+  width: 100%;
+  height: 100%;
+  // background-image: url("/public/images/tavern-gif.gif");
+  // background-repeat: no-repeat;
+  // background-size: 80em;
+  // background-position: center;
+  background-color: $darkgray;
+  display: flex;
+  justify-content: space-around;
+
+  .home {
+    color: white;
+    font-size: larger;
+  }
+
+  .links {
+    text-align: center;
+  }
+
+  .img {
+  background-image: url("/public/images/tavern-gif.gif");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 80em;
+  background-position: center;
+  width: 100%;
+  }
+
+  .logo {
+    margin-top: -2em;
+    margin-bottom: -1.8em;
+  }
 
   img {
     height: 100px;
     width: 100px;
   }
 
-  .tavern-characters{
-    margin: auto;
-    display: flex;
-    justify-content: space-evenly;
-    padding-top: 1em;
-    background-color: $darkgray;
-    width: 90%;
-    height: 13%;
-    border: 4px solid $vamp;
-    border-radius: 5px;
-    border-top: none;
-    opacity: .95;
+  .flavor {
+    width: 16em;
     color: $lightgray;
+    background-color: rgba(31, 31, 31, .7);
+    height: 25em;
+    border: 4px solid $vamp;
+    border-top: none;
+    border-left: none;
+    border-radius: 5px;
+    padding: 1em;
+  }
+
+  .tavern-characters {
+    padding-top: 1em;
+    width: 15em;
+    border: 5px $vamp solid;
+    border-top: none;
+    border-radius: 5px;
+    color: #b3b3b3;
 
     a {
       color: white;
+
+      &:hover {
+        transform: scale(1.1);
+        font-weight: bold;
+      }
+    }
+
+    h4:hover {
+      transform: scale(1.05);
+      font-weight: bold;
     }
   }
 
   .character-card {
-    display: flex;
-    justify-content: space-evenly;
+    // flex-wrap: nowrap;
+    // display: flex;
+    // justify-content: space-evenly;
   }
 
   button {
@@ -551,4 +624,24 @@ footer {
     margin: 0;
     padding: 0;
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-left: 2px solid black;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $darkgray;
+  border: 2px solid $darkgray;
+  border-radius: 10px;
 }

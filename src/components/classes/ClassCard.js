@@ -1,9 +1,10 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./ClassCard.css"
 import { addSheet } from "../../modules/SheetDataManager"
+import { getWeaponsByClass } from "../../modules/WeaponDataManager"
 
-export const ClassCard = ({ classObj}) => {
+export const ClassCard = ({ classObj }) => {
     let saves = []
     const showSaves = cObj => {
         if (cObj.strSave) saves.push("Strength")
@@ -15,11 +16,17 @@ export const ClassCard = ({ classObj}) => {
 
         return saves
     }
-    
+
+    const [weaponList, setWeaponList] = useState([])
+
+    useEffect(() => {
+        getWeaponsByClass(classObj.id).then(setWeaponList)
+    }, [])
+
     const [isLoading, setIsLoading] = useState(false)
     let navigate = useNavigate()
     let currentUserId = sessionStorage.getItem("dnd_user_name")
-    
+
     const createSheet = e => {
         setIsLoading(true)
         let sheetObj = {
@@ -62,15 +69,14 @@ export const ClassCard = ({ classObj}) => {
         }
         addSheet(sheetObj).then(data => navigate(`/character-edit/${data.id}`)).then(setIsLoading(false))
     }
-
-
     showSaves(classObj)
 
     return (
         <div className={`classCard ${classObj.className.toLowerCase()}`}>
-            <section className={classObj.className.toLowerCase()}><img className={`class-icon`} src={`${classObj.icon}`}/><h1>{classObj.className}</h1></section>
+            <section className={classObj.className.toLowerCase()}><img className={`class-icon`} src={`${classObj.icon}`} /><h1>{classObj.className}</h1></section>
             <strong>Hit Die:</strong> d{classObj.hitDieSides} <br></br>
             <strong>Saves:</strong> {saves.join(" and ")}<br></br>
+            <p>{classObj.desc}</p>
             {/* <strong>Primary Weapons:</strong> {weapons.map(function(item, index) {
             return <span key={item.id}>{ (index ? ', ' : '') + item.weapon.name }</span>;
           })} */}
