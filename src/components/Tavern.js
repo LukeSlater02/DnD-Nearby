@@ -6,6 +6,10 @@ import { deleteSheet } from "../modules/SheetDataManager"
 export const Tavern = () => {
     const [character, setCharacter] = useState([])
 
+    const clearUser = () => {
+        sessionStorage.clear();
+      }
+
     let currentUser = sessionStorage.getItem("dnd_user")
     useEffect(() => {
         getUserSheet(currentUser).then(data => {
@@ -20,6 +24,11 @@ export const Tavern = () => {
     return (
         <div className="roster">
             <div className="tavern-characters">
+                <div className="links">
+                    <img className="logo" src="./images/logo.svg"></img><br></br>
+                <Link to="/home" className="home">Home</Link> <br></br>
+                {sessionStorage.getItem("dnd_user") != null ? <Link className="navbar__link" to="/login" onClick={clearUser}>Logout</Link> : ''}
+                </div>
                 {character.map(ele => {
                     return (
                         <section className="character-card">
