@@ -20,7 +20,7 @@ export const DnDMain = () => {
         sessionStorage.clear();
         setIsAuthenticated(sessionStorage.getItem("dnd_user") !== null)
       }
-    
+      <NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/>
 return (
   <>
   <ApplicationViews setAuthUser={setAuthUser}

@@ -251,13 +251,13 @@ nav {
   .banner1 {
     position: absolute;
     width: 16em;
-    left: 0;
+    left: 0em;
   }
 
   .banner2 {
     position: absolute;
     width: 16em;
-    right: .5em;
+    right: 0em;
   }
 
   h1 {
@@ -325,7 +325,20 @@ footer {
   margin: auto;
   margin-top: 1em;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  gap: 1em;
+  grid-template-columns: repeat(5, 300px);
+
+  header {
+    width: 40%;
+    margin-left: auto;
+    grid-column-start: span 5;
+  }
+
+  .stats {
+  }
+
+  .skills {
+  }
 
   input[type=text] {
     outline: none;
@@ -340,7 +353,6 @@ footer {
     border-bottom: 1px black solid;
   }
 
-
   button {
     font-family: 'Spectral', serif;
     font-size: 14px;
@@ -350,6 +362,7 @@ footer {
     border: 1px solid $vamp;
     border-radius: 10px;
     margin: .3em;
+    
     // transition: color .5s scale() .5s
   }
 
@@ -676,7 +689,7 @@ footer {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $darkgray;
-  border: 2px solid $darkgray;
+  background:  #A7171A;
+  border: 2px solid  #A7171A;
   border-radius: 10px;
 }

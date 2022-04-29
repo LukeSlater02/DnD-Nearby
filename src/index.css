@@ -429,13 +429,13 @@ nav .logo .header {
 nav .banner1 {
   position: absolute;
   width: 16em;
-  left: 0;
+  left: 0em;
 }
 
 nav .banner2 {
   position: absolute;
   width: 16em;
-  right: .5em;
+  right: 0em;
 }
 
 nav h1 {
@@ -508,8 +508,16 @@ footer {
   margin-top: 1em;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[6];
-      grid-template-columns: repeat(6, 1fr);
+  gap: 1em;
+  -ms-grid-columns: (300px)[5];
+      grid-template-columns: repeat(5, 300px);
+}
+
+.character-sheet header {
+  width: 40%;
+  margin-left: auto;
+  -ms-grid-column: span 5;
+      grid-column-start: span 5;
 }
 
 .character-sheet input[type=text] {
@@ -906,8 +914,8 @@ footer {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #1f1f1f;
-  border: 2px solid #1f1f1f;
+  background: #A7171A;
+  border: 2px solid  #A7171A;
   border-radius: 10px;
 }
 /*# sourceMappingURL=index.css.map */
