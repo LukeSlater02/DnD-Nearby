@@ -161,6 +161,56 @@
       "hpLevelOne": 6,
       "hitDieSides": 6,
       "icon": "./images/wizard.svg"
+    },
+    {
+      "userId": 1,
+      "classId": 6,
+      "name": "Kasimir",
+      "level": 17,
+      "background": "Space Traveling Badass",
+      "alignment": "Neutral Good",
+      "race": "Elder Eladrin",
+      "armorClass": 22,
+      "str": 12,
+      "dex": 22,
+      "con": 16,
+      "int": 19,
+      "wis": 18,
+      "cha": 8,
+      "hitPoints": "",
+      "speed": 60,
+      "initiative": 6,
+      "acrobatics": true,
+      "animalHandling": false,
+      "arcana": false,
+      "athletics": true,
+      "deception": false,
+      "history": true,
+      "insight": true,
+      "intimidation": false,
+      "investigation": false,
+      "medicine": false,
+      "nature": false,
+      "perception": true,
+      "performance": false,
+      "persuasion": false,
+      "religion": false,
+      "sleightOfHand": false,
+      "stealth": true,
+      "survival": false,
+      "id": 5,
+      "className": "Monk",
+      "dexSave": true,
+      "strSave": true,
+      "conSave": true,
+      "intSave": true,
+      "wisSave": true,
+      "chaSave": true,
+      "hpPerLevel": 5,
+      "hpLevelOne": 8,
+      "hitDieSides": 8,
+      "icon": "./images/monk.svg",
+      "desc": "A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection."
     }
   ],
   "classes": [
@@ -612,319 +662,469 @@
       "classId": 1
     },
     {
-      "id": 1,
-      "weaponId": 2,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 3,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 4,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 5,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 6,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 7,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 8,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 9,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 10,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 11,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 12,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 13,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 14,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 15,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 16,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 17,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 18,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 19,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 20,
-      "classId": 1
-    },
-    {
-      "id": 1,
-      "weaponId": 1,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 2,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 3,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 4,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 5,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 6,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 7,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 8,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 9,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 10,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 11,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 12,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 13,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 14,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 15,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 16,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 17,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 18,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 19,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 20,
-      "classId": 2
-    },
-    {
-      "id": 1,
-      "weaponId": 1,
-      "classId": 2
-    },
-    {
       "id": 2,
+      "weaponId": 2,
+      "classId": 1
+    },
+    {
+      "id": 3,
+      "weaponId": 3,
+      "classId": 1
+    },
+    {
+      "id": 4,
+      "weaponId": 4,
+      "classId": 1
+    },
+    {
+      "id": 5,
+      "weaponId": 5,
+      "classId": 1
+    },
+    {
+      "id": 6,
+      "weaponId": 6,
+      "classId": 1
+    },
+    {
+      "id": 7,
+      "weaponId": 7,
+      "classId": 1
+    },
+    {
+      "id": 8,
+      "weaponId": 8,
+      "classId": 1
+    },
+    {
+      "id": 9,
+      "weaponId": 9,
+      "classId": 1
+    },
+    {
+      "id": 10,
+      "weaponId": 10,
+      "classId": 1
+    },
+    {
+      "id": 11,
+      "weaponId": 11,
+      "classId": 1
+    },
+    {
+      "id": 12,
+      "weaponId": 12,
+      "classId": 1
+    },
+    {
+      "id": 13,
+      "weaponId": 13,
+      "classId": 1
+    },
+    {
+      "id": 14,
+      "weaponId": 14,
+      "classId": 1
+    },
+    {
+      "id": 15,
+      "weaponId": 15,
+      "classId": 1
+    },
+    {
+      "id": 16,
+      "weaponId": 16,
+      "classId": 1
+    },
+    {
+      "id": 17,
+      "weaponId": 17,
+      "classId": 1
+    },
+    {
+      "id": 18,
+      "weaponId": 18,
+      "classId": 1
+    },
+    {
+      "id": 19,
+      "weaponId": 19,
+      "classId": 1
+    },
+    {
+      "id": 20,
+      "weaponId": 20,
+      "classId": 1
+    },
+    {
+      "id": 21,
+      "weaponId": 1,
+      "classId": 2
+    },
+    {
+      "id": 22,
+      "weaponId": 2,
+      "classId": 2
+    },
+    {
+      "id": 23,
+      "weaponId": 3,
+      "classId": 2
+    },
+    {
+      "id": 24,
+      "weaponId": 4,
+      "classId": 2
+    },
+    {
+      "id": 25,
+      "weaponId": 5,
+      "classId": 2
+    },
+    {
+      "id": 26,
+      "weaponId": 6,
+      "classId": 2
+    },
+    {
+      "id": 27,
+      "weaponId": 7,
+      "classId": 2
+    },
+    {
+      "id": 28,
+      "weaponId": 8,
+      "classId": 2
+    },
+    {
+      "id": 29,
+      "weaponId": 9,
+      "classId": 2
+    },
+    {
+      "id": 30,
+      "weaponId": 10,
+      "classId": 2
+    },
+    {
+      "id": 31,
+      "weaponId": 11,
+      "classId": 2
+    },
+    {
+      "id": 32,
+      "weaponId": 12,
+      "classId": 2
+    },
+    {
+      "id": 33,
+      "weaponId": 13,
+      "classId": 2
+    },
+    {
+      "id": 34,
+      "weaponId": 14,
+      "classId": 2
+    },
+    {
+      "id": 35,
+      "weaponId": 15,
+      "classId": 2
+    },
+    {
+      "id": 36,
+      "weaponId": 16,
+      "classId": 2
+    },
+    {
+      "id": 37,
+      "weaponId": 17,
+      "classId": 2
+    },
+    {
+      "id": 38,
+      "weaponId": 18,
+      "classId": 2
+    },
+    {
+      "id": 39,
+      "weaponId": 19,
+      "classId": 2
+    },
+    {
+      "id": 40,
+      "weaponId": 20,
+      "classId": 2
+    },
+    {
+      "id": 41,
+      "weaponId": 1,
+      "classId": 2
+    },
+    {
+      "id": 42,
       "weaponId": 21,
       "classId": 6
     },
     {
-      "id": 2,
+      "id": 43,
       "weaponId": 22,
       "classId": 6
     },
     {
-      "id": 2,
+      "id": 44,
       "weaponId": 23,
       "classId": 6
     },
     {
-      "id": 2,
+      "id": 45,
       "weaponId": 24,
       "classId": 6
     },
     {
-      "id": 2,
+      "id": 46,
       "weaponId": 25,
       "classId": 6
     },
     {
-      "id": 2,
+      "id": 47,
       "weaponId": 8,
       "classId": 6
     },
     {
-      "id": 2,
+      "id": 48,
       "weaponId": 16,
       "classId": 6
     },
     {
-      "id": 2,
+      "id": 49,
       "weaponId": 2,
       "classId": 6
     },
     {
-      "id": 2,
+      "id": 50,
       "weaponId": 11,
       "classId": 6
     },
     {
-      "id": 2,
+      "id": 51,
       "weaponId": 1,
       "classId": 7
     },
     {
-      "id": 2,
+      "id": 52,
       "weaponId": 12,
       "classId": 7
     },
     {
-      "id": 2,
+      "id": 53,
       "weaponId": 14,
       "classId": 7
     },
     {
-      "id": 2,
+      "id": 54,
       "weaponId": 13,
       "classId": 7
     },
     {
-      "id": 2,
+      "id": 55,
       "weaponId": 4,
       "classId": 7
     },
     {
-      "id": 2,
+      "id": 56,
       "weaponId": 5,
       "classId": 7
     },
     {
-      "id": 2,
+      "id": 57,
       "weaponId": 7,
       "classId": 7
     },
     {
-      "id": 2,
+      "id": 58,
       "weaponId": 2,
       "classId": 8
     },
     {
-      "id": 3,
+      "id": 59,
       "weaponId": 8,
       "classId": 8
     },
     {
-      "id": 4,
+      "id": 60,
       "weaponId": 9,
       "classId": 8
     },
     {
-      "id": 5,
+      "id": 61,
       "weaponId": 11,
       "classId": 8
     },
     {
-      "id": 5,
+      "id": 62,
       "weaponId": 18,
       "classId": 8
     },
     {
-      "id": 5,
+      "id": 63,
       "weaponId": 16,
       "classId": 8
     },
     {
-      "id": 5,
+      "id": 64,
       "weaponId": 1,
       "classId": 8
+    },
+    {
+      "id": 64,
+      "weaponId": 1,
+      "classId": 3
+    },
+    {
+      "id": 64,
+      "weaponId": 2,
+      "classId": 3
+    },
+    {
+      "id": 64,
+      "weaponId": 8,
+      "classId": 3
+    },
+    {
+      "id": 64,
+      "weaponId": 9,
+      "classId": 3
+    },
+    {
+      "id": 64,
+      "weaponId": 10,
+      "classId": 3
+    },
+    {
+      "id": 64,
+      "weaponId": 11,
+      "classId": 3
+    },
+    {
+      "id": 64,
+      "weaponId": 1,
+      "classId": 3
+    },
+    {
+      "id": 64,
+      "weaponId": 19,
+      "classId": 3
+    },
+    {
+      "id": 64,
+      "weaponId": 2,
+      "classId": 4
+    },
+    {
+      "id": 64,
+      "weaponId": 5,
+      "classId": 4
+    },
+    {
+      "id": 64,
+      "weaponId": 7,
+      "classId": 4
+    },
+    {
+      "id": 64,
+      "weaponId": 13,
+      "classId": 4
+    },
+    {
+      "id": 64,
+      "weaponId": 4,
+      "classId": 4
+    },
+    {
+      "id": 64,
+      "weaponId": 10,
+      "classId": 4
+    },
+    {
+      "id": 64,
+      "weaponId": 6,
+      "classId": 5
+    },
+    {
+      "id": 64,
+      "weaponId": 2,
+      "classId": 5
+    },
+    {
+      "id": 64,
+      "weaponId": 10,
+      "classId": 5
+    },
+    {
+      "id": 64,
+      "weaponId": 5,
+      "classId": 5
+    },
+    {
+      "id": 64,
+      "weaponId": 20,
+      "classId": 5
+    },
+    {
+      "id": 64,
+      "weaponId": 25,
+      "classId": 5
+    },
+    {
+      "id": 64,
+      "weaponId": 4,
+      "classId": 5
+    },
+    {
+      "id": 64,
+      "weaponId": 7,
+      "classId": 5
+    },
+    {
+      "id": 64,
+      "weaponId": 1,
+      "classId": 10
+    },
+    {
+      "id": 64,
+      "weaponId": 12,
+      "classId": 10
+    },
+    {
+      "id": 64,
+      "weaponId": 14,
+      "classId": 10
+    },
+    {
+      "id": 64,
+      "weaponId": 15,
+      "classId": 10
+    },
+    {
+      "id": 64,
+      "weaponId": 17,
+      "classId": 10
+    },
+    {
+      "id": 64,
+      "weaponId": 2,
+      "classId": 10
+    },
+    {
+      "id": 64,
+      "weaponId": 7,
+      "classId": 10
+    },
+    {
+      "id": 64,
+      "weaponId": 5,
+      "classId": 10
     }
   ],
   "classArmor": [
@@ -942,6 +1142,231 @@
       "id": 3,
       "classId": 6,
       "armorId": 10
+    },
+    {
+      "id": 4,
+      "classId": 1,
+      "armorId": 1
+    },
+    {
+      "id": 5,
+      "classId": 1,
+      "armorId": 2
+    },
+    {
+      "id": 6,
+      "classId": 1,
+      "armorId": 3
+    },
+    {
+      "id": 7,
+      "classId": 1,
+      "armorId": 4
+    },
+    {
+      "id": 8,
+      "classId": 1,
+      "armorId": 5
+    },
+    {
+      "id": 9,
+      "classId": 1,
+      "armorId": 6
+    },
+    {
+      "id": 10,
+      "classId": 2,
+      "armorId": 1
+    },
+    {
+      "id": 11,
+      "classId": 2,
+      "armorId": 2
+    },
+    {
+      "id": 12,
+      "classId": 2,
+      "armorId": 3
+    },
+    {
+      "id": 13,
+      "classId": 2,
+      "armorId": 4
+    },
+    {
+      "id": 14,
+      "classId": 2,
+      "armorId": 5
+    },
+    {
+      "id": 15,
+      "classId": 2,
+      "armorId": 6
+    },
+    {
+      "id": 16,
+      "classId": 2,
+      "armorId": 7
+    },
+    {
+      "id": 17,
+      "classId": 2,
+      "armorId": 8
+    },
+    {
+      "id": 18,
+      "classId": 2,
+      "armorId": 9
+    },
+    {
+      "id": 19,
+      "classId": 7,
+      "armorId": 1
+    },
+    {
+      "id": 21,
+      "classId": 7,
+      "armorId": 2
+    },
+    {
+      "id": 22,
+      "classId": 7,
+      "armorId": 3
+    },
+    {
+      "id": 23,
+      "classId": 7,
+      "armorId": 4
+    },
+    {
+      "id": 24,
+      "classId": 7,
+      "armorId": 5
+    },
+    {
+      "id": 25,
+      "classId": 7,
+      "armorId": 6
+    },
+    {
+      "id": 26,
+      "classId": 7,
+      "armorId": 7
+    },
+    {
+      "id": 27,
+      "classId": 7,
+      "armorId": 8
+    },
+    {
+      "id": 28,
+      "classId": 7,
+      "armorId": 9
+    },
+    {
+      "id": 29,
+      "classId": 7,
+      "armorId": 9
+    },
+    {
+      "id": 30,
+      "classId": 3,
+      "armorId": 1
+    },
+    {
+      "id": 31,
+      "classId": 3,
+      "armorId": 2
+    },
+    {
+      "id": 32,
+      "classId": 4,
+      "armorId": 1
+    },
+    {
+      "id": 33,
+      "classId": 4,
+      "armorId": 2
+    },
+    {
+      "id": 34,
+      "classId": 4,
+      "armorId": 3
+    },
+    {
+      "id": 35,
+      "classId": 4,
+      "armorId": 4
+    },
+    {
+      "id": 36,
+      "classId": 4,
+      "armorId": 5
+    },
+    {
+      "id": 37,
+      "classId": 4,
+      "armorId": 6
+    },
+    {
+      "id": 38,
+      "classId": 5,
+      "armorId": 1
+    },
+    {
+      "id": 39,
+      "classId": 5,
+      "armorId": 2
+    },
+    {
+      "id": 40,
+      "classId": 5,
+      "armorId": 3
+    },
+    {
+      "id": 41,
+      "classId": 5,
+      "armorId": 4
+    },
+    {
+      "id": 42,
+      "classId": 5,
+      "armorId": 5
+    },
+    {
+      "id": 43,
+      "classId": 5,
+      "armorId": 6
+    },
+    {
+      "id": 44,
+      "classId": 10,
+      "armorId": 1
+    },
+    {
+      "id": 45,
+      "classId": 10,
+      "armorId": 2
+    },
+    {
+      "id": 46,
+      "classId": 10,
+      "armorId": 3
+    },
+    {
+      "id": 47,
+      "classId": 10,
+      "armorId": 4
+    },
+    {
+      "id": 48,
+      "classId": 10,
+      "armorId": 5
+    },
+    {
+      "id": 49,
+      "classId": 10,
+      "armorId": 6
     }
   ],
   "classSkills": [

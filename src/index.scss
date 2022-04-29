@@ -12,7 +12,7 @@ $red: #DF0000;
 $darkgray: rgb(31, 31, 31);
 $midgray: #353535;
 $lightgray: #b3b3b3;
-$vamp: #080808;
+$vamp: rgb(8, 8, 8);
 $paladin: #b59e54;
 $rogue: #555752;
 $monk: #51a5c5;
@@ -221,8 +221,44 @@ h2 {
 }
 
 nav {
+
   display: flex;
-  justify-content: space-evenly;
+
+  .logo {
+    width: 180px;
+    margin: auto;
+    font-family: spectral;
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      width: 15em;
+      margin-top: -50px;
+      margin-bottom: -100px;
+      margin-left: 6em;
+    }
+
+    .header {
+      margin-left: 8em;
+      font-size: 40px;
+      padding-bottom: -10em;
+      text-decoration: none;
+    }
+  }
+
+  .banner1 {
+    position: absolute;
+    width: 16em;
+    left: 0;
+  }
+
+  .banner2 {
+    position: absolute;
+    width: 16em;
+    right: .5em;
+  }
 
   h1 {
     font-size: xx-large;
@@ -239,7 +275,6 @@ nav {
     color: $lightgray;
 
     &:hover {
-      transform: scale(1.1);
       color: white;
       font-weight: bold;
     }
@@ -251,6 +286,18 @@ nav {
     margin: 0;
     margin-top: 0;
   }
+
+  .links {
+    padding-top: .3em;
+    margin-right: 16em;
+    img {
+      border: 2px solid $vamp;
+      border-radius: 10px;
+      &:hover {
+        border: 2px solid white;
+      }
+      }
+    }
 
   color: lightgray;
   background-color: $vamp;
@@ -281,12 +328,10 @@ footer {
   grid-template-columns: repeat(6, 1fr);
 
   input[type=text] {
-    border: none;
     outline: none;
     border: none;
     border-bottom: 1px black solid;
   }
-
 
   input[type=number] {
     width: 3.5em;
@@ -527,16 +572,13 @@ footer {
 }
 
 .roster {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/public/images/tavern-gif.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   background-color: $darkgray;
-  width: 100%;
-  height: 100%;
-  // background-image: url("/public/images/tavern-gif.gif");
-  // background-repeat: no-repeat;
-  // background-size: 80em;
-  // background-position: center;
-  background-color: $darkgray;
-  display: flex;
-  justify-content: space-around;
 
   .home {
     color: white;
@@ -545,14 +587,6 @@ footer {
 
   .links {
     text-align: center;
-  }
-
-  .img {
-  background-image: url("/public/images/tavern-gif.gif");
-  background-repeat: no-repeat;
-  background-size: 80em;
-  background-position: center;
-  width: 100%;
   }
 
   .logo {
@@ -566,24 +600,25 @@ footer {
   }
 
   .flavor {
+    margin-top: .5em;
+    margin-left: .3em;
     width: 16em;
     color: $lightgray;
-    background-color: rgba(31, 31, 31, .7);
+    background-color: rgba(8, 8, 8, .9);
     height: 25em;
-    border: 4px solid $vamp;
-    border-top: none;
-    border-left: none;
     border-radius: 5px;
     padding: 1em;
   }
 
   .tavern-characters {
-    padding-top: 1em;
-    width: 15em;
-    border: 5px $vamp solid;
-    border-top: none;
-    border-radius: 5px;
+    padding: 1em 0em;
+    width: 100%;
+    min-width: 1000px;
+    background-color: rgba(8, 8, 8, .9);
+    height: 7em;
     color: #b3b3b3;
+    display: flex;
+    justify-content: space-evenly;
 
     a {
       color: white;
@@ -601,9 +636,9 @@ footer {
   }
 
   .character-card {
-    // flex-wrap: nowrap;
-    // display: flex;
-    // justify-content: space-evenly;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: space-evenly;
   }
 
   button {

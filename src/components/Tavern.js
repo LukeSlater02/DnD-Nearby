@@ -23,12 +23,6 @@ export const Tavern = () => {
 
     return (
         <div className="roster">
-            <section className="flavor">
-                <p><em>This small tavern on the far side of town is a warm relief from the chill evening air. The floorboards of its threshold are well-worn with use and the door swings open smoothly as you enter.</em></p>
-                <p><em>The air is heavy with smoke and dim murmurs. Looking around, you see a ragged assortment of thugs and low-lives, who eye you with an amused sort of malice. Surely, even in a place like this, you can manage to find a few capable looking adventurers willing to aid your cause...</em></p>
-            </section>
-            <section className="img">
-            </section>
             <div className="tavern-characters">
                 <div className="links">
                     <img className="logo" src="./images/logo.svg"></img><br></br>
@@ -55,6 +49,12 @@ export const Tavern = () => {
                     )
                 })}
             </div>
+            <section className="flavor">
+                <p><em>This small tavern on the far side of town is a warm relief from the chill evening air. The floorboards of its threshold are well-worn with use and the door swings open smoothly as you enter.</em></p>
+                <p><em>The air is heavy with smoke and dim murmurs. Looking around, you see a ragged assortment of thugs and low-lives, who eye you with an amused sort of malice. Surely, even in a place like this, you can manage to find a few capable adventurers willing to aid your cause...</em></p>
+            </section>
+            <section className="img">
+            </section>
         </div>
     )
 

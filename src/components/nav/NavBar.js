@@ -3,18 +3,19 @@ import { Link, useLocation } from "react-router-dom"
 import "./NavBar.css"
 
 
-export const NavBar = ({clearUser}) => {
+export const NavBar = ({ clearUser }) => {
   const location = useLocation();
   return (
     <nav>
-        <img src="/images/highElf.svg"></img>
-        <p>Flavor text</p>
-        <Link to="/home"><img src="/images/logo.svg"></img></Link>
-        <h1>NEARBY</h1>
-        <img src="/images/gauntletBanner.svg"></img>
-        <img src="/images/harpersBanner.svg"></img>
-        <Link to="/the-tavern">The Tavern</Link>
-        {sessionStorage.getItem("dnd_user") != null ? <Link className="navbar__link" to="/login" onClick={clearUser}>Logout</Link> : ''}
+      <img className="banner1" src="/images/gauntletBanner.svg"></img>
+      <section className="logo">
+        <Link to="/home"><img src="/images/logo.svg"></img><strong className="header">Nearby</strong></Link>
+      </section>
+      <section className="links"><Link to="/the-tavern">
+      Visit the Tavern<br></br>
+        <img src="/images/tavern-icon.jpg"></img><br></br></Link>
+        {sessionStorage.getItem("dnd_user") != null ? <Link className="navbar__link" to="/login" onClick={clearUser}>Logout</Link> : ''}</section>
+        <img className="banner2" src="/images/harpersBanner.svg"></img>
       {/* <ul className="navBar">
         <li className="navBar_item">
  
