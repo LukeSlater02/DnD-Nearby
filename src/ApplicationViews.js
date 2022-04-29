@@ -18,8 +18,8 @@ export const ApplicationViews = ({setAuthUser, clearUser}) => {
   return (
     <>
     <Routes>
-      <Route path="/" element={<PrivateOutlet/>} >
-        <Route path='/Home' element={<><NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/><ClassList/></>}/>
+      <Route path="/">
+        <Route path='/home' element={<><NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/><ClassList/></>}/>
         <Route path="/character-edit/:characterId" element={<><NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/><SheetEdit/></>}/>
         <Route path="/character/:characterId" element={<><NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/><SheetForm/></>}/>
         <Route path="/the-tavern" element={<Tavern/>}/>

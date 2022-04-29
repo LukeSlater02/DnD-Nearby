@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import { DnDMain } from './components/Dndmain';
 import { Footer } from './components/foot/Footer';
+import { NavBar } from './components/nav/NavBar';
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);

@@ -6,7 +6,7 @@ import { deleteSheet } from "../modules/SheetDataManager"
 export const Tavern = () => {
     const [character, setCharacter] = useState([])
 
-    const clearUser = () => {
+    const removeUser = () => {
         sessionStorage.clear();
     }
 
@@ -27,7 +27,7 @@ export const Tavern = () => {
                 <div className="links">
                     <img className="logo" src="./images/logo.svg"></img><br></br>
                     <Link to="/home" className="home">Home</Link> <br></br>
-                    {sessionStorage.getItem("dnd_user") != null ? <Link className="navbar__link" to="/login" onClick={clearUser}>Logout</Link> : ''}
+                    {sessionStorage.getItem("dnd_user") != null ? <Link className="navbar__link" to="/login" onClick={removeUser}>Logout</Link> : ''}
                 </div>
                 {character.map(ele => {
                     return (
