@@ -319,26 +319,121 @@ footer {
 }
 
 .character-sheet {
-  @include sidebar();
   height: 45em;
+  padding: 1em;
   width: 70em;
   margin: auto;
-  margin-top: 1em;
-  display: grid;
-  gap: 1em;
-  grid-template-columns: repeat(5, 300px);
+
+  input {
+    font-family: spectral;
+    font-size: medium;
+  }
+
+  .sheet-container {
+    display: grid;
+    gap: 2em;
+    grid-template-columns: 120px 200px 350px;
+    margin: auto;
+    justify-content: center;
+  }
 
   header {
     width: 40%;
     margin-left: auto;
-    grid-column-start: span 5;
-  }
-
-  .stats {
+    grid-column-start: span 3;
   }
 
   .skills {
+    box-sizing: border-box;
+    border: 10px solid black;
+    border-image-source: url("/public/images/saves.svg");
+    border-image-slice: 65 10;
+    border-image-width: auto;
+    border-image-repeat: stretch;
   }
+
+  .prof-bonus {
+    background: url(https://app.roll20.net/images/dndstyling/proficency-bonus.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60px;
+
+    span.pb {
+      margin-left: .7em;
+      font-size: x-large;
+    }
+
+    span {
+      line-height: 57px;
+      margin-left: 1.5em;
+      font-size: small;
+    }
+  }
+
+  .saves{
+    h3 {
+      text-align: center;
+    }
+    grid-row-start: 1;
+    grid-column-start: 2;
+    border: 10px solid black;
+    padding-bottom: 5px;
+    border-image-source: url("/public/images/saves.svg");
+    border-image-slice: 65 10;
+    border-image-width: auto;
+    border-image-repeat: stretch;
+    margin-bottom: 2em;
+  }
+
+  .ac-init-speed-container{
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+  }
+
+  .ac {
+    background-image: url("/public/images/AC.svg");
+    background-repeat: no-repeat;
+    width: 3em;
+    line-height: 3.4em;
+    font-size: larger;
+  }
+
+  .init{
+    background-image: url("/public/images/vital-box.svg");
+    background-repeat: no-repeat;
+    width: 3.4em;
+    line-height: 2.6em;
+    font-size: larger;
+  }
+
+  .speed {
+    background-image: url("/public/images/vital-box.svg");
+    background-repeat: no-repeat;
+    width: 3.4em;
+    line-height: 2.6em;
+    font-size: larger;
+  }
+
+  .hp-container{
+    background-image: url("/public/images/mid-info.svg");
+    background-repeat: no-repeat;
+    width: 70%;
+    height: 6em;
+    text-align: center;
+    font-size: xx-large;
+    input {
+      font-size: 32px;
+      margin-top: 18px;
+      width: 2em !important;
+    }
+  }
+
+  .mid-info{
+
+  }
+
+  .weapons {}
 
   input[type=text] {
     outline: none;
@@ -355,11 +450,10 @@ footer {
 
   button {
     font-family: 'Spectral', serif;
-    font-size: 14px;
+    font-size: 12px;
     outline: none;
     border: none;
     background-color: white;
-    border: 1px solid $vamp;
     border-radius: 10px;
     margin: .3em;
     
@@ -368,7 +462,6 @@ footer {
 
   button:hover {
     color: red;
-    transform: scale(1.1);
     font-weight: bold;
     cursor: pointer;
   }
@@ -380,12 +473,18 @@ footer {
 
   .statBox {
     text-align: center;
-    border: 2px solid black;
-    border-radius: 5px;
-    width: 6em;
-    padding: .3em;
+    border: 6px solid black;
+    width: 5em;
     font-weight: bold;
     margin-bottom: .3em;
+    border-image-source: url("/public/images/ability-STR.svg");
+    border-image-repeat: stretch;
+    border-image-width: auto;
+    border-image-slice: 34 15;
+
+    .stat-mod {
+      padding-top: 10em;
+    }
   }
 
   input[type=checkbox] {

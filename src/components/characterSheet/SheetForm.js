@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { deleteSheet, getSheetById} from "../../modules/SheetDataManager";
+import { deleteSheet, getSheetById } from "../../modules/SheetDataManager";
 import { calcPB, calcMod, DeathSaveFail, DeathSaveSuccess } from "./SheetHelpers";
 import { getWeaponsByClass } from "../../modules/WeaponDataManager";
 
@@ -62,7 +62,7 @@ export const SheetForm = () => {
 
     }
 
-    const {characterId} = useParams()
+    const { characterId } = useParams()
     let navigate = useNavigate()
     let PB = calcPB(character.level)
     let HP = calcHP(character)
@@ -158,168 +158,173 @@ export const SheetForm = () => {
     return (
         <>
             <div className="character-sheet">
-                {/* {console.log('%c Weapons Array', 'color: orange; font-weight: bold;')}
-            {console.table(weapons)} */}
+                <div className="sheet-container">
+                    {/* <header>
+                        <section className="top-info">
+                            {character.name} - {character.className} Level {character.level} <br></br>
+                            {character.background} {character.race} {character.alignment}
+                        </section>
+                    </header> */}
 
-                <header>
-                    <section className="top-info">
-                        {character.name} - {character.className} Level {character.level} <br></br>
-                        {character.background} {character.race} {character.alignment}
+                    <section className="stats">
+                        <div className="statBox">
+                            {character.str} <br></br>
+                            <button onClick={() => rolld20(strMod)} className="statName">strength</button><br></br>
+                            <span className="stat-mod">{calcMod(character.str)}</span>
+                        </div>
+                        <div className="statBox">
+                            {character.dex} <br></br>
+                            <button onClick={() => rolld20(dexMod)} className="statName">Dexterity</button> <br></br>
+                            <span className="stat-mod">{calcMod(character.dex)}</span>
+                        </div>
+                        <div className="statBox">
+                            {character.con} <br></br>
+                            <button onClick={() => rolld20(conMod)} className="statName">Constitution</button> <br></br>
+                            <span className="stat-mod">{calcMod(character.con)}</span>
+                        </div>
+                        <div className="statBox">
+                            {character.int} <br></br>
+                            <button onClick={() => rolld20(intMod)} className="statName">Intelligence</button> <br></br>
+                            <span className="stat-mod">{calcMod(character.int)}</span>
+                        </div>
+                        <div className="statBox">
+                            {character.wis} <br></br>
+                            <button onClick={() => rolld20(wisMod)} className="statName">Wisdom</button> <br></br>
+                            <span className="stat-mod">{calcMod(character.wis)}</span>
+                        </div>
+                        <div className="statBox">
+                            {character.cha} <br></br>
+                            <button onClick={() => rolld20(chaMod)} className="statName">Charisma</button> <br></br>
+                            <span className="stat-mod">{calcMod(character.cha)}</span>
+                        </div>
+
+
                     </section>
-                </header>
 
-                <section className="stats">
-                    <div className="statBox">
-                        {character.str} <br></br>
-                        {calcMod(character.str)}<br></br>
-                        <button onClick={() => rolld20(strMod)} className="statName">strength</button>
-                    </div>
-                    <div className="statBox">
-                        {character.dex} <br></br>
-                        {calcMod(character.dex)} <br></br>
-                        <button onClick={() => rolld20(dexMod)} className="statName">Dexterity</button>
-                    </div>
-                    <div className="statBox">
-                        {character.con} <br></br>
-                        {calcMod(character.con)} <br></br>
-                        <button onClick={() => rolld20(conMod)} className="statName">Constitution</button>
-                    </div>
-                    <div className="statBox">
-                        {character.int} <br></br>
-                        {calcMod(character.int)} <br></br>
-                        <button onClick={() => rolld20(intMod)} className="statName">Intelligence</button>
-                    </div>
-                    <div className="statBox">
-                        {character.wis} <br></br>
-                        {calcMod(character.wis)} <br></br>
-                        <button onClick={() => rolld20(wisMod)} className="statName">Wisdom</button>
-                    </div>
-                    <div className="statBox">
-                        {character.cha} <br></br>
-                        {calcMod(character.cha)} <br></br>
-                        <button onClick={() => rolld20(chaMod)} className="statName">Charisma</button>
-                    </div>
+                    <section className="skills-saves-container">
+                        <h4 className="prof-bonus"> <span className="pb">+{PB}</span> <span>Proficiency Bonus</span></h4>
+                        <section className="saves">
+                            <h3>Saving Throws</h3>
+                            {checkIfSaveProficient(character.strSave, strMod, "Strength")}
 
+                            {checkIfSaveProficient(character.dexSave, dexMod, "Dexterity")}
 
-                </section>
+                            {checkIfSaveProficient(character.conSave, conMod, "Constitution")}
 
-                <section className="skills">
-                    {checkIfSkillProficient("acrobatics", dexMod)}
+                            {checkIfSaveProficient(character.intSave, intMod, "Intelligence")}
 
-                    {checkIfSkillProficient("animal handling", wisMod)}
+                            {checkIfSaveProficient(character.wisSave, wisMod, "Wisdom")}
 
-                    {checkIfSkillProficient("arcana", intMod)}
+                            {checkIfSaveProficient(character.chaSave, chaMod, "Charisma")}
+                        </section>
 
-                    {checkIfSkillProficient("athletics", strMod)}
+                        <section className="skills">
+                            {checkIfSkillProficient("acrobatics", dexMod)}
 
-                    {checkIfSkillProficient("deception", chaMod)}
+                            {checkIfSkillProficient("animal handling", wisMod)}
 
-                    {checkIfSkillProficient("history", intMod)}
+                            {checkIfSkillProficient("arcana", intMod)}
 
-                    {checkIfSkillProficient("insight", wisMod)}
+                            {checkIfSkillProficient("athletics", strMod)}
 
-                    {checkIfSkillProficient("intimidation", chaMod)}
+                            {checkIfSkillProficient("deception", chaMod)}
 
-                    {checkIfSkillProficient("investigation", intMod)}
+                            {checkIfSkillProficient("history", intMod)}
 
-                    {checkIfSkillProficient("medicine", wisMod)}
+                            {checkIfSkillProficient("insight", wisMod)}
 
-                    {checkIfSkillProficient("nature", intMod)}
+                            {checkIfSkillProficient("intimidation", chaMod)}
 
-                    {checkIfSkillProficient("perception", wisMod)}
+                            {checkIfSkillProficient("investigation", intMod)}
 
-                    {checkIfSkillProficient("performance", chaMod)}
+                            {checkIfSkillProficient("medicine", wisMod)}
 
-                    {checkIfSkillProficient("persuasion", chaMod)}
+                            {checkIfSkillProficient("nature", intMod)}
 
-                    {checkIfSkillProficient("religion", intMod)}
+                            {checkIfSkillProficient("perception", wisMod)}
 
-                    {checkIfSkillProficient("sleight of hand", dexMod)}
+                            {checkIfSkillProficient("performance", chaMod)}
 
-                    {checkIfSkillProficient("stealth", dexMod)}
+                            {checkIfSkillProficient("persuasion", chaMod)}
 
-                    {checkIfSkillProficient("survival", wisMod)}
-                </section>
+                            {checkIfSkillProficient("religion", intMod)}
 
+                            {checkIfSkillProficient("sleight of hand", dexMod)}
 
+                            {checkIfSkillProficient("stealth", dexMod)}
 
-                <section className="saves">
-                    <h4> +{PB} Proficiency Bonus</h4>
+                            {checkIfSkillProficient("survival", wisMod)}
+                        </section>
+                    </section>
 
-                    <h3>Saving Throws</h3>
-                    {checkIfSaveProficient(character.strSave, strMod, "Strength")}
+                    <section className="mid-info">
+                        {/* <strong>Custom Roll Modifier</strong>
+                        <input type="number" value={customMod} onChange={handleModInput}></input> <br></br> */}
+                        <section className="ac-init-speed-container">
 
-                    {checkIfSaveProficient(character.dexSave, dexMod, "Dexterity")}
+                            <section className="ac">
+                                {character.armorClass}
+                            </section>
 
-                    {checkIfSaveProficient(character.conSave, conMod, "Constitution")}
+                            <section className="init">
+                                {character.initiative}<br></br>
+                                Initiative
+                            </section>
 
-                    {checkIfSaveProficient(character.intSave, intMod, "Intelligence")}
+                            <section className="speed">
+                                {character.speed}<br></br>
+                                Speed
+                            </section>
+                        </section>
 
-                    {checkIfSaveProficient(character.wisSave, wisMod, "Wisdom")}
+                        <strong>Hit Points</strong> <br></br>
+                        <section className="hp-container"><input type="number" placeholder={HP}></input> / {HP} <br></br></section>
 
-                    {checkIfSaveProficient(character.chaSave, chaMod, "Charisma")}
-                </section>
+                        <strong>Temporary Hit Points</strong> <br></br>
+                        <input type="number" placeholder={0}></input><br></br>
 
-                <section className="mid-info">
-                    <strong>Custom Roll Modifier</strong>
-                    <input type="number" value={customMod} onChange={handleModInput}></input> <br></br>
+                        <strong>Hit Dice</strong> <br></br>
+                        <input type="number" placeholder={character.level}></input> / {character.level} <br></br>
 
-                    <strong>Armor Class</strong> <br></br>
-                    {character.armorClass} <br></br>
+                        <strong>Death Saves</strong> <br></br>
+                        Successes <DeathSaveSuccess /><DeathSaveSuccess /><DeathSaveSuccess /> <br></br>
+                        Failures <DeathSaveFail /><DeathSaveFail /><DeathSaveFail />
+                    </section>
 
-                    <strong>Initiative</strong> <br></br>
-                    {character.initiative} <br></br>
-
-                    <strong>Speed</strong> <br></br>
-                    {character.speed} <br></br>
-
-                    <strong>Hit Points</strong> <br></br>
-                    <input type="number" placeholder={HP}></input> / {HP} <br></br>
-
-                    <strong>Temporary Hit Points</strong> <br></br>
-                    <input type="number" placeholder={0}></input><br></br>
-
-                    <strong>Hit Dice</strong> <br></br>
-                    <input type="number" placeholder={character.level}></input> / {character.level} <br></br>
-
-                    <strong>Death Saves</strong> <br></br>
-                    Successes <DeathSaveSuccess /><DeathSaveSuccess /><DeathSaveSuccess /> <br></br>
-                    Failures <DeathSaveFail /><DeathSaveFail /><DeathSaveFail />
-                </section>
-
-                <section className="weapons">
-                    <h4>Weapon Attacks</h4>
-                    {weapons.map(ele => {
-                        if (ele.weapon.name.includes("Martial Arts")) {
-                            for (let levelRangeNumber of ele.weapon.levelRange){
-                                if (levelRangeNumber === character.level) {
-                                    return (
-                                        <section key={ele.weapon.id} className="weapon-attack">
-                                            <button onClick={() => weaponAttack(ele.weapon.stat, ele.weapon.damageDieSides, ele.weapon.dieCount)}>{ele.weapon.name}</button>
-                                        </section>
-                                    )
+                    <section className="weapons">
+                        <h4>Weapon Attacks</h4>
+                        {weapons.map(ele => {
+                            if (ele.weapon.name.includes("Martial Arts")) {
+                                for (let levelRangeNumber of ele.weapon.levelRange) {
+                                    if (levelRangeNumber === character.level) {
+                                        return (
+                                            <section key={ele.weapon.id} className="weapon-attack">
+                                                <button onClick={() => weaponAttack(ele.weapon.stat, ele.weapon.damageDieSides, ele.weapon.dieCount)}>{ele.weapon.name}</button>
+                                            </section>
+                                        )
+                                    }
                                 }
+                            } else {
+                                return (
+                                    <section key={ele.weapon.id} className="weapon-attack">
+                                        <button onClick={() => weaponAttack(ele.weapon.stat, ele.weapon.damageDieSides, ele.weapon.dieCount)}>{ele.weapon.name}</button>
+                                    </section>
+                                )
                             }
-                        } else {
-                            return (
-                                <section key={ele.weapon.id} className="weapon-attack">
-                                    <button onClick={() => weaponAttack(ele.weapon.stat, ele.weapon.damageDieSides, ele.weapon.dieCount)}>{ele.weapon.name}</button>
-                                </section>
-                            )
-                        }
-                    })}
-                </section>
+                        })}
+                    </section>
 
-                <div className="dice-modal" id="dice-modal">
-                    <img className="dice-roll-gif"></img>
-                    <button data-close-button className="close-button" onClick={closeModal}>&times;</button>
-                    <div className="dice-text" id="dice-text">
-                        <span className="d20-roll">{d20Result}</span>
+                    <div className="dice-modal" id="dice-modal">
+                        <img className="dice-roll-gif"></img>
+                        <button data-close-button className="close-button" onClick={closeModal}>&times;</button>
+                        <div className="dice-text" id="dice-text">
+                            <span className="d20-roll">{d20Result}</span>
+                        </div>
+                        {damageRollResult ? <div className="roll-result"><strong>Damage: {damageRollResult}</strong></div> : ''}
                     </div>
-                    {damageRollResult ? <div className="roll-result"><strong>Damage: {damageRollResult}</strong></div> : ''}
-                </div>
 
-                <button onClick={() => navigate(`/character-edit/${characterId}`)}>Edit</button> <button onClick={() => deleteSheet(character.id).then(() => navigate("/home"))}>Delete</button>
+                    <button onClick={() => navigate(`/character-edit/${characterId}`)}>Edit</button> <button onClick={() => deleteSheet(character.id).then(() => navigate("/home"))}>Delete</button>
+                </div>
             </div>
             <div id="overlay" className=""></div>
         </>

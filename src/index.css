@@ -499,25 +499,128 @@ footer {
 }
 
 .character-sheet {
-  border-left: 6px solid black;
-  border-right: 6px solid black;
-  border-radius: 5px;
   height: 45em;
+  padding: 1em;
   width: 70em;
   margin: auto;
-  margin-top: 1em;
+}
+
+.character-sheet input {
+  font-family: spectral;
+  font-size: medium;
+}
+
+.character-sheet .sheet-container {
   display: -ms-grid;
   display: grid;
-  gap: 1em;
-  -ms-grid-columns: (300px)[5];
-      grid-template-columns: repeat(5, 300px);
+  gap: 2em;
+  -ms-grid-columns: 120px 200px 350px;
+      grid-template-columns: 120px 200px 350px;
+  margin: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .character-sheet header {
   width: 40%;
   margin-left: auto;
-  -ms-grid-column: span 5;
-      grid-column-start: span 5;
+  -ms-grid-column: span 3;
+      grid-column-start: span 3;
+}
+
+.character-sheet .skills {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 10px solid black;
+  border-image-source: url("/public/images/saves.svg");
+  border-image-slice: 65 10;
+  border-image-width: auto;
+  border-image-repeat: stretch;
+}
+
+.character-sheet .prof-bonus {
+  background: url(https://app.roll20.net/images/dndstyling/proficency-bonus.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60px;
+}
+
+.character-sheet .prof-bonus span.pb {
+  margin-left: .7em;
+  font-size: x-large;
+}
+
+.character-sheet .prof-bonus span {
+  line-height: 57px;
+  margin-left: 1.5em;
+  font-size: small;
+}
+
+.character-sheet .saves {
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  border: 10px solid black;
+  padding-bottom: 5px;
+  border-image-source: url("/public/images/saves.svg");
+  border-image-slice: 65 10;
+  border-image-width: auto;
+  border-image-repeat: stretch;
+  margin-bottom: 2em;
+}
+
+.character-sheet .saves h3 {
+  text-align: center;
+}
+
+.character-sheet .ac-init-speed-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.character-sheet .ac {
+  background-image: url("/public/images/AC.svg");
+  background-repeat: no-repeat;
+  width: 3em;
+  line-height: 3.4em;
+  font-size: larger;
+}
+
+.character-sheet .init {
+  background-image: url("/public/images/vital-box.svg");
+  background-repeat: no-repeat;
+  width: 3.4em;
+  line-height: 2.6em;
+  font-size: larger;
+}
+
+.character-sheet .speed {
+  background-image: url("/public/images/vital-box.svg");
+  background-repeat: no-repeat;
+  width: 3.4em;
+  line-height: 2.6em;
+  font-size: larger;
+}
+
+.character-sheet .hp-container {
+  background-image: url("/public/images/mid-info.svg");
+  background-repeat: no-repeat;
+  width: 70%;
+  height: 6em;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.character-sheet .hp-container input {
+  font-size: 32px;
+  margin-top: 18px;
+  width: 2em !important;
 }
 
 .character-sheet input[type=text] {
@@ -535,19 +638,16 @@ footer {
 
 .character-sheet button {
   font-family: 'Spectral', serif;
-  font-size: 14px;
+  font-size: 12px;
   outline: none;
   border: none;
   background-color: white;
-  border: 1px solid #080808;
   border-radius: 10px;
   margin: .3em;
 }
 
 .character-sheet button:hover {
   color: red;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
   font-weight: bold;
   cursor: pointer;
 }
@@ -559,12 +659,18 @@ footer {
 
 .character-sheet .statBox {
   text-align: center;
-  border: 2px solid black;
-  border-radius: 5px;
-  width: 6em;
-  padding: .3em;
+  border: 6px solid black;
+  width: 5em;
   font-weight: bold;
   margin-bottom: .3em;
+  border-image-source: url("/public/images/ability-STR.svg");
+  border-image-repeat: stretch;
+  border-image-width: auto;
+  border-image-slice: 34 15;
+}
+
+.character-sheet .statBox .stat-mod {
+  padding-top: 10em;
 }
 
 .character-sheet input[type=checkbox] {
