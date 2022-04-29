@@ -397,12 +397,45 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
   color: lightgray;
   background-color: #080808;
   border-bottom: 5px #080808 solid;
+}
+
+nav .logo {
+  width: 180px;
+  margin: auto;
+  font-family: spectral;
+}
+
+nav .logo a {
+  text-decoration: none;
+}
+
+nav .logo img {
+  width: 15em;
+  margin-top: -50px;
+  margin-bottom: -100px;
+  margin-left: 6em;
+}
+
+nav .logo .header {
+  margin-left: 8em;
+  font-size: 40px;
+  padding-bottom: -10em;
+  text-decoration: none;
+}
+
+nav .banner1 {
+  position: absolute;
+  width: 16em;
+  left: 0;
+}
+
+nav .banner2 {
+  position: absolute;
+  width: 16em;
+  right: .5em;
 }
 
 nav h1 {
@@ -421,8 +454,6 @@ nav a {
 }
 
 nav a:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
   color: white;
   font-weight: bold;
 }
@@ -432,6 +463,20 @@ nav img {
   min-width: 7em;
   margin: 0;
   margin-top: 0;
+}
+
+nav .links {
+  padding-top: .3em;
+  margin-right: 16em;
+}
+
+nav .links img {
+  border: 2px solid #080808;
+  border-radius: 10px;
+}
+
+nav .links img:hover {
+  border: 2px solid white;
 }
 
 footer {
@@ -468,7 +513,6 @@ footer {
 }
 
 .character-sheet input[type=text] {
-  border: none;
   outline: none;
   border: none;
   border-bottom: 1px black solid;
@@ -746,15 +790,13 @@ footer {
 }
 
 .roster {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/public/images/tavern-gif.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   background-color: #1f1f1f;
-  width: 100%;
-  height: 100%;
-  background-color: #1f1f1f;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
 }
 
 .roster .home {
@@ -764,14 +806,6 @@ footer {
 
 .roster .links {
   text-align: center;
-}
-
-.roster .img {
-  background-image: url("/public/images/tavern-gif.gif");
-  background-repeat: no-repeat;
-  background-size: 80em;
-  background-position: center;
-  width: 100%;
 }
 
 .roster .logo {
@@ -785,24 +819,29 @@ footer {
 }
 
 .roster .flavor {
+  margin-top: .5em;
+  margin-left: .3em;
   width: 16em;
   color: #b3b3b3;
-  background-color: rgba(31, 31, 31, 0.7);
+  background-color: rgba(8, 8, 8, 0.9);
   height: 25em;
-  border: 4px solid #080808;
-  border-top: none;
-  border-left: none;
   border-radius: 5px;
   padding: 1em;
 }
 
 .roster .tavern-characters {
-  padding-top: 1em;
-  width: 15em;
-  border: 5px #080808 solid;
-  border-top: none;
-  border-radius: 5px;
+  padding: 1em 0em;
+  width: 100%;
+  min-width: 1000px;
+  background-color: rgba(8, 8, 8, 0.9);
+  height: 7em;
   color: #b3b3b3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .roster .tavern-characters a {
@@ -819,6 +858,17 @@ footer {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   font-weight: bold;
+}
+
+.roster .character-card {
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .roster button {
