@@ -441,13 +441,20 @@ footer {
   }
 
   .skills {
-    height: fit-content;
+    padding: 8px;
+    height: 35em;
     box-sizing: border-box;
     border: 10px solid black;
     border-image-source: url("/public/images/saves.svg");
     border-image-slice: 65 10;
     border-image-width: auto;
     border-image-repeat: stretch;
+  }
+
+  .skill-bonus{
+    display: inline-block;
+    min-width: 10px;
+    max-width: 10px;
   }
 
   .edit-skills{

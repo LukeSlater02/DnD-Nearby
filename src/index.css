@@ -707,9 +707,8 @@ footer {
 }
 
 .character-sheet .skills {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  padding: 8px;
+  height: 35em;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 10px solid black;
@@ -717,6 +716,12 @@ footer {
   border-image-slice: 65 10;
   border-image-width: auto;
   border-image-repeat: stretch;
+}
+
+.character-sheet .skill-bonus {
+  display: inline-block;
+  min-width: 10px;
+  max-width: 10px;
 }
 
 .character-sheet .edit-skills {

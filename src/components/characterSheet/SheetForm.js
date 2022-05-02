@@ -136,10 +136,10 @@ export const SheetForm = () => {
 
     const checkIfSkillProficient = (skill, stat) => {
         if (character[skill]) {
-            return <><input type="checkbox" checked={true} readOnly={true} /> {stat + PB} <label htmlFor="checkbox"><button className="stat-roll" onClick={() => rolld20(stat + PB)}>{skill}</button></label> <br></br></>
+            return <><input type="checkbox" checked={true} readOnly={true} /> <span className="skill-bonus">{stat + PB}</span> <label htmlFor="checkbox"><button className="stat-roll" onClick={() => rolld20(stat + PB)}>{skill}</button></label> <br></br></>
 
         } else {
-            return <><input type="checkbox" checked={false} readOnly={true} /> {stat} <label htmlFor="checkbox"><button className="stat-roll" onClick={() => rolld20(stat)}>{skill}</button></label> <br></br></>
+            return <><input type="checkbox" checked={false} readOnly={true} /> <span className="skill-bonus">{stat}</span> <label htmlFor="checkbox"><button className="stat-roll" onClick={() => rolld20(stat)}>{skill}</button></label> <br></br></>
         }
     }
 
