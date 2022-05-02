@@ -54,19 +54,16 @@ export const SheetForm = () => {
     }
 
     const calcHP = (charObj) => {
-        let totalHP = 0
         let lvlPastOne = charObj.level - 1
         let totalConMod = parseInt(calcMod(character.con)) * character.level
         return charObj.hpLevelOne + charObj.hpPerLevel * lvlPastOne + totalConMod
-
-
     }
 
     const { characterId } = useParams()
     let navigate = useNavigate()
     let PB = calcPB(character.level)
     let HP = calcHP(character)
-    let strMod = parseInt(calcMod(character.str))
+    let strMod = parseInt(  calcMod(character.str))
     let dexMod = parseInt(calcMod(character.dex))
     let conMod = parseInt(calcMod(character.con))
     let intMod = parseInt(calcMod(character.int))
