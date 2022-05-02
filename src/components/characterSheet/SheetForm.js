@@ -50,7 +50,7 @@ export const SheetForm = () => {
     const [customMod, setCustomMod] = useState(0)
 
     const handleModInput = event => {
-        setCustomMod(parseInt(event.target.value) || 0)
+        setCustomMod(parseInt(event.target.value) > 25 ? 25 : parseInt(event.target.value))
     }
 
     const calcHP = (charObj) => {
@@ -255,6 +255,8 @@ export const SheetForm = () => {
                             {checkIfSkillProficient("stealth", dexMod)}
 
                             {checkIfSkillProficient("survival", wisMod)}
+
+                            <h3>Skills</h3>
                         </section>
                     </section>
 
@@ -310,7 +312,7 @@ export const SheetForm = () => {
                     </section>
 
                     <section className="weapons">
-                        <h4>Weapon Attacks</h4>
+                        <h3>Weapon Attacks</h3>
                         {weapons.map(ele => {
                             if (ele.weapon.name.includes("Martial Arts")) {
                                 for (let levelRangeNumber of ele.weapon.levelRange) {

@@ -254,7 +254,7 @@ h2 {
   }
   
   .links {
-    width: 280px;
+    width: 260px;
     padding-top: .3em;
     text-align: center;
     font-size: larger;
@@ -424,6 +424,7 @@ footer {
   }
 
   .skills {
+    height: 34.5em;
     box-sizing: border-box;
     border: 10px solid black;
     border-image-source: url("/public/images/saves.svg");
@@ -467,7 +468,7 @@ footer {
     border-image-slice: 65 10;
     border-image-width: auto;
     border-image-repeat: stretch;
-    margin-bottom: 2em;
+    margin-bottom: 8px;
   }
 
   .ac-init-speed-container{
@@ -508,7 +509,7 @@ footer {
     text-align: center;
     font-size: xx-large;
     h3{
-    line-height: 2em;
+    line-height: 4em;
     font-size: medium;
     }
     input {
@@ -526,7 +527,7 @@ footer {
     text-align: center;
     font-size: xx-large;
     h3{
-      line-height: 3.5em;
+      line-height: 5.5em;
       font-size: medium;
       }
     input {
@@ -587,6 +588,7 @@ footer {
   }
 
   .weapons {
+    margin: auto;
     width: 100%;
     padding: 1em;
     height: fit-content;
@@ -596,6 +598,11 @@ footer {
     border-image-slice: 65 10;
     border-image-width: auto;
     border-image-repeat: stretch;
+    h3 {
+      text-align: center;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+    }
     button {
       font-family: 'Spectral', serif;
       font-size: 15px;
