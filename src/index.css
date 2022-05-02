@@ -592,7 +592,7 @@ footer {
 }
 
 .character-sheet {
-  margin-left: 8em;
+  margin-top: 8px;
   padding: 1em;
 }
 
@@ -707,7 +707,6 @@ footer {
 }
 
 .character-sheet .skills {
-  padding: .8em;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -718,11 +717,6 @@ footer {
   border-image-slice: 65 10;
   border-image-width: auto;
   border-image-repeat: stretch;
-}
-
-.character-sheet .skills button {
-  margin: 2px;
-  padding: 0;
 }
 
 .character-sheet .edit-skills {
@@ -781,7 +775,7 @@ footer {
   border-image-slice: 65 10;
   border-image-width: auto;
   border-image-repeat: stretch;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .character-sheet .ac-init-speed-container {
@@ -970,6 +964,7 @@ footer {
 .character-sheet input[type=text] {
   outline: none;
   border: none;
+  color: blue;
   border-bottom: 1px black solid;
 }
 
