@@ -147,8 +147,8 @@ h2 {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -170,8 +170,8 @@ h2 {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -193,8 +193,8 @@ h2 {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -216,8 +216,8 @@ h2 {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -239,8 +239,8 @@ h2 {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -262,8 +262,8 @@ h2 {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -285,8 +285,8 @@ h2 {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -308,8 +308,8 @@ h2 {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -331,8 +331,8 @@ h2 {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -354,8 +354,8 @@ h2 {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -377,8 +377,8 @@ h2 {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -400,8 +400,8 @@ h2 {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -455,7 +455,7 @@ h2 {
 }
 
 #sheet-nav .links {
-  width: 260px;
+  width: 220px;
   padding-top: .3em;
   text-align: center;
   font-size: larger;
@@ -486,6 +486,7 @@ h2 {
 }
 
 nav {
+  height: 125px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -505,7 +506,7 @@ nav .logo a {
 }
 
 nav .logo img {
-  width: 15em;
+  width: 13.6em;
   margin-top: -50px;
   margin-bottom: -100px;
   margin-left: 6em;
@@ -610,8 +611,8 @@ footer {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -638,8 +639,8 @@ footer {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -647,11 +648,11 @@ footer {
 }
 
 .character-sheet .edit button:hover {
-  background-color: #507f62;
+  background-color: #080808;
   cursor: pointer;
   color: white;
   font-size: 14px;
-  border-color: #507f62;
+  border-color: #080808;
   border-radius: 10px;
 }
 
@@ -673,6 +674,31 @@ footer {
   justify-items: center;
 }
 
+.character-sheet .edit-info {
+  width: 10em;
+  padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 5px solid black;
+  -o-border-image: url(/public/images/saves.svg);
+     border-image: url(/public/images/saves.svg);
+  border-image-slice: 20 10;
+  border-image-repeat: stretch;
+  border-image-width: auto;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.character-sheet .edit-info h3 {
+  text-align: left !important;
+}
+
 .character-sheet header {
   width: 40%;
   margin-left: auto;
@@ -681,7 +707,28 @@ footer {
 }
 
 .character-sheet .skills {
-  height: 34.5em;
+  padding: .8em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 10px solid black;
+  border-image-source: url("/public/images/saves.svg");
+  border-image-slice: 65 10;
+  border-image-width: auto;
+  border-image-repeat: stretch;
+}
+
+.character-sheet .skills button {
+  margin: 2px;
+  padding: 0;
+}
+
+.character-sheet .edit-skills {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 10px solid black;
@@ -697,6 +744,7 @@ footer {
   background-size: cover;
   width: 13.5em;
   height: 64px;
+  margin-bottom: 1em;
 }
 
 .character-sheet .prof-bonus span.pb {
@@ -708,6 +756,11 @@ footer {
   line-height: 65px;
   margin-left: 1.5em;
   font-size: small;
+}
+
+.character-sheet h4 {
+  margin: 0;
+  padding: 0;
 }
 
 .character-sheet h3 {
@@ -728,7 +781,7 @@ footer {
   border-image-slice: 65 10;
   border-image-width: auto;
   border-image-repeat: stretch;
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 
 .character-sheet .ac-init-speed-container {
@@ -852,6 +905,31 @@ footer {
 
 .character-sheet .death-saves-container span {
   margin-left: 9px;
+}
+
+.character-sheet .initiative-roll {
+  font-size: large;
+  text-align: left;
+  margin-left: -.5em;
+}
+
+.character-sheet select {
+  outline: none;
+  border: 2px solid #080808;
+  border-radius: 3px;
+  font-family: Spectral;
+  font-size: medium;
+}
+
+.character-sheet .save-button {
+  border: 3px solid black;
+  font-size: large;
+  width: 70%;
+  margin: auto;
+}
+
+.character-sheet .save-button:hover {
+  color: #7a853b;
 }
 
 .character-sheet .weapons {
@@ -1148,8 +1226,8 @@ footer {
   width: 10em;
   height: 4em;
   border: #080808 solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -1203,13 +1281,16 @@ footer {
 }
 
 .roster .flavor {
+  border: 3px solid #080808;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  border-bottom-left-radius: 80px;
   margin-top: .5em;
-  margin-left: .3em;
+  margin-left: 2em;
   width: 16em;
   color: #b3b3b3;
   background-color: rgba(8, 8, 8, 0.9);
   height: 25em;
-  border-radius: 5px;
   padding: 1em;
 }
 
@@ -1257,7 +1338,10 @@ footer {
 
 .roster button {
   border: 2px #080808 solid;
-  border-radius: 10px;
+  border-top-right-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
   padding: .3em;
   width: 8em;
 }

@@ -62,7 +62,7 @@
       "hpLevelOne": 10,
       "hitDieSides": 10,
       "icon": "./images/paladin.svg",
-      "desc": "A holy warrior bound to a sacred oath."
+      "desc": "A holy warrior bound to a sacred oath, who swears to uphold justice and righteousness."
     },
     {
       "userId": 1,
@@ -161,7 +161,8 @@
       "hpPerLevel": 4,
       "hpLevelOne": 6,
       "hitDieSides": 6,
-      "icon": "./images/wizard.svg"
+      "icon": "./images/wizard.svg",
+      "desc": "A scholarly magic-user capable of manipulating the structures of reality."
     },
     {
       "userId": 1,
@@ -211,7 +212,57 @@
       "hpLevelOne": 8,
       "hitDieSides": 8,
       "icon": "./images/monk.svg",
-      "desc": "A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection."
+      "desc": "A master of martial arts, in pursuit of physical and spiritual perfection."
+    },
+    {
+      "userId": 1,
+      "classId": 8,
+      "name": "Runner",
+      "level": 4,
+      "background": "Criminal",
+      "alignment": "Neutral Evil",
+      "race": "Human",
+      "armorClass": "15",
+      "str": 8,
+      "dex": 16,
+      "con": 12,
+      "int": 10,
+      "wis": 12,
+      "cha": 16,
+      "hitPoints": "",
+      "speed": 30,
+      "initiative": 3,
+      "acrobatics": true,
+      "animalHandling": false,
+      "arcana": false,
+      "athletics": false,
+      "deception": true,
+      "history": false,
+      "insight": false,
+      "intimidation": false,
+      "investigation": true,
+      "medicine": false,
+      "nature": false,
+      "perception": false,
+      "performance": false,
+      "persuasion": false,
+      "religion": false,
+      "sleightOfHand": true,
+      "stealth": true,
+      "survival": false,
+      "id": 6,
+      "className": "Rogue",
+      "dexSave": true,
+      "strSave": false,
+      "conSave": false,
+      "intSave": true,
+      "wisSave": false,
+      "chaSave": false,
+      "hpPerLevel": 7,
+      "hpLevelOne": 12,
+      "hitDieSides": 8,
+      "icon": "./images/rogue.svg",
+      "desc": "A scoundrel who uses stealth and trickery to overcome obstacles and enemies."
     }
   ],
   "classes": [
@@ -303,7 +354,7 @@
       "hpLevelOne": 8,
       "hitDieSides": 8,
       "icon": "./images/monk.svg",
-      "desc": "A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection."
+      "desc": "A master of martial arts, who pursues of physical and spiritual perfection."
     },
     {
       "id": 7,
@@ -318,7 +369,7 @@
       "hpLevelOne": 10,
       "hitDieSides": 10,
       "icon": "./images/paladin.svg",
-      "desc": "A holy warrior bound to a sacred oath."
+      "desc": "A holy warrior bound to a sacred oath, who swears to uphold justice and righteousness."
     },
     {
       "id": 8,
@@ -393,7 +444,7 @@
       "hpLevelOne": 10,
       "hitDieSides": 10,
       "icon": "./images/ranger.svg",
-      "desc": "A warrior who combats threats on the edges of civilization"
+      "desc": "A warrior who combats threats on the edges of civilization."
     }
   ],
   "weapons": [
@@ -1276,11 +1327,6 @@
     },
     {
       "id": 28,
-      "classId": 7,
-      "armorId": 9
-    },
-    {
-      "id": 29,
       "classId": 7,
       "armorId": 9
     },

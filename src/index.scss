@@ -43,8 +43,8 @@ $ranger: #507f62;
   width: 10em;
   height: 4em;
   border: $vamp solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -254,7 +254,7 @@ h2 {
   }
   
   .links {
-    width: 260px;
+    width: 220px;
     padding-top: .3em;
     text-align: center;
     font-size: larger;
@@ -282,7 +282,7 @@ h2 {
 }
 
 nav {
-
+  height: 125px;
   display: flex;
 
   .logo {
@@ -295,7 +295,7 @@ nav {
     }
 
     img {
-      width: 15em;
+      width: 13.6em;
       margin-top: -50px;
       margin-bottom: -100px;
       margin-left: 6em;
@@ -376,6 +376,7 @@ footer {
 
 .sheet-stats {
   display: flex;
+
   flex-direction: column;
 }
 
@@ -399,7 +400,7 @@ footer {
     margin-left: 30px;
     display: inline;
     button{
-      @include classButton($ranger)
+      @include classButton($vamp)
     }
   }
 
@@ -417,6 +418,22 @@ footer {
     justify-items: center;
   }
 
+  .edit-info {
+    h3{
+      text-align: left !important;
+    }
+    width: 10em;                        
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+    border-image: url(/public/images/saves.svg);
+    border-image-slice: 20 10;
+    border-image-repeat: stretch;
+    border-image-width: auto;
+    height: fit-content;
+  }
+
   header {
     width: 40%;
     margin-left: auto;
@@ -424,7 +441,24 @@ footer {
   }
 
   .skills {
-    height: 34.5em;
+    
+    padding: .8em;
+    height: fit-content;
+    box-sizing: border-box;
+    border: 10px solid black;
+    border-image-source: url("/public/images/saves.svg");
+    border-image-slice: 65 10;
+    border-image-width: auto;
+    border-image-repeat: stretch;
+
+    button{
+      margin: 2px;
+      padding: 0;
+    }
+  }
+
+  .edit-skills{
+    height: fit-content;
     box-sizing: border-box;
     border: 10px solid black;
     border-image-source: url("/public/images/saves.svg");
@@ -439,6 +473,7 @@ footer {
     background-size: cover;
     width: 13.5em;
     height: 64px;
+    margin-bottom: 1em;
 
     span.pb {
       margin-left: .7em;
@@ -450,6 +485,11 @@ footer {
       margin-left: 1.5em;
       font-size: small;
     }
+  }
+
+  h4 {
+    margin: 0;
+    padding: 0;
   }
 
   h3 {
@@ -468,7 +508,7 @@ footer {
     border-image-slice: 65 10;
     border-image-width: auto;
     border-image-repeat: stretch;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
   }
 
   .ac-init-speed-container{
@@ -581,10 +621,29 @@ footer {
     }
   }
 
+  .initiative-roll {
+    font-size: large;
+    text-align: left;
+    margin-left: -.5em;
+  }
 
+  select {
+    outline: none;
+    border: 2px solid $vamp;
+    border-radius: 3px;
+    font-family: Spectral;
+    font-size: medium;
+  }
 
-  .mid-info{
+  .save-button{
+    border: 3px solid black;
+    font-size: large;
+    width: 70%;
+    margin: auto;
 
+    &:hover{
+      color: $druid;
+    }
   }
 
   .weapons {
@@ -895,13 +954,16 @@ footer {
   }
 
   .flavor {
+    border: 3px solid $vamp;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    border-bottom-left-radius: 80px;
     margin-top: .5em;
-    margin-left: .3em;
+    margin-left: 2em;
     width: 16em;
     color: $lightgray;
     background-color: rgba(8, 8, 8, .9);
     height: 25em;
-    border-radius: 5px;
     padding: 1em;
   }
 
@@ -941,7 +1003,10 @@ footer {
 
   button {
     border: 2px $vamp solid;
-    border-radius: 10px;
+    border-top-right-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
     padding: .3em;
     width: 8em;
   }

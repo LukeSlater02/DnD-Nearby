@@ -139,10 +139,10 @@ export const SheetForm = () => {
 
     const checkIfSkillProficient = (skill, stat) => {
         if (character[skill]) {
-            return <><input type="checkbox" checked={true} readOnly={true} /> {stat + PB} <button className="stat-roll" onClick={() => rolld20(stat + PB)}>{skill}</button> <br></br></>
+            return <><input type="checkbox" checked={true} readOnly={true} /> {stat + PB} <label htmlFor="checkbox"><button className="stat-roll" onClick={() => rolld20(stat + PB)}>{skill}</button></label> <br></br></>
 
         } else {
-            return <><input type="checkbox" checked={false} readOnly={true} /> {stat} <button className="stat-roll" onClick={() => rolld20(stat)}>{skill}</button> <br></br></>
+            return <><input type="checkbox" checked={false} readOnly={true} /> {stat} <label htmlFor="checkbox"><button className="stat-roll" onClick={() => rolld20(stat)}>{skill}</button></label> <br></br></>
         }
     }
 
@@ -269,7 +269,7 @@ export const SheetForm = () => {
 
                             <section className="init">
                                 {character.initiative}<br></br>
-                                Initiative
+                                <button className="initiative-roll" onClick={() => rolld20(character.initiative)}>Initiative</button>
                             </section>
 
                             <section className="speed">
@@ -300,14 +300,14 @@ export const SheetForm = () => {
                         </section> <br></br>
 
                         <section className="roll-mod">
-                        <strong>Custom Roll Modifier</strong>
-                        <input type="number" value={customMod} onChange={handleModInput}></input> <br></br> <br></br>
+                            <strong>Custom Roll Modifier</strong>
+                            <input type="number" value={customMod} onChange={handleModInput}></input> <br></br> <br></br>
                         </section>
 
                         <section className="edit"><button onClick={() => navigate(`/character-edit/${characterId}`)}>Edit</button> </section>
 
                         <section className="delete">
-                        <button onClick={() => deleteSheet(character.id).then(() => navigate("/home"))}>Delete</button>
+                            <button onClick={() => deleteSheet(character.id).then(() => navigate("/home"))}>Delete</button>
                         </section>
                     </section>
 
