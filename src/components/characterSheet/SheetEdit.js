@@ -166,12 +166,11 @@ export const SheetEdit = () => {
 
     return (
         <div className="character-sheet">
-            {console.log(armorList)}
             <header>
                 <section className="top-info">
                     <label htmlFor="sheet-text">Name</label> <input name="sheet-text" type="text" value={character.name} onChange={handleInput} id="name" autoComplete="off"></input>
                     Alignment<input type="text" id="alignment" value={character.alignment} onChange={handleInput} autoComplete="off"></input>
-                    Class: {charClass.className} <label htmlFor="sheet-text">Level</label> <input name="sheet-text" type="number" value={character.level} onChange={handleInput} id="level" autoComplete="off"></input>
+                    Class: {charClass.className} <label htmlFor="sheet-text">Level</label> <input name="sheet-text" type="number" value={character.level} max={20} onChange={handleInput} id="level" autoComplete="off"></input>
                     <label htmlFor="sheet-text">Background</label> <input name="sheet-text" type="text" value={character.background} onChange={handleInput} id="background" autoComplete="off"></input>
                     <label htmlFor="sheet-text">Race</label> <input name="sheet-text" type="text" value={character.race} onChange={handleInput} id="race" autoComplete="off"></input>
                 </section>

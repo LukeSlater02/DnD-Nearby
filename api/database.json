@@ -111,7 +111,8 @@
       "hpPerLevel": 5,
       "hpLevelOne": 8,
       "hitDieSides": 8,
-      "icon": "./images/cleric.svg"
+      "icon": "./images/cleric.svg",
+      "desc": "A priestly champion who wields divine magic in service of a higher power."
     },
     {
       "userId": 1,
@@ -378,6 +379,21 @@
       "hitDieSides": 6,
       "icon": "./images/sorcerer.svg",
       "desc": "A spellcaster who draws on inherent magic from a gift or bloodline."
+    },
+    {
+      "id": 12,
+      "className": "Ranger",
+      "dexSave": true,
+      "strSave": false,
+      "conSave": false,
+      "intSave": false,
+      "wisSave": true,
+      "chaSave": false,
+      "hpPerLevel": 6,
+      "hpLevelOne": 10,
+      "hitDieSides": 10,
+      "icon": "./images/ranger.svg",
+      "desc": "A warrior who combats threats on the edges of civilization"
     }
   ],
   "weapons": [

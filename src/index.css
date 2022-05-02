@@ -136,6 +136,11 @@ h2 {
   margin-bottom: 1em;
 }
 
+.classCard .ranger {
+  border-bottom: 0.5em solid #507f62;
+  margin-bottom: 1em;
+}
+
 .druid button {
   margin-top: 1em;
   padding: 1em;
@@ -389,8 +394,95 @@ h2 {
   border-radius: 10px;
 }
 
+.ranger button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.ranger button:hover {
+  background-color: #507f62;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #507f62;
+  border-radius: 10px;
+}
+
 .class-icon {
   width: 15%;
+}
+
+#sheet-nav {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 300px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #080808;
+  overflow-x: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#sheet-nav a {
+  text-align: center;
+  color: #b3b3b3;
+}
+
+#sheet-nav a:hover {
+  color: white;
+  font-weight: bold;
+}
+
+#sheet-nav .links {
+  width: 280px;
+  padding-top: .3em;
+  text-align: center;
+  font-size: larger;
+}
+
+#sheet-nav .links img {
+  border: 2px solid #080808;
+  border-radius: 10px;
+}
+
+#sheet-nav .links img:hover {
+  border: 2px solid white;
+}
+
+#sheet-nav img {
+  width: 100%;
+}
+
+#sheet-nav .logo {
+  width: 95%;
+  height: 15em;
+  margin-top: -4em;
+}
+
+#sheet-nav .logo:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 nav {
@@ -499,10 +591,68 @@ footer {
 }
 
 .character-sheet {
-  height: 45em;
+  margin-left: 8em;
   padding: 1em;
-  width: 70em;
+}
+
+.character-sheet .roll-mod {
+  text-align: center;
+}
+
+.character-sheet .delete {
   margin: auto;
+  display: inline;
+}
+
+.character-sheet .delete button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.character-sheet .delete button:hover {
+  background-color: #DF0000;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #DF0000;
+  border-radius: 10px;
+}
+
+.character-sheet .edit {
+  margin-left: 30px;
+  display: inline;
+}
+
+.character-sheet .edit button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+}
+
+.character-sheet .edit button:hover {
+  background-color: #507f62;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #507f62;
+  border-radius: 10px;
 }
 
 .character-sheet input {
@@ -514,19 +664,20 @@ footer {
   display: -ms-grid;
   display: grid;
   gap: 2em;
-  -ms-grid-columns: 120px 200px 350px;
-      grid-template-columns: 120px 200px 350px;
+  -ms-grid-columns: 120px 200px 350px 250px;
+      grid-template-columns: 120px 200px 350px 250px;
   margin: auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  justify-items: center;
 }
 
 .character-sheet header {
   width: 40%;
   margin-left: auto;
-  -ms-grid-column: span 3;
-      grid-column-start: span 3;
+  -ms-grid-column: span 4;
+      grid-column-start: span 4;
 }
 
 .character-sheet .skills {
@@ -543,7 +694,8 @@ footer {
   background: url(https://app.roll20.net/images/dndstyling/proficency-bonus.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 60px;
+  width: 13.5em;
+  height: 64px;
 }
 
 .character-sheet .prof-bonus span.pb {
@@ -552,12 +704,19 @@ footer {
 }
 
 .character-sheet .prof-bonus span {
-  line-height: 57px;
+  line-height: 65px;
   margin-left: 1.5em;
   font-size: small;
 }
 
+.character-sheet h3 {
+  padding: 2px;
+  margin: 0px;
+  text-align: center;
+}
+
 .character-sheet .saves {
+  padding: .8em;
   -ms-grid-row: 1;
       grid-row-start: 1;
   -ms-grid-column: 2;
@@ -569,10 +728,6 @@ footer {
   border-image-width: auto;
   border-image-repeat: stretch;
   margin-bottom: 2em;
-}
-
-.character-sheet .saves h3 {
-  text-align: center;
 }
 
 .character-sheet .ac-init-speed-container {
@@ -596,7 +751,7 @@ footer {
   background-image: url("/public/images/vital-box.svg");
   background-repeat: no-repeat;
   width: 3.4em;
-  line-height: 2.6em;
+  line-height: 3em;
   font-size: larger;
 }
 
@@ -604,23 +759,126 @@ footer {
   background-image: url("/public/images/vital-box.svg");
   background-repeat: no-repeat;
   width: 3.4em;
-  line-height: 2.6em;
+  line-height: 3em;
   font-size: larger;
 }
 
 .character-sheet .hp-container {
+  width: 10em;
   background-image: url("/public/images/mid-info.svg");
   background-repeat: no-repeat;
-  width: 70%;
-  height: 6em;
+  height: 5em;
   text-align: center;
   font-size: xx-large;
+}
+
+.character-sheet .hp-container h3 {
+  line-height: 2em;
+  font-size: medium;
 }
 
 .character-sheet .hp-container input {
   font-size: 32px;
   margin-top: 18px;
   width: 2em !important;
+}
+
+.character-sheet .temp-hp-container {
+  background-image: url("/public/images/mid-info.svg");
+  background-repeat: no-repeat;
+  height: 5em;
+  line-height: 12px;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.character-sheet .temp-hp-container h3 {
+  line-height: 3.5em;
+  font-size: medium;
+}
+
+.character-sheet .temp-hp-container input {
+  font-size: 32px;
+  margin-top: 6px;
+  width: 2em !important;
+}
+
+.character-sheet .hit-dice-container {
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-top: 5px;
+  width: 50%;
+  margin: auto;
+  height: 5em;
+  text-align: center;
+  border: 5px solid black;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-image-source: url(https://app.roll20.net/images/dndstyling/vital-box.svg);
+  border-image-slice: 15 15;
+  border-image-width: auto;
+  border-image-repeat: round;
+}
+
+.character-sheet .hit-dice-container h3 {
+  font-size: small;
+}
+
+.character-sheet .hit-dice-container input[type=number] {
+  width: 2em;
+  margin-top: 10px;
+}
+
+.character-sheet .death-saves-container {
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 6px;
+  height: 7.1em;
+  margin-bottom: 2em;
+  text-align: center;
+  border: 5px solid black;
+  border-image-source: url(https://app.roll20.net/images/dndstyling/vital-box.svg);
+  border-image-slice: 15 15;
+  border-image-width: auto;
+  border-image-repeat: stretch;
+}
+
+.character-sheet .death-saves-container h3 {
+  font-size: small;
+}
+
+.character-sheet .death-saves-container span {
+  margin-left: 9px;
+}
+
+.character-sheet .weapons {
+  width: 100%;
+  padding: 1em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 10px solid black;
+  border-image-source: url("/public/images/saves.svg");
+  border-image-slice: 65 10;
+  border-image-width: auto;
+  border-image-repeat: stretch;
+}
+
+.character-sheet .weapons button {
+  font-family: 'Spectral', serif;
+  font-size: 15px;
+  text-align: left;
+  padding: 3px;
+  width: 80%;
+  outline: none;
+  border: none;
+  background-color: lightgray;
+  border-radius: 10px;
+  margin: .3em;
 }
 
 .character-sheet input[type=text] {
@@ -652,16 +910,12 @@ footer {
   cursor: pointer;
 }
 
-.character-sheet .statName {
-  font-variant-caps: all-small-caps;
-  font-weight: bold;
-}
-
 .character-sheet .statBox {
   text-align: center;
   border: 6px solid black;
   width: 5em;
-  font-weight: bold;
+  height: 4.5em;
+  font-size: larger;
   margin-bottom: .3em;
   border-image-source: url("/public/images/ability-STR.svg");
   border-image-repeat: stretch;
@@ -669,8 +923,16 @@ footer {
   border-image-slice: 34 15;
 }
 
+.character-sheet .statBox .statName {
+  font-size: 26px !important;
+  line-height: .7em;
+  margin-top: -40px !important;
+  font-variant-caps: all-small-caps;
+  background-color: transparent !important;
+}
+
 .character-sheet .statBox .stat-mod {
-  padding-top: 10em;
+  font-weight: bold;
 }
 
 .character-sheet input[type=checkbox] {
@@ -948,7 +1210,7 @@ footer {
   width: 100%;
   min-width: 1000px;
   background-color: rgba(8, 8, 8, 0.9);
-  height: 7em;
+  height: 6.2em;
   color: #b3b3b3;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -968,6 +1230,11 @@ footer {
   font-weight: bold;
 }
 
+.roster .tavern-characters h4 {
+  margin: 0;
+  padding: 0;
+}
+
 .roster .tavern-characters h4:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
@@ -975,14 +1242,9 @@ footer {
 }
 
 .roster .character-card {
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
 }
 
 .roster button {
@@ -998,11 +1260,6 @@ footer {
   font-weight: bold;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
-}
-
-.roster h4 {
-  margin: 0;
-  padding: 0;
 }
 
 /* width */
