@@ -7,10 +7,9 @@ import { SheetEdit } from "./components/characterSheet/SheetEdit"
 import { SheetForm } from "./components/characterSheet/SheetForm"
 import { Tavern } from "./components/Tavern"
 import { NavBar } from "./components/nav/NavBar"
+import { SheetNav } from "./components/nav/SheetNav"
 
-export const ApplicationViews = ({setAuthUser, clearUser}) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem("dnd_user") !== null);
-  
+export const ApplicationViews = ({setAuthUser, clearUser , isAuthenticated}) => {
   const PrivateOutlet = () => {
 		return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
     
@@ -18,10 +17,10 @@ export const ApplicationViews = ({setAuthUser, clearUser}) => {
   return (
     <>
     <Routes>
-      <Route path="/">
+      <Route path="/" element={<PrivateOutlet/>}>
         <Route path='/home' element={<><NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/><ClassList/></>}/>
         <Route path="/character-edit/:characterId" element={<><NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/><SheetEdit/></>}/>
-        <Route path="/character/:characterId" element={<><NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/><SheetForm/></>}/>
+        <Route path="/character/:characterId" element={<><SheetNav clearUser={clearUser} isAuthenticated={isAuthenticated}/><SheetForm/></>}/>
         <Route path="/the-tavern" element={<Tavern/>}/>
       </Route>
 

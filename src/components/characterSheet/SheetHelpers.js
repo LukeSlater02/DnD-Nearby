@@ -65,7 +65,7 @@ export const calcMod = stat => {
         case parsedStat === 1:
             return '-5'
         case parsedStat < 0:
-            return 'Stat too low to calculate modifier'
+            return '-5'
         case parsedStat <= 3:
             return '-4'
         case parsedStat <= 5:
@@ -93,7 +93,7 @@ export const calcMod = stat => {
         case parsedStat <= 28:
             return '+8'
         case parsedStat > 30:
-            return 'Stat too high to calculate modifier'
+            return '+8'
         default:
             return 0
     }

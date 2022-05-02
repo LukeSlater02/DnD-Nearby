@@ -31,9 +31,9 @@ export const Tavern = () => {
                 </div>
                 {character.map(ele => {
                     return (
-                        <section className="character-card">
+                        <section key={ele.id} className="character-card">
                             <img src={ele.icon}></img>
-                            <section key={ele.id}>
+                            <section>
                                 <Link to={`/character/${ele.id}`}><h4>{ele.name}</h4></Link>
                                 {ele.race} {ele.className}<br></br>
                                 Level {ele.level} <br></br>

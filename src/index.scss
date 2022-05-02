@@ -24,6 +24,7 @@ $fighter: #7f513e;
 $sorcerer: #992e2e;
 $druid: #7a853b;
 $barbarian: #e7623e;
+$ranger: #507f62;
 
 @mixin sidebar {
   border-left: 6px solid black;
@@ -42,8 +43,8 @@ $barbarian: #e7623e;
   width: 10em;
   height: 4em;
   border: $vamp solid 4px;
+  border-radius: 10px;
   background-color: white;
-  border-radius: 5px;
   font-family: 'Spectral', serif;
   font-weight: bold;
   transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
@@ -170,6 +171,10 @@ h2 {
   .paladin {
     @include classBorder($paladin)
   }
+
+  .ranger {
+    @include classBorder($ranger);
+  }
 }
 
 .druid button {
@@ -216,12 +221,68 @@ h2 {
   @include classButton($cleric)
 }
 
+.ranger button {
+  @include classButton($ranger)
+}
+
 .class-icon {
   width: 15%;
 }
 
-nav {
+#sheet-nav{
+  height: 100%;
+  display: flex;
+  width: 300px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #080808;
+  overflow-x: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 
+  a {
+    text-align: center;
+    color: $lightgray;
+
+    &:hover {
+      color: white;
+      font-weight: bold;
+    }
+  }
+  
+  .links {
+    width: 220px;
+    padding-top: .3em;
+    text-align: center;
+    font-size: larger;
+    img {
+      border: 2px solid $vamp;
+      border-radius: 10px;
+      &:hover {
+        border: 2px solid white;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .logo{
+    width: 95%;
+    height: 15em;
+    margin-top: -4em;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+}
+
+nav {
+  height: 125px;
   display: flex;
 
   .logo {
@@ -234,7 +295,7 @@ nav {
     }
 
     img {
-      width: 15em;
+      width: 13.6em;
       margin-top: -50px;
       margin-bottom: -100px;
       margin-left: 6em;
@@ -315,14 +376,33 @@ footer {
 
 .sheet-stats {
   display: flex;
+
   flex-direction: column;
 }
 
 .character-sheet {
-  height: 45em;
+  margin-left: 8em;
   padding: 1em;
-  width: 70em;
-  margin: auto;
+
+  .roll-mod {
+    text-align: center;
+  }
+
+  .delete {
+    margin: auto;
+    display: inline;
+    button{ 
+      @include classButton($red)
+    }
+  }
+
+  .edit{
+    margin-left: 30px;
+    display: inline;
+    button{
+      @include classButton($vamp)
+    }
+  }
 
   input {
     font-family: spectral;
@@ -332,18 +412,53 @@ footer {
   .sheet-container {
     display: grid;
     gap: 2em;
-    grid-template-columns: 120px 200px 350px;
+    grid-template-columns: 120px 200px 350px 250px;
     margin: auto;
     justify-content: center;
+    justify-items: center;
+  }
+
+  .edit-info {
+    h3{
+      text-align: left !important;
+    }
+    width: 10em;                        
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+    border-image: url(/public/images/saves.svg);
+    border-image-slice: 20 10;
+    border-image-repeat: stretch;
+    border-image-width: auto;
+    height: fit-content;
   }
 
   header {
     width: 40%;
     margin-left: auto;
-    grid-column-start: span 3;
+    grid-column-start: span 4;
   }
 
   .skills {
+    
+    padding: .8em;
+    height: fit-content;
+    box-sizing: border-box;
+    border: 10px solid black;
+    border-image-source: url("/public/images/saves.svg");
+    border-image-slice: 65 10;
+    border-image-width: auto;
+    border-image-repeat: stretch;
+
+    button{
+      margin: 2px;
+      padding: 0;
+    }
+  }
+
+  .edit-skills{
+    height: fit-content;
     box-sizing: border-box;
     border: 10px solid black;
     border-image-source: url("/public/images/saves.svg");
@@ -356,7 +471,9 @@ footer {
     background: url(https://app.roll20.net/images/dndstyling/proficency-bonus.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 60px;
+    width: 13.5em;
+    height: 64px;
+    margin-bottom: 1em;
 
     span.pb {
       margin-left: .7em;
@@ -364,16 +481,25 @@ footer {
     }
 
     span {
-      line-height: 57px;
+      line-height: 65px;
       margin-left: 1.5em;
       font-size: small;
     }
   }
 
+  h4 {
+    margin: 0;
+    padding: 0;
+  }
+
+  h3 {
+    padding: 2px;
+    margin: 0px;
+    text-align: center;
+  }
+
   .saves{
-    h3 {
-      text-align: center;
-    }
+    padding: .8em;
     grid-row-start: 1;
     grid-column-start: 2;
     border: 10px solid black;
@@ -382,7 +508,7 @@ footer {
     border-image-slice: 65 10;
     border-image-width: auto;
     border-image-repeat: stretch;
-    margin-bottom: 2em;
+    margin-bottom: 20px;
   }
 
   .ac-init-speed-container{
@@ -403,7 +529,7 @@ footer {
     background-image: url("/public/images/vital-box.svg");
     background-repeat: no-repeat;
     width: 3.4em;
-    line-height: 2.6em;
+    line-height: 3em;
     font-size: larger;
   }
 
@@ -411,17 +537,21 @@ footer {
     background-image: url("/public/images/vital-box.svg");
     background-repeat: no-repeat;
     width: 3.4em;
-    line-height: 2.6em;
+    line-height: 3em;
     font-size: larger;
   }
 
-  .hp-container{
+  .hp-container {
+    width: 10em;
     background-image: url("/public/images/mid-info.svg");
     background-repeat: no-repeat;
-    width: 70%;
-    height: 6em;
+    height: 5em;
     text-align: center;
     font-size: xx-large;
+    h3{
+    line-height: 4em;
+    font-size: medium;
+    }
     input {
       font-size: 32px;
       margin-top: 18px;
@@ -429,11 +559,122 @@ footer {
     }
   }
 
-  .mid-info{
-
+  .temp-hp-container {
+    background-image: url("/public/images/mid-info.svg");
+    background-repeat: no-repeat;
+    height: 5em;
+    line-height: 12px;
+    text-align: center;
+    font-size: xx-large;
+    h3{
+      line-height: 5.5em;
+      font-size: medium;
+      }
+    input {
+      font-size: 32px;
+      margin-top: 6px;
+      width: 2em !important;
+    }
   }
 
-  .weapons {}
+  .hit-dice-container {
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    width: 50%;
+    margin: auto;
+    height: 5em;
+    text-align: center;
+    border: 5px solid black;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-image-source: url(https://app.roll20.net/images/dndstyling/vital-box.svg);
+    border-image-slice: 15 15;
+    border-image-width: auto;
+    border-image-repeat: round;
+    h3 {
+      font-size: small;
+    }
+    input[type=number] {
+      width: 2em;
+      margin-top: 10px;
+    }
+  }
+
+  .death-saves-container {
+    font-size: 16px;
+    box-sizing: border-box;
+    padding-left: 6px;
+    height: 7.1em;
+    margin-bottom: 2em;
+    text-align: center;
+    border: 5px solid black;
+    border-image-source: url(https://app.roll20.net/images/dndstyling/vital-box.svg);
+    border-image-slice: 15 15;
+    border-image-width: auto;
+    border-image-repeat: stretch;
+    h3 {
+      font-size: small;
+    }
+    span {
+      margin-left: 9px;
+    }
+  }
+
+  .initiative-roll {
+    font-size: large;
+    text-align: left;
+    margin-left: -.5em;
+  }
+
+  select {
+    outline: none;
+    border: 2px solid $vamp;
+    border-radius: 3px;
+    font-family: Spectral;
+    font-size: medium;
+  }
+
+  .save-button{
+    border: 3px solid black;
+    font-size: large;
+    width: 70%;
+    margin: auto;
+
+    &:hover{
+      color: $druid;
+    }
+  }
+
+  .weapons {
+    margin: auto;
+    width: 100%;
+    padding: 1em;
+    height: fit-content;
+    box-sizing: border-box;
+    border: 10px solid black;
+    border-image-source: url("/public/images/saves.svg");
+    border-image-slice: 65 10;
+    border-image-width: auto;
+    border-image-repeat: stretch;
+    h3 {
+      text-align: center;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+    }
+    button {
+      font-family: 'Spectral', serif;
+      font-size: 15px;
+      text-align: left;
+      padding: 3px;
+      width: 80%;
+      outline: none;
+      border: none;
+      background-color: lightgray;
+      border-radius: 10px;
+      margin: .3em;
+    }
+  }
 
   input[type=text] {
     outline: none;
@@ -456,8 +697,6 @@ footer {
     background-color: white;
     border-radius: 10px;
     margin: .3em;
-    
-    // transition: color .5s scale() .5s
   }
 
   button:hover {
@@ -466,24 +705,27 @@ footer {
     cursor: pointer;
   }
 
-  .statName {
-    font-variant-caps: all-small-caps;
-    font-weight: bold;
-  }
-
   .statBox {
     text-align: center;
     border: 6px solid black;
     width: 5em;
-    font-weight: bold;
+    height: 4.5em;
+    font-size: larger;
     margin-bottom: .3em;
     border-image-source: url("/public/images/ability-STR.svg");
     border-image-repeat: stretch;
     border-image-width: auto;
     border-image-slice: 34 15;
-
-    .stat-mod {
-      padding-top: 10em;
+    .statName {
+      // font-variant-caps: all-small-caps;
+      font-size: 26px !important;
+      line-height: .7em;
+      margin-top: -40px !important;
+      font-variant-caps: all-small-caps;
+      background-color: transparent !important; 
+    }
+    .stat-mod{
+      font-weight: bold;
     }
   }
 
@@ -712,13 +954,16 @@ footer {
   }
 
   .flavor {
+    border: 3px solid $vamp;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    border-bottom-left-radius: 80px;
     margin-top: .5em;
-    margin-left: .3em;
+    margin-left: 2em;
     width: 16em;
     color: $lightgray;
     background-color: rgba(8, 8, 8, .9);
     height: 25em;
-    border-radius: 5px;
     padding: 1em;
   }
 
@@ -727,7 +972,7 @@ footer {
     width: 100%;
     min-width: 1000px;
     background-color: rgba(8, 8, 8, .9);
-    height: 7em;
+    height: 6.2em;
     color: #b3b3b3;
     display: flex;
     justify-content: space-evenly;
@@ -741,6 +986,11 @@ footer {
       }
     }
 
+    h4{
+      margin: 0;
+      padding: 0;
+    }
+
     h4:hover {
       transform: scale(1.05);
       font-weight: bold;
@@ -748,14 +998,15 @@ footer {
   }
 
   .character-card {
-    flex-wrap: nowrap;
     display: flex;
-    justify-content: space-evenly;
   }
 
   button {
     border: 2px $vamp solid;
-    border-radius: 10px;
+    border-top-right-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
     padding: .3em;
     width: 8em;
   }
@@ -765,11 +1016,6 @@ footer {
     color: red;
     font-weight: bold;
     transform: scale(1.1);
-  }
-
-  h4 {
-    margin: 0;
-    padding: 0;
   }
 }
 

@@ -50,7 +50,7 @@ export const SheetForm = () => {
     const [customMod, setCustomMod] = useState(0)
 
     const handleModInput = event => {
-        setCustomMod(parseInt(event.target.value) )
+        setCustomMod(parseInt(event.target.value) > 25 ? 25 : parseInt(event.target.value))
     }
 
     const calcHP = (charObj) => {
@@ -136,10 +136,10 @@ export const SheetForm = () => {
 
     const checkIfSkillProficient = (skill, stat) => {
         if (character[skill]) {
-            return <><input type="checkbox" checked={true} readOnly={true} /> {stat + PB} <button className="stat-roll" onClick={() => rolld20(stat + PB)}>{skill}</button> <br></br></>
+            return <><input type="checkbox" checked={true} readOnly={true} /> {stat + PB} <label htmlFor="checkbox"><button className="stat-roll" onClick={() => rolld20(stat + PB)}>{skill}</button></label> <br></br></>
 
         } else {
-            return <><input type="checkbox" checked={false} readOnly={true} /> {stat} <button className="stat-roll" onClick={() => rolld20(stat)}>{skill}</button> <br></br></>
+            return <><input type="checkbox" checked={false} readOnly={true} /> {stat} <label htmlFor="checkbox"><button className="stat-roll" onClick={() => rolld20(stat)}>{skill}</button></label> <br></br></>
         }
     }
 
@@ -165,33 +165,33 @@ export const SheetForm = () => {
 
                     <section className="stats">
                         <div className="statBox">
+                            <button onClick={() => rolld20(strMod)} className="statName">str</button><br></br>
                             {character.str} <br></br>
-                            <button onClick={() => rolld20(strMod)} className="statName">strength</button><br></br>
                             <span className="stat-mod">{calcMod(character.str)}</span>
                         </div>
                         <div className="statBox">
+                            <button onClick={() => rolld20(dexMod)} className="statName">dex</button> <br></br>
                             {character.dex} <br></br>
-                            <button onClick={() => rolld20(dexMod)} className="statName">Dexterity</button> <br></br>
                             <span className="stat-mod">{calcMod(character.dex)}</span>
                         </div>
                         <div className="statBox">
+                            <button onClick={() => rolld20(conMod)} className="statName">con</button> <br></br>
                             {character.con} <br></br>
-                            <button onClick={() => rolld20(conMod)} className="statName">Constitution</button> <br></br>
                             <span className="stat-mod">{calcMod(character.con)}</span>
                         </div>
                         <div className="statBox">
+                            <button onClick={() => rolld20(intMod)} className="statName">int</button> <br></br>
                             {character.int} <br></br>
-                            <button onClick={() => rolld20(intMod)} className="statName">Intelligence</button> <br></br>
                             <span className="stat-mod">{calcMod(character.int)}</span>
                         </div>
                         <div className="statBox">
+                            <button onClick={() => rolld20(wisMod)} className="statName">wis</button> <br></br>
                             {character.wis} <br></br>
-                            <button onClick={() => rolld20(wisMod)} className="statName">Wisdom</button> <br></br>
                             <span className="stat-mod">{calcMod(character.wis)}</span>
                         </div>
                         <div className="statBox">
+                            <button onClick={() => rolld20(chaMod)} className="statName">cha</button> <br></br>
                             {character.cha} <br></br>
-                            <button onClick={() => rolld20(chaMod)} className="statName">Charisma</button> <br></br>
                             <span className="stat-mod">{calcMod(character.cha)}</span>
                         </div>
 
@@ -201,7 +201,6 @@ export const SheetForm = () => {
                     <section className="skills-saves-container">
                         <h4 className="prof-bonus"> <span className="pb">+{PB}</span> <span>Proficiency Bonus</span></h4>
                         <section className="saves">
-                            <h3>Saving Throws</h3>
                             {checkIfSaveProficient(character.strSave, strMod, "Strength")}
 
                             {checkIfSaveProficient(character.dexSave, dexMod, "Dexterity")}
@@ -213,6 +212,8 @@ export const SheetForm = () => {
                             {checkIfSaveProficient(character.wisSave, wisMod, "Wisdom")}
 
                             {checkIfSaveProficient(character.chaSave, chaMod, "Charisma")}
+
+                            <h3>Saving Throws</h3>
                         </section>
 
                         <section className="skills">
@@ -251,12 +252,12 @@ export const SheetForm = () => {
                             {checkIfSkillProficient("stealth", dexMod)}
 
                             {checkIfSkillProficient("survival", wisMod)}
+
+                            <h3>Skills</h3>
                         </section>
                     </section>
 
                     <section className="mid-info">
-                        {/* <strong>Custom Roll Modifier</strong>
-                        <input type="number" value={customMod} onChange={handleModInput}></input> <br></br> */}
                         <section className="ac-init-speed-container">
 
                             <section className="ac">
@@ -265,7 +266,7 @@ export const SheetForm = () => {
 
                             <section className="init">
                                 {character.initiative}<br></br>
-                                Initiative
+                                <button className="initiative-roll" onClick={() => rolld20(character.initiative)}>Initiative</button>
                             </section>
 
                             <section className="speed">
@@ -274,22 +275,41 @@ export const SheetForm = () => {
                             </section>
                         </section>
 
-                        <strong>Hit Points</strong> <br></br>
-                        <section className="hp-container"><input type="number" placeholder={HP}></input> / {HP} <br></br></section>
 
-                        <strong>Temporary Hit Points</strong> <br></br>
-                        <input type="number" placeholder={0}></input><br></br>
+                        <section className="hp-container"><input type="number" placeholder={HP || 0}></input> / {HP || 0} <br></br>
+                            <h3>Current Hit Points</h3>
+                        </section>
 
-                        <strong>Hit Dice</strong> <br></br>
-                        <input type="number" placeholder={character.level}></input> / {character.level} <br></br>
+                        <section className="temp-hp-container">
+                            <input type="number" placeholder={0}></input><br></br>
+                            <h3>Temporary Hit Points</h3>
+                        </section>
 
-                        <strong>Death Saves</strong> <br></br>
-                        Successes <DeathSaveSuccess /><DeathSaveSuccess /><DeathSaveSuccess /> <br></br>
-                        Failures <DeathSaveFail /><DeathSaveFail /><DeathSaveFail />
+                        <section className="death-saves-container">
+                            Successes <DeathSaveSuccess /><DeathSaveSuccess /><DeathSaveSuccess /> <br></br>
+                            Failures <span><DeathSaveFail /><DeathSaveFail /><DeathSaveFail /></span> <br></br>
+                            <h3>Death Saves</h3>
+                        </section>
+
+                        <section className="hit-dice-container">
+                            <input type="number" placeholder={character.level}></input> / {character.level}
+                            <h3>Hit Dice</h3>
+                        </section> <br></br>
+
+                        <section className="roll-mod">
+                            <strong>Custom Roll Modifier</strong>
+                            <input type="number" value={customMod} onChange={handleModInput}></input> <br></br> <br></br>
+                        </section>
+
+                        <section className="edit"><button onClick={() => navigate(`/character-edit/${characterId}`)}>Edit</button> </section>
+
+                        <section className="delete">
+                            <button onClick={() => deleteSheet(character.id).then(() => navigate("/home"))}>Delete</button>
+                        </section>
                     </section>
 
                     <section className="weapons">
-                        <h4>Weapon Attacks</h4>
+                        <h3>Weapon Attacks</h3>
                         {weapons.map(ele => {
                             if (ele.weapon.name.includes("Martial Arts")) {
                                 for (let levelRangeNumber of ele.weapon.levelRange) {
@@ -319,8 +339,6 @@ export const SheetForm = () => {
                         </div>
                         {damageRollResult ? <div className="roll-result"><strong>Damage: {damageRollResult}</strong></div> : ''}
                     </div>
-
-                    <button onClick={() => navigate(`/character-edit/${characterId}`)}>Edit</button> <button onClick={() => deleteSheet(character.id).then(() => navigate("/home"))}>Delete</button>
                 </div>
             </div>
             <div id="overlay" className=""></div>

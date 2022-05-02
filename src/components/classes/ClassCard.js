@@ -17,12 +17,6 @@ export const ClassCard = ({ classObj }) => {
         return saves
     }
 
-    const [weaponList, setWeaponList] = useState([])
-
-    useEffect(() => {
-        getWeaponsByClass(classObj.id).then(setWeaponList)
-    }, [])
-
     const [isLoading, setIsLoading] = useState(false)
     let navigate = useNavigate()
     let currentUserId = sessionStorage.getItem("dnd_user_name")
