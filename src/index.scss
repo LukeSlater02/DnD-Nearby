@@ -44,13 +44,13 @@ $ranger: #507f62;
   height: 4em;
   border: $vamp solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 
   &:hover {
     background-color: $color;
+    background-image: none;
     cursor: pointer;
     color: white;
     font-size: 14px;
@@ -229,7 +229,7 @@ h2 {
   width: 15%;
 }
 
-#sheet-nav{
+#sheet-nav {
   height: 100%;
   display: flex;
   width: 300px;
@@ -252,37 +252,45 @@ h2 {
       font-weight: bold;
     }
   }
-  
+
   .links {
     width: 220px;
     padding-top: .3em;
     text-align: center;
     font-size: larger;
+
     img {
       border: 2px solid $vamp;
       border-radius: 10px;
+
       &:hover {
         border: 2px solid white;
       }
     }
   }
 
+  .banner1 {
+    width: 120%;
+  }
+
   img {
     width: 100%;
   }
 
-  .logo{
-    width: 95%;
+  .logo {
+    width: 90%;
     height: 15em;
     margin-top: -4em;
-    &:hover{
+    border-bottom: 3px solid white;
+
+    &:hover {
       transform: scale(1.1);
     }
   }
 }
 
 nav {
-  height: 125px;
+  height: 145px;
   display: flex;
 
   .logo {
@@ -295,17 +303,26 @@ nav {
     }
 
     img {
-      width: 13.6em;
+      width: 14.6em;
       margin-top: -50px;
       margin-bottom: -100px;
       margin-left: 6em;
     }
 
-    .header {
+    .header{
+      margin-top: 0;
       margin-left: 8em;
       font-size: 40px;
-      padding-bottom: -10em;
-      text-decoration: none;
+      color: red;
+      font-variant-caps: all-small-caps;
+      text-decoration: none !important;
+      transition: ease-in-out 1s, text-decoration-color 1s, transform 1s;
+      &:hover {
+        transform: scale(1.3) !important;
+        color: white;
+        text-decoration: underline !important;
+        text-decoration-color: red !important;
+      }
     }
   }
 
@@ -323,7 +340,7 @@ nav {
 
   h1 {
     font-size: xx-large;
-    color: red;
+    color: $red;
     font-family: 'Spectral SC', serif;
   }
 
@@ -334,10 +351,11 @@ nav {
 
   a {
     color: $lightgray;
+    text-decoration: underline;
+    font-variant-caps: all-small-caps;
 
     &:hover {
       color: white;
-      font-weight: bold;
     }
   }
 
@@ -351,14 +369,16 @@ nav {
   .links {
     padding-top: .3em;
     margin-right: 16em;
+
     img {
       border: 2px solid $vamp;
       border-radius: 10px;
+
       &:hover {
         border: 2px solid white;
       }
-      }
     }
+  }
 
   color: lightgray;
   background-color: $vamp;
@@ -376,13 +396,13 @@ footer {
 
 .sheet-stats {
   display: flex;
-
   flex-direction: column;
 }
 
 .character-sheet {
   margin-top: 8px;
   padding: 1em;
+  margin-left: 16em;
 
   .roll-mod {
     text-align: center;
@@ -391,15 +411,17 @@ footer {
   .delete {
     margin: auto;
     display: inline;
-    button{ 
+
+    button {
       @include classButton($red)
     }
   }
 
-  .edit{
+  .edit {
     margin-left: 30px;
     display: inline;
-    button{
+
+    button {
       @include classButton($vamp)
     }
   }
@@ -411,18 +433,19 @@ footer {
 
   .sheet-container {
     display: grid;
-    gap: 2em;
-    grid-template-columns: 120px 200px 350px 250px;
+    gap: 4em;
+    grid-template-columns: 100px 120px 200px 350px 250px;
     margin: auto;
     justify-content: center;
     justify-items: center;
   }
 
   .edit-info {
-    h3{
+    h3 {
       text-align: left !important;
     }
-    width: 10em;                        
+
+    width: 10em;
     padding: 1em;
     display: flex;
     flex-direction: column;
@@ -435,9 +458,23 @@ footer {
   }
 
   header {
-    width: 40%;
-    margin-left: auto;
-    grid-column-start: span 4;
+    padding: 1em;
+    width: 9em;
+    height: fit-content;
+    border: 3px solid black;
+    border-image: url(/public/images/saves.svg);
+    border-image-slice: 20 10;
+    border-image-repeat: stretch;
+    border-image-width: auto;
+    font-variant: all-small-caps;
+
+    span {
+      font-variant: small-caps;
+      font-size: large;
+      border-bottom: 2px solid black;
+      display: inline-block;
+      width: 8em;
+    }
   }
 
   .skills {
@@ -451,13 +488,13 @@ footer {
     border-image-repeat: stretch;
   }
 
-  .skill-bonus{
+  .skill-bonus {
     display: inline-block;
     min-width: 10px;
     max-width: 10px;
   }
 
-  .edit-skills{
+  .edit-skills {
     height: fit-content;
     box-sizing: border-box;
     border: 10px solid black;
@@ -498,7 +535,7 @@ footer {
     text-align: center;
   }
 
-  .saves{
+  .saves {
     padding: .8em;
     grid-row-start: 1;
     grid-column-start: 2;
@@ -511,7 +548,7 @@ footer {
     margin-bottom: 12px;
   }
 
-  .ac-init-speed-container{
+  .ac-init-speed-container {
     display: flex;
     text-align: center;
     justify-content: space-around;
@@ -525,7 +562,7 @@ footer {
     font-size: larger;
   }
 
-  .init{
+  .init {
     background-image: url("/public/images/vital-box.svg");
     background-repeat: no-repeat;
     width: 3.4em;
@@ -548,10 +585,12 @@ footer {
     height: 5em;
     text-align: center;
     font-size: xx-large;
-    h3{
-    line-height: 4em;
-    font-size: medium;
+
+    h3 {
+      line-height: 4em;
+      font-size: medium;
     }
+
     input {
       font-size: 32px;
       margin-top: 18px;
@@ -566,10 +605,12 @@ footer {
     line-height: 12px;
     text-align: center;
     font-size: xx-large;
-    h3{
+
+    h3 {
       line-height: 5.5em;
       font-size: medium;
-      }
+    }
+
     input {
       font-size: 32px;
       margin-top: 6px;
@@ -592,9 +633,11 @@ footer {
     border-image-slice: 15 15;
     border-image-width: auto;
     border-image-repeat: round;
+
     h3 {
       font-size: small;
     }
+
     input[type=number] {
       width: 2em;
       margin-top: 10px;
@@ -613,9 +656,11 @@ footer {
     border-image-slice: 15 15;
     border-image-width: auto;
     border-image-repeat: stretch;
+
     h3 {
       font-size: small;
     }
+
     span {
       margin-left: 9px;
     }
@@ -635,13 +680,13 @@ footer {
     font-size: medium;
   }
 
-  .save-button{
+  .save-button {
     border: 3px solid black;
     font-size: large;
     width: 70%;
     margin: auto;
 
-    &:hover{
+    &:hover {
       color: $druid;
     }
   }
@@ -657,21 +702,32 @@ footer {
     border-image-slice: 65 10;
     border-image-width: auto;
     border-image-repeat: stretch;
+
+    .weapon-attack {
+      display: flex;
+      justify-content: center;
+    }
+
     h3 {
       text-align: center;
       margin-bottom: 8px;
       padding-bottom: 4px;
     }
+
     button {
+      display: flex;
+      justify-content: space-between;
       font-family: 'Spectral', serif;
       font-size: 15px;
       text-align: left;
-      padding: 3px;
+      padding: 5px;
       width: 80%;
       outline: none;
-      border: none;
+      border: 1px solid lightgray;
+      border-top-right-radius: 80px;
+      border-bottom-right-radius: 80px;
+      border-bottom-left-radius: 80px;
       background-color: lightgray;
-      border-radius: 10px;
       margin: .3em;
     }
   }
@@ -679,7 +735,6 @@ footer {
   input[type=text] {
     outline: none;
     border: none;
-    color: blue;
     border-bottom: 1px black solid;
   }
 
@@ -701,7 +756,7 @@ footer {
   }
 
   button:hover {
-    color: red;
+    color: $red;
     font-weight: bold;
     cursor: pointer;
   }
@@ -717,15 +772,17 @@ footer {
     border-image-repeat: stretch;
     border-image-width: auto;
     border-image-slice: 34 15;
+
     .statName {
       // font-variant-caps: all-small-caps;
       font-size: 26px !important;
       line-height: .7em;
       margin-top: -40px !important;
       font-variant-caps: all-small-caps;
-      background-color: transparent !important; 
+      background-color: transparent !important;
     }
-    .stat-mod{
+
+    .stat-mod {
       font-weight: bold;
     }
   }
@@ -757,7 +814,7 @@ footer {
 }
 
 .nat1 {
-  color: red;
+  color: $red;
   font-size: 26px;
   font-family: drawn;
 }
@@ -941,6 +998,9 @@ footer {
   }
 
   .links {
+    position: absolute;
+    left: 7em;
+    top: 1.7em;
     text-align: center;
   }
 
@@ -969,14 +1029,14 @@ footer {
   }
 
   .tavern-characters {
-    padding: 1em 0em;
+    padding: 1.3em 0em;
     width: 100%;
     min-width: 1000px;
     background-color: rgba(8, 8, 8, .9);
     height: 6.2em;
     color: #b3b3b3;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 
     a {
       color: white;
@@ -987,7 +1047,7 @@ footer {
       }
     }
 
-    h4{
+    h4 {
       margin: 0;
       padding: 0;
     }
@@ -1000,6 +1060,7 @@ footer {
 
   .character-card {
     display: flex;
+    padding: 0 2em;
   }
 
   button {
@@ -1014,7 +1075,7 @@ footer {
 
   button:hover {
     cursor: pointer;
-    color: red;
+    color: $red;
     font-weight: bold;
     transform: scale(1.1);
   }
@@ -1035,7 +1096,7 @@ footer {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background:  #A7171A;
-  border: 2px solid  #A7171A;
+  background: #A7171A;
+  border: 2px solid #A7171A;
   border-radius: 10px;
 }

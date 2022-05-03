@@ -15,7 +15,7 @@ export const SheetNav = ({ }) => {
                 Visit the Tavern<br></br>
                 <img src="/images/sidebar-tavern.jpg"></img><br></br></Link>
                 {sessionStorage.getItem("dnd_user") != null ? <Link className="navbar__link" to="/login" onClick={removeUser}>Logout</Link> : ''}</section>
-            <img className="banner1" src="/images/gauntletBanner.svg"></img>
+            <img className="banner1" src="/images/tyrannyofdragons.svg"></img>
         </section>
     )
 }

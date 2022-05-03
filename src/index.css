@@ -148,15 +148,15 @@ h2 {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .druid button:hover {
   background-color: #7a853b;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -171,15 +171,15 @@ h2 {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .warlock button:hover {
   background-color: #7b469b;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -194,15 +194,15 @@ h2 {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .paladin button:hover {
   background-color: #b59e54;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -217,15 +217,15 @@ h2 {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .wizard button:hover {
   background-color: #2a50a1;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -240,15 +240,15 @@ h2 {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .monk button:hover {
   background-color: #51a5c5;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -263,15 +263,15 @@ h2 {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .barbarian button:hover {
   background-color: #e7623e;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -286,15 +286,15 @@ h2 {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .fighter button:hover {
   background-color: #7f513e;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -309,15 +309,15 @@ h2 {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .sorcerer button:hover {
   background-color: #992e2e;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -332,15 +332,15 @@ h2 {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .bard button:hover {
   background-color: #ab6dac;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -355,15 +355,15 @@ h2 {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .rogue button:hover {
   background-color: #555752;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -378,15 +378,15 @@ h2 {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .cleric button:hover {
   background-color: #91a1b2;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -401,15 +401,15 @@ h2 {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .ranger button:hover {
   background-color: #507f62;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -470,14 +470,19 @@ h2 {
   border: 2px solid white;
 }
 
+#sheet-nav .banner1 {
+  width: 120%;
+}
+
 #sheet-nav img {
   width: 100%;
 }
 
 #sheet-nav .logo {
-  width: 95%;
+  width: 90%;
   height: 15em;
   margin-top: -4em;
+  border-bottom: 3px solid white;
 }
 
 #sheet-nav .logo:hover {
@@ -486,7 +491,7 @@ h2 {
 }
 
 nav {
-  height: 125px;
+  height: 145px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -506,17 +511,32 @@ nav .logo a {
 }
 
 nav .logo img {
-  width: 13.6em;
+  width: 14.6em;
   margin-top: -50px;
   margin-bottom: -100px;
   margin-left: 6em;
 }
 
 nav .logo .header {
+  margin-top: 0;
   margin-left: 8em;
   font-size: 40px;
-  padding-bottom: -10em;
-  text-decoration: none;
+  color: red;
+  font-variant-caps: all-small-caps;
+  text-decoration: none !important;
+  -webkit-transition: ease-in-out 1s, -webkit-text-decoration-color 1s, -webkit-transform 1s;
+  transition: ease-in-out 1s, -webkit-text-decoration-color 1s, -webkit-transform 1s;
+  transition: ease-in-out 1s, text-decoration-color 1s, transform 1s;
+  transition: ease-in-out 1s, text-decoration-color 1s, transform 1s, -webkit-text-decoration-color 1s, -webkit-transform 1s;
+}
+
+nav .logo .header:hover {
+  -webkit-transform: scale(1.3) !important;
+          transform: scale(1.3) !important;
+  color: white;
+  text-decoration: underline !important;
+  -webkit-text-decoration-color: red !important;
+          text-decoration-color: red !important;
 }
 
 nav .banner1 {
@@ -533,7 +553,7 @@ nav .banner2 {
 
 nav h1 {
   font-size: xx-large;
-  color: red;
+  color: #DF0000;
   font-family: 'Spectral SC', serif;
 }
 
@@ -544,11 +564,12 @@ nav p {
 
 nav a {
   color: #b3b3b3;
+  text-decoration: underline;
+  font-variant-caps: all-small-caps;
 }
 
 nav a:hover {
   color: white;
-  font-weight: bold;
 }
 
 nav img {
@@ -594,6 +615,7 @@ footer {
 .character-sheet {
   margin-top: 8px;
   padding: 1em;
+  margin-left: 16em;
 }
 
 .character-sheet .roll-mod {
@@ -612,15 +634,15 @@ footer {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .character-sheet .delete button:hover {
   background-color: #DF0000;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -640,15 +662,15 @@ footer {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .character-sheet .edit button:hover {
   background-color: #080808;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -664,9 +686,9 @@ footer {
 .character-sheet .sheet-container {
   display: -ms-grid;
   display: grid;
-  gap: 2em;
-  -ms-grid-columns: 120px 200px 350px 250px;
-      grid-template-columns: 120px 200px 350px 250px;
+  gap: 4em;
+  -ms-grid-columns: 100px 120px 200px 350px 250px;
+      grid-template-columns: 100px 120px 200px 350px 250px;
   margin: auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -700,10 +722,26 @@ footer {
 }
 
 .character-sheet header {
-  width: 40%;
-  margin-left: auto;
-  -ms-grid-column: span 4;
-      grid-column-start: span 4;
+  padding: 1em;
+  width: 9em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: 3px solid black;
+  -o-border-image: url(/public/images/saves.svg);
+     border-image: url(/public/images/saves.svg);
+  border-image-slice: 20 10;
+  border-image-repeat: stretch;
+  border-image-width: auto;
+  font-variant: all-small-caps;
+}
+
+.character-sheet header span {
+  font-variant: small-caps;
+  font-size: large;
+  border-bottom: 2px solid black;
+  display: inline-block;
+  width: 8em;
 }
 
 .character-sheet .skills {
@@ -947,6 +985,15 @@ footer {
   border-image-repeat: stretch;
 }
 
+.character-sheet .weapons .weapon-attack {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .character-sheet .weapons h3 {
   text-align: center;
   margin-bottom: 8px;
@@ -954,22 +1001,29 @@ footer {
 }
 
 .character-sheet .weapons button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   font-family: 'Spectral', serif;
   font-size: 15px;
   text-align: left;
-  padding: 3px;
+  padding: 5px;
   width: 80%;
   outline: none;
-  border: none;
+  border: 1px solid lightgray;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  border-bottom-left-radius: 80px;
   background-color: lightgray;
-  border-radius: 10px;
   margin: .3em;
 }
 
 .character-sheet input[type=text] {
   outline: none;
   border: none;
-  color: blue;
   border-bottom: 1px black solid;
 }
 
@@ -991,7 +1045,7 @@ footer {
 }
 
 .character-sheet button:hover {
-  color: red;
+  color: #DF0000;
   font-weight: bold;
   cursor: pointer;
 }
@@ -1036,7 +1090,7 @@ footer {
 }
 
 .nat1 {
-  color: red;
+  color: #DF0000;
   font-size: 26px;
   font-family: drawn;
 }
@@ -1227,15 +1281,15 @@ footer {
   height: 4em;
   border: #080808 solid 4px;
   border-radius: 10px;
-  background-color: white;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .container--login button:hover {
   background-color: #DF0000;
+  background-image: none;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -1267,6 +1321,9 @@ footer {
 }
 
 .roster .links {
+  position: absolute;
+  left: 7em;
+  top: 1.7em;
   text-align: center;
 }
 
@@ -1295,7 +1352,7 @@ footer {
 }
 
 .roster .tavern-characters {
-  padding: 1em 0em;
+  padding: 1.3em 0em;
   width: 100%;
   min-width: 1000px;
   background-color: rgba(8, 8, 8, 0.9);
@@ -1304,9 +1361,9 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .roster .tavern-characters a {
@@ -1334,6 +1391,7 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 0 2em;
 }
 
 .roster button {
@@ -1348,7 +1406,7 @@ footer {
 
 .roster button:hover {
   cursor: pointer;
-  color: red;
+  color: #DF0000;
   font-weight: bold;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
@@ -1370,7 +1428,7 @@ footer {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #A7171A;
-  border: 2px solid  #A7171A;
+  border: 2px solid #A7171A;
   border-radius: 10px;
 }
 /*# sourceMappingURL=index.css.map */

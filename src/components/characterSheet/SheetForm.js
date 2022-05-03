@@ -156,12 +156,19 @@ export const SheetForm = () => {
         <>
             <div className="character-sheet">
                 <div className="sheet-container">
-                    {/* <header>
+                    <header>
                         <section className="top-info">
-                            {character.name} - {character.className} Level {character.level} <br></br>
-                            {character.background} {character.race} {character.alignment}
+                            <span>{character.name}</span> <br></br><strong>Character Name</strong><br></br><br></br>
+                    
+                            <span>{character.className} {character.level}</span><br></br><strong>Class & Level</strong><br></br><br></br>
+                            
+                            <span>{character.background}</span> <br></br><strong>Background</strong><br></br><br></br>
+                            
+                            <span>{character.race}</span> <br></br><strong>Race</strong><br></br><br></br>
+                            
+                            <span>{character.alignment}</span> <br></br><strong>Alignment</strong><br></br><br></br>
                         </section>
-                    </header> */}
+                    </header>
 
                     <section className="stats">
                         <div className="statBox">
@@ -316,7 +323,7 @@ export const SheetForm = () => {
                                     if (levelRangeNumber === character.level) {
                                         return (
                                             <section key={ele.weapon.id} className="weapon-attack">
-                                                <button onClick={() => weaponAttack(ele.weapon.stat, ele.weapon.damageDieSides, ele.weapon.dieCount)}>{ele.weapon.name}</button>
+                                        <button onClick={() => weaponAttack(ele.weapon.stat, ele.weapon.damageDieSides, ele.weapon.dieCount)}>{ele.weapon.name}<span className="weapon-dice">{ele.weapon.dieCount}d{ele.weapon.damageDieSides}</span></button>
                                             </section>
                                         )
                                     }
@@ -324,7 +331,7 @@ export const SheetForm = () => {
                             } else {
                                 return (
                                     <section key={ele.weapon.id} className="weapon-attack">
-                                        <button onClick={() => weaponAttack(ele.weapon.stat, ele.weapon.damageDieSides, ele.weapon.dieCount)}>{ele.weapon.name}</button>
+                                        <button onClick={() => weaponAttack(ele.weapon.stat, ele.weapon.damageDieSides, ele.weapon.dieCount)}>{ele.weapon.name}<span className="weapon-dice">{ele.weapon.dieCount}d{ele.weapon.damageDieSides}</span></button>
                                     </section>
                                 )
                             }

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./ClassCard.css"
-import { addSheet } from "../../modules/SheetDataManager"
-import { getWeaponsByClass } from "../../modules/WeaponDataManager"
+import { addSheet, updateSheet } from "../../modules/SheetDataManager"
 
 export const ClassCard = ({ classObj }) => {
     let saves = []
@@ -19,12 +18,10 @@ export const ClassCard = ({ classObj }) => {
 
     const [isLoading, setIsLoading] = useState(false)
     let navigate = useNavigate()
-    let currentUserId = sessionStorage.getItem("dnd_user_name")
 
     const createSheet = e => {
         setIsLoading(true)
         let sheetObj = {
-            userId: currentUserId,
             classId: parseInt(e.target.id),
             userId: parseInt(sessionStorage.getItem("dnd_user")),
             name: "",
@@ -61,7 +58,13 @@ export const ClassCard = ({ classObj }) => {
             stealth: false,
             survival: false,
         }
-        addSheet(sheetObj).then(data => navigate(`/character-edit/${data.id}`)).then(setIsLoading(false))
+
+        addSheet(sheetObj).then(data => {
+            
+            let sheetObjWithClass = {...data, ...classObj}
+            sheetObjWithClass.id = data.id    
+            updateSheet(sheetObjWithClass).then(data => navigate(`/character-edit/${data.id}`)).then(setIsLoading(false))
+        })
     }
     showSaves(classObj)
 

@@ -24,11 +24,10 @@ export const Tavern = () => {
     return (
         <div className="roster">
             <div className="tavern-characters">
-                <div className="links">
-                    <img className="logo" src="./images/logo.svg"></img><br></br>
-                    <Link to="/home" className="home">Home</Link> <br></br>
+            <div className="links">
+                    <Link to="/home" className="home"><img className="logo" src="./images/logo.svg"></img><br></br>Home</Link> <br></br>
                     {sessionStorage.getItem("dnd_user") != null ? <Link className="navbar__link" to="/login" onClick={removeUser}>Logout</Link> : ''}
-                </div>
+            </div>
                 {character.map(ele => {
                     return (
                         <section key={ele.id} className="character-card">
