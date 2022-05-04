@@ -8,6 +8,7 @@ import { SheetForm } from "./components/characterSheet/SheetForm"
 import { Tavern } from "./components/Tavern"
 import { NavBar } from "./components/nav/NavBar"
 import { SheetNav } from "./components/nav/SheetNav"
+import { Spellbook } from "./components/Spellbook"
 
 export const ApplicationViews = ({setAuthUser, clearUser , isAuthenticated}) => {
   const PrivateOutlet = () => {
@@ -22,6 +23,7 @@ export const ApplicationViews = ({setAuthUser, clearUser , isAuthenticated}) => 
         <Route path="/character-edit/:characterId" element={<><NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/><SheetEdit/></>}/>
         <Route path="/character/:characterId" element={<><SheetNav clearUser={clearUser} isAuthenticated={isAuthenticated}/><SheetForm/></>}/>
         <Route path="/the-tavern" element={<Tavern/>}/>
+        <Route path="/character/:characterId/spellbook" element={<><SheetNav clearUser={clearUser} isAuthenticated={isAuthenticated}/><Spellbook/></>}/>
       </Route>
 
       <Route path="/login" element={<><NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/><Login setAuthUser={setAuthUser}/></>}/>
