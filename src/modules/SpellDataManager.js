@@ -2,8 +2,6 @@ const spellData = "http://localhost:7077"
 const data = 'http://localhost:8088'
 
 
-const fs = require('fs');
-
 let counter = 0
 export const getAllSpells = () => {
     return fetch(`${spellData}/spells`).then(res => res.json()).then(data => {
