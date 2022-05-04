@@ -262,7 +262,6 @@ export const SheetEdit = () => {
                 <section className="edit-info">
                     <section className="armor">
                         <h3>Select Armor</h3>
-                        <label id="ac-select" onChange={handleSelectChange}>
                         <select id="armorClass" onChange={handleInput}>
                             <option value={10 + parseInt(calcMod(character.dex))}>---</option>
                             {armorList.map(a => {
@@ -271,7 +270,7 @@ export const SheetEdit = () => {
                                 )
                             })}
                         </select>
-                        </label>
+                        <span className="armorClass-arrow"></span>
                     </section><br></br>
 
                     <h4>Armor Class</h4><input name="sheet-text" type="number" value={character.armorClass} onChange={handleInput} id="armorClass" autoComplete="off"></input><br></br>

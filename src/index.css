@@ -615,7 +615,7 @@ footer {
 .character-sheet {
   margin-top: 8px;
   padding: 1em;
-  margin-left: 16em;
+  margin-left: 21em;
 }
 
 .character-sheet .roll-mod {
@@ -953,6 +953,8 @@ footer {
 .character-sheet select {
   outline: none;
   border: 2px solid #080808;
+  -webkit-box-shadow: 0 10px 25px rgba(49, 49, 49, 0.3);
+          box-shadow: 0 10px 25px rgba(49, 49, 49, 0.3);
   border-radius: 3px;
   font-family: Spectral;
   font-size: medium;
