@@ -10,7 +10,7 @@ export const NavBar = ({ }) => {
     <nav>
       <img className="banner1" src="/images/gauntletBanner.svg"></img>
       <section className="logo">
-        <Link to="/home"><img src="/images/logo.svg"></img><strong className="header">Nearby</strong></Link>
+        <Link to="/home"><img src="/images/logo.svg"></img><h3 className="header">Nearby</h3></Link>
       </section>
       <section className="links"><Link to="/the-tavern">
         Visit the Tavern<br></br>

@@ -44,14 +44,17 @@ export const SheetEdit = () => {
             sleightOfHand: false,
             stealth: false,
             survival: false,
+            dexSave: false,
+            strSave: false,
+            conSave: true,
+            intSave: false,
+            wisSave: false,
+            chaSave: true,
         }
     )
 
-    const [charClass, setCharClass] = useState({})
-    const [weapons, setWeapons] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
     const [armorList, setArmorList] = useState([])
-
+    
     const { characterId } = useParams()
     let navigate = useNavigate()
 
@@ -66,19 +69,11 @@ export const SheetEdit = () => {
         })
     }, [])
 
-    useEffect(() => {
-        getClassById(character.classId).then(c => setCharClass(c))
-    }, [character])
-
-    useEffect(() => {
-        getAllWeapons().then(setWeapons)
-    }, [])
-
     const handleInput = event => {
         if (event.target.id.includes("Save")) {
-            let updatedCharClass = { ...charClass }
-            updatedCharClass[event.target.id] = !updatedCharClass[event.target.id]
-            setCharClass(updatedCharClass)
+            let newCharacter = { ...character }
+            newCharacter[event.target.id] = !newCharacter[event.target.id]
+            setCharacter(newCharacter)
         }
         else if (event.target.id.includes("-skill")) {
             let newCharacter = { ...character }
@@ -118,7 +113,6 @@ export const SheetEdit = () => {
     }
 
     const updateCharacter = () => {
-        setIsLoading(true)
 
         let editedCharacter = {
             id: character.id,
@@ -156,11 +150,16 @@ export const SheetEdit = () => {
             sleightOfHand: character.sleightOfHand,
             stealth: character.stealth,
             survival: character.survival,
+            dexSave: character.dexSave,
+            strSave: character.strSave,
+            conSave: character.conSave,
+            intSave: character.intSave,
+            wisSave: character.wisSave,
+            chaSave: character.chaSave,
         }
 
-        editedCharacter = { ...editedCharacter, ...charClass }
         editedCharacter.id = character.id
-        updateSheet(editedCharacter).then(data => navigate(`/character/${data.id}`)).then(() => setIsLoading(false))
+        updateSheet(editedCharacter).then(data => navigate(`/character/${data.id}`))
     }
      
     const handleSelectChange = e => {
@@ -177,7 +176,7 @@ export const SheetEdit = () => {
 
                     <h4>Alignment</h4><input type="text" id="alignment" value={character.alignment} onChange={handleInput} autoComplete="off"></input><br></br>
 
-                    <h4>Class</h4>{charClass.className} <br></br>
+                    <h4>Class</h4>{character.className} <br></br>
 
                     <label htmlFor="sheet-text"><h4>Level</h4></label><input name="sheet-text" type="number" value={character.level} max={20} onChange={handleInput} id="level" autoComplete="off"></input><br></br>
 
@@ -211,12 +210,12 @@ export const SheetEdit = () => {
                 <section className="skills-saves-container">
                     <section className="saves">
                     <h3>Saving Throws</h3>
-                        <input type="checkbox" id="strSave" onChange={handleInput} checked={charClass.strSave} /> Strength <br></br>
-                        <input type="checkbox" id="dexSave" onChange={handleInput} checked={charClass.dexSave} /> Dexterity <br></br>
-                        <input type="checkbox" id="conSave" onChange={handleInput} checked={charClass.conSave} /> Constitution <br></br>
-                        <input type="checkbox" id="intSave" onChange={handleInput} checked={charClass.intSave} /> Intelligence <br></br>
-                        <input type="checkbox" id="wisSave" onChange={handleInput} checked={charClass.wisSave} /> Wisdom <br></br>
-                        <input type="checkbox" id="chaSave" onChange={handleInput} checked={charClass.chaSave} /> Charisma <br></br>
+                        <input type="checkbox" id="strSave" onChange={handleInput} checked={character.strSave} /> Strength <br></br>
+                        <input type="checkbox" id="dexSave" onChange={handleInput} checked={character.dexSave} /> Dexterity <br></br>
+                        <input type="checkbox" id="conSave" onChange={handleInput} checked={character.conSave} /> Constitution <br></br>
+                        <input type="checkbox" id="intSave" onChange={handleInput} checked={character.intSave} /> Intelligence <br></br>
+                        <input type="checkbox" id="wisSave" onChange={handleInput} checked={character.wisSave} /> Wisdom <br></br>
+                        <input type="checkbox" id="chaSave" onChange={handleInput} checked={character.chaSave} /> Charisma <br></br>
 
                     </section>
 
@@ -263,7 +262,6 @@ export const SheetEdit = () => {
                 <section className="edit-info">
                     <section className="armor">
                         <h3>Select Armor</h3>
-                        <label id="ac-select" onChange={handleSelectChange}>
                         <select id="armorClass" onChange={handleInput}>
                             <option value={10 + parseInt(calcMod(character.dex))}>---</option>
                             {armorList.map(a => {
@@ -272,7 +270,7 @@ export const SheetEdit = () => {
                                 )
                             })}
                         </select>
-                        </label>
+                        <span className="armorClass-arrow"></span>
                     </section><br></br>
 
                     <h4>Armor Class</h4><input name="sheet-text" type="number" value={character.armorClass} onChange={handleInput} id="armorClass" autoComplete="off"></input><br></br>
