@@ -32,7 +32,7 @@ export const Tavern = () => {
                     return (
                         <section key={ele.id} className="character-card">
                             <img src={ele.icon}></img>
-                            <section>
+                            <section className="character-info">
                                 <Link to={`/character/${ele.id}`}><h4>{ele.name}</h4></Link>
                                 {ele.race} {ele.className}<br></br>
                                 Level {ele.level} <br></br>
@@ -50,7 +50,7 @@ export const Tavern = () => {
             </div>
             <section className="flavor">
                 <p><em>This small tavern on the far side of town is a warm relief from the chill evening air. The floorboards of its threshold are well-worn with use and the door swings open smoothly as you enter.</em></p>
-                <p><em>The air is heavy with smoke and dim murmurs. Looking around, you see a ragged assortment of thugs and low-lives, who eye you with an amused sort of malice. Surely, even in a place like this, you can manage to find a few capable adventurers willing to aid your cause...</em></p>
+                <p><em>The air is heavy with smoke and low chatter. Looking around, you see a ragged assortment of thugs and low-lives, who give you quick glances before returning to their drinks and card games. Surely, even in a place like this, you can manage to find a few capable adventurers willing to aid your cause...</em></p>
             </section>
             <section className="img">
             </section>
