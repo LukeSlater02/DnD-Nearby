@@ -427,7 +427,19 @@ footer {
     display: inline;
 
     button {
-      @include classButton($vamp)
+      margin-top: 1em;
+      padding: 1em;
+      width: 10em;
+      height: 4em;
+      border: $vamp solid 4px;
+      border-radius: 10px;
+      font-family: 'Spectral', serif;
+      font-weight: bold;
+
+      &:hover{
+        background-color: $vamp;
+        color: lightgray;
+      }
     }
   }
 
@@ -474,6 +486,7 @@ footer {
     border-image-repeat: stretch;
     border-image-width: auto;
     font-variant: all-small-caps;
+    text-transform: capitalize;
 
     span {
       font-variant: small-caps;
@@ -1059,6 +1072,7 @@ footer {
   .character-card {
     display: flex;
     padding: 0 2em;
+    text-transform: capitalize;
   }
 
   button {
@@ -1188,7 +1202,8 @@ footer {
     font-weight: bold;
     cursor: pointer;
     &:hover {
-      transform: scale(1.1);
+      background-color: $vamp;
+      color: lightgray;
     }
   }
 

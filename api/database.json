@@ -119,10 +119,10 @@
       "userId": 1,
       "name": "Felix Meneldur",
       "level": 9,
-      "background": "Soldier",
+      "background": "soldier",
       "alignment": "Neutral Good",
-      "race": "Half-Orc",
-      "armorClass": 19,
+      "race": "Half-orc",
+      "armorClass": 20,
       "str": 20,
       "dex": 10,
       "con": 14,
@@ -9087,6 +9087,51 @@
       "characterId": 2,
       "spellId": 17,
       "id": 14
+    },
+    {
+      "characterId": 3,
+      "spellId": 99,
+      "id": 15
+    },
+    {
+      "characterId": 3,
+      "spellId": 46,
+      "id": 16
+    },
+    {
+      "characterId": 3,
+      "spellId": 253,
+      "id": 17
+    },
+    {
+      "characterId": 3,
+      "spellId": 29,
+      "id": 18
+    },
+    {
+      "characterId": 3,
+      "spellId": 264,
+      "id": 19
+    },
+    {
+      "characterId": 3,
+      "spellId": 305,
+      "id": 20
+    },
+    {
+      "characterId": 3,
+      "spellId": 54,
+      "id": 22
+    },
+    {
+      "characterId": 3,
+      "spellId": 66,
+      "id": 24
+    },
+    {
+      "characterId": 3,
+      "spellId": 237,
+      "id": 25
     }
   ]
 }

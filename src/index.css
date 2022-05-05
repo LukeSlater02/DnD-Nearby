@@ -669,18 +669,11 @@ footer {
   border-radius: 10px;
   font-family: 'Spectral', serif;
   font-weight: bold;
-  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
-  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
 }
 
 .character-sheet .edit button:hover {
   background-color: #080808;
-  background-image: none;
-  cursor: pointer;
-  color: white;
-  font-size: 14px;
-  border-color: #080808;
-  border-radius: 10px;
+  color: lightgray;
 }
 
 .character-sheet input {
@@ -741,6 +734,7 @@ footer {
   border-image-repeat: stretch;
   border-image-width: auto;
   font-variant: all-small-caps;
+  text-transform: capitalize;
 }
 
 .character-sheet header span {
@@ -1402,6 +1396,7 @@ footer {
   display: -ms-flexbox;
   display: flex;
   padding: 0 2em;
+  text-transform: capitalize;
 }
 
 .roster button {
@@ -1555,8 +1550,8 @@ footer {
 }
 
 .spellbook-container .add:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  background-color: #080808;
+  color: lightgray;
 }
 
 .spellbook-container .search-results {

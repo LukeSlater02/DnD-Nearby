@@ -20,7 +20,7 @@ export const SheetNav = ({ }) => {
                 <img src="/images/sidebar-tavern.jpg"></img><br></br></Link>
                 {sessionStorage.getItem("dnd_user") != null ? <Link className="navbar__link" to="/login" onClick={removeUser}>Logout</Link> : ''}</section>
 
-                {location.pathname.includes("/spellbook") ? <img className="banner2" src="/images/gauntletBanner.svg"></img> : <Link to={`/character/${charId}/spellbook`}><img src="../images/spellbook.gif"></img></Link>}
+                {location.pathname.includes("/spellbook") ? <img className="banner2" src="/images/gauntletBanner.svg"></img> : <Link to={`/character/${charId}/spellbook`}><img src="../images/spellbook.gif"></img>Open Spellbook</Link>}
         </section>
     )
 }
