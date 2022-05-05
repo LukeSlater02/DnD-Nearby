@@ -1,19 +1,29 @@
-const spellData = "http://localhost:7077"
+//const spellData = "http://localhost:7077"
 const data = 'http://localhost:8088'
 
+// export const getAllSpells = () => {
+//     return fetch(`https://api.open5e.com/spells?page=7`).then(res => res.json()).then(data => {
+//         let newSpells = []
+//         data.results.map(ele => {
+//             newSpells.push(addSpell(ele))
+//         })
+//         Promise.all(newSpells)
+//     })
+// }
 
-let counter = 0
+// export const addSpell = (spell) => {
+//     return fetch(`${data}/spells`, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(spell)
+//     }).then(res => res.json())
+// }
+
 export const getAllSpells = () => {
-    return fetch(`${spellData}/spells`).then(res => res.json()).then(data => {
-        for (let obj of data) {
-            obj.id = counter
-            let stringData = JSON.stringify(obj, null, 2)
-            fs.writeFileSync('newSpells.json', stringData)
-            counter++
-        }
-    })
+    return fetch(`${data}/spells`).then(res => res.json())
 }
-
 
 export const addCharacterSpell = (spell) => {
     return fetch(`${data}/characterSpells`, {
@@ -26,9 +36,11 @@ export const addCharacterSpell = (spell) => {
 }
 
 export const getSpellByCharacter = charId => {
-    return fetch(`${data}/characterSpells?characterId=${charId}`).then(res => res.json())
+    return fetch(`${data}/characterSpells?characterId=${charId}&_expand=spell`).then(res => res.json())
 }
 
-export const getSpellByIndex = index => {
-    return fetch(`https://www.dnd5eapi.co/api/spells/${index}`).then(res => res.json())
+export const deleteCharacterSpell = id => {
+    return fetch(`${data}/characterSpells/${id}`, {
+        method: "DELETE"
+    }).then(res => res.json())
 }
