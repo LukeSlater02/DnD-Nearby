@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { addCharacterSpell, deleteCharacterSpell, getAllSpells, getSpellByCharacter, getSpellByIndex } from "../modules/SpellDataManager";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { addCharacterSpell, deleteCharacterSpell, getAllSpells, getSpellByCharacter, getSpellByIndex } from "../../modules/SpellDataManager";
 
 export const Spellbook = () => {
     const location = useLocation()
@@ -61,24 +61,6 @@ export const Spellbook = () => {
         deleteCharacterSpell(event.target.id).then(() => getSpellByCharacter(charId).then(setRecordedSpells))
     }
 
-    const handleSpellClick = event => {
-        let foundSpell = recordedSpells.find(ele => ele.spell.id === parseInt(event.target.id))
-        let spell = foundSpell.spell
-        console.log(spell);
-        document.querySelector('.spellbook-container').innerHTML =  `
-        <section class="spell-desc">
-        <strong class="spell-desc-name">${spell.name}</strong> <button class="spell-desc-close">&times;</button>
-        <p>${spell.level} ${spell.school}</p>
-        <p>${spell.desc}</p>
-        <p><strong>Casting Time</strong>: ${spell.casting_time} <strong>Range</strong>: ${spell.range} <strong>Duration</strong>: ${spell.duration} ${spell.concentration === "yes" ? "(concentration)" : ""} <strong>Components</strong>: ${spell.components}</p>
-        </strong>
-        `
-        document.querySelector('.spellbook-container').addEventListener('click', () => {
-            window.location.reload()
-        })
-
-    }
-
     return (
         <section className="spellbook-container">
             <div className="search">
@@ -100,8 +82,8 @@ export const Spellbook = () => {
                 <section className="spell-list">
                     {recordedSpells.map(ele => {
                         return (
-                            <div className="spell-card">
-                                <button onClick={handleSpellClick} className="spell-button" id={ele.spellId} key={ele.id}>{ele.spell?.name}</button><button className="spell-delete" id={ele.id} onClick={handleDelete}>&times;</button>
+                            <div className="spell-card" key={ele.id}>
+                                <button className="spell-button" id={ele.spellId}><Link to={`/character/${charId}/spellbook/${ele.spell?.slug}`}>{ele.spell?.name}</Link></button><button className="spell-delete" id={ele.id} onClick={handleDelete}>&times;</button>
                             </div>
                         )
                     })}

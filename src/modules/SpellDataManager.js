@@ -44,3 +44,7 @@ export const deleteCharacterSpell = id => {
         method: "DELETE"
     }).then(res => res.json())
 }
+
+export const getSpellBySlug = slug => {
+    return fetch(`${data}/spells?slug=${slug}`).then(res => res.json())
+}

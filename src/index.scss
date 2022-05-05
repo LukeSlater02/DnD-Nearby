@@ -248,6 +248,15 @@ h2 {
   align-items: center;
   justify-content: space-around;
 
+  .spellbook-gif{
+    width: 90%;
+    border: 3px solid transparent;
+    &:hover{
+      border: 3px solid white;
+      border-radius: 10px;
+    }
+  }
+
   a {
     text-align: center;
     color: $lightgray;
@@ -476,7 +485,7 @@ footer {
     height: fit-content;
   }
 
-  header {
+  .top-info {
     padding: 1em;
     width: 9em;
     height: fit-content;
@@ -487,6 +496,7 @@ footer {
     border-image-width: auto;
     font-variant: all-small-caps;
     text-transform: capitalize;
+    margin-bottom: 5em;
 
     span {
       font-variant: small-caps;
@@ -494,6 +504,32 @@ footer {
       border-bottom: 2px solid black;
       display: inline-block;
       width: 8em;
+    }
+  }
+
+  .custom-roll {
+    padding: 1em;
+    width: 9em;
+    height: fit-content;
+    border: 3px solid black;
+    border-image: url(/public/images/saves.svg);
+    border-image-slice: 20 10;
+    border-image-repeat: stretch;
+    border-image-width: auto;
+    margin-bottom: 5em;
+
+    h4 {
+      margin-bottom: 5px;
+    }
+
+    button {
+      border: 2px solid black;
+      padding: 5px;
+      margin: 10px;
+      font-size: medium;
+      margin-bottom: 0;
+      text-align: center;
+      width: 70%;
     }
   }
 
@@ -1128,12 +1164,14 @@ footer {
   font-size: x-large;
 
   .spell-desc{
-    top: 8em;
-    left: 35.4em;
+    zoom: 1.1;
+    top: 5.5em;
+    left: 32em;
     position: absolute;
-    width: 40%;
-    font-size: 21px;
+    width: 35%;
+    font-size: 22px;
     line-height: 1.5em;
+    font-weight: 400;
     .spell-desc-close {
       color: $vamp;
       background-color: transparent;
@@ -1254,6 +1292,10 @@ footer {
     .spell-card {
       display: flex;
       align-items: center;
+      a {
+        color: $darkgray;
+        text-decoration: none;
+      }
       button {
         border: none;
         padding: 6px;
@@ -1289,5 +1331,68 @@ footer {
       flex-wrap: wrap;
       max-height: 300px;
     }
+  }
+}
+
+.spell-card-container{
+  background-color: #080808;
+  width: 90vw;
+  margin-left: auto;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  background-image: url(/public/images/spellbook-background.jpeg);
+  background-repeat: no-repeat;
+  background-size: 72em;
+  background-position: absolute;
+  font-family: rumi;
+  font-size: x-large;
+
+  .details-card-container{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 300px;
+  }
+
+  .spell-card{
+    color: black;
+    padding-right: 1em;
+    position: absolute;
+    top: 6em;
+    width: 30em;
+    line-height: 1.6em;
+    left: 31.7em;
+    max-height: 700px;
+    overflow-y: auto;
+    margin-bottom: -2em;
+    p {
+      margin: 0;
+      margin-top: 9px;
+    }
+  }
+
+  .spell-details{
+    display: flex;
+    section {
+      margin: 12px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .back-button{
+   position: absolute;
+   width: 3em;
+   background-color: transparent;
+   border: none;
+   font-size: xx-large;
+   top: 7em;
+   left: 19em;
+   cursor: pointer;;
+   &:hover{
+     border-bottom: 3px solid black;
+   }
   }
 }

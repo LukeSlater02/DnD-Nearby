@@ -48,6 +48,8 @@ export const SheetForm = () => {
     const [damageRollResult, setDamageRollResult] = useState("")
     const [d20Result, setd20Result] = useState("")
     const [customMod, setCustomMod] = useState(0)
+    const [customRollCount, setCustomRollCount] = useState("")
+    const [customDieSides, setCustomDieSides] = useState("")
 
     const handleModInput = event => {
         setCustomMod(parseInt(event.target.value) > 25 ? 25 : parseInt(event.target.value))
@@ -63,7 +65,7 @@ export const SheetForm = () => {
     let navigate = useNavigate()
     let PB = calcPB(character.level)
     let HP = calcHP(character)
-    let strMod = parseInt(  calcMod(character.str))
+    let strMod = parseInt(calcMod(character.str))
     let dexMod = parseInt(calcMod(character.dex))
     let conMod = parseInt(calcMod(character.con))
     let intMod = parseInt(calcMod(character.int))
@@ -90,6 +92,14 @@ export const SheetForm = () => {
         setDamageRollResult(total += parseInt(stat) + customMod)
     }
 
+    const rollCustom = (stat, count, sides) => {
+        let total = 0
+        for (let i = 0; i < parseInt(count); i++) {
+            total += Math.floor(Math.random() * parseInt(sides)) + 1
+        }
+        setd20Result(total += parseInt(stat) + customMod) 
+    }
+
     const addDiceText = () => {
         document.querySelector('.dice-text').classList.add('text-active')
     }
@@ -110,6 +120,14 @@ export const SheetForm = () => {
         }
         activateModal()
         setTimeout(addDiceText, 900)
+    }
+
+    const handleCustomInput = event => {
+        if (event.target.id.includes("count")){
+            setCustomRollCount(event.target.value)
+        } else {
+            setCustomDieSides(event.target.value)
+        }
     }
 
     const modal = document.querySelector('.dice-modal')
@@ -159,14 +177,31 @@ export const SheetForm = () => {
                     <header>
                         <section className="top-info">
                             <span>{character.name}</span> <br></br><strong>Character Name</strong><br></br><br></br>
-                    
+
                             <span>{character.className} {character.level}</span><br></br><strong>Class & Level</strong><br></br><br></br>
-                            
+
                             <span>{character.background}</span> <br></br><strong>Background</strong><br></br><br></br>
-                            
+
                             <span>{character.race}</span> <br></br><strong>Race</strong><br></br><br></br>
-                            
+
                             <span>{character.alignment}</span> <br></br><strong>Alignment</strong><br></br><br></br>
+                        </section>
+
+                        <section className="roll-mod">
+                            <strong>Custom Roll Modifier</strong>
+                            <input type="number" value={customMod} onChange={handleModInput}></input> <br></br> <br></br>
+                        </section>
+
+                        <section className="custom-roll">
+                            <h4>Custom Die Roll</h4>
+                            <input id="custom-roll-count" type="number" placeholder="1" value={customRollCount} onChange={handleCustomInput}></input><strong>d</strong><input id="custom-roll-sides" onChange={handleCustomInput} type="number" placeholder="20" value={customDieSides}></input> <br></br>
+                            <button onClick={() => {
+                                rollCustom(customMod, customRollCount, customDieSides)
+                                activateModal()
+                                setTimeout(addDiceText, 900)
+                                setCustomRollCount("")
+                                setCustomDieSides("")
+                            }}>Roll</button>
                         </section>
                     </header>
 
@@ -303,11 +338,6 @@ export const SheetForm = () => {
                             <h3>Hit Dice</h3>
                         </section> <br></br>
 
-                        <section className="roll-mod">
-                            <strong>Custom Roll Modifier</strong>
-                            <input type="number" value={customMod} onChange={handleModInput}></input> <br></br> <br></br>
-                        </section>
-
                         <section className="edit"><button onClick={() => navigate(`/character-edit/${characterId}`)}>Edit</button> </section>
 
                         <section className="delete">
@@ -323,7 +353,7 @@ export const SheetForm = () => {
                                     if (levelRangeNumber === character.level) {
                                         return (
                                             <section key={ele.weapon.id} className="weapon-attack">
-                                        <button onClick={() => weaponAttack(ele.weapon.stat, ele.weapon.damageDieSides, ele.weapon.dieCount)}>{ele.weapon.name}<span className="weapon-dice">{ele.weapon.dieCount}d{ele.weapon.damageDieSides}</span></button>
+                                                <button onClick={() => weaponAttack(ele.weapon.stat, ele.weapon.damageDieSides, ele.weapon.dieCount)}>{ele.weapon.name}<span className="weapon-dice">{ele.weapon.dieCount}d{ele.weapon.damageDieSides}</span></button>
                                             </section>
                                         )
                                     }
