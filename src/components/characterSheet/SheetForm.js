@@ -142,7 +142,7 @@ export const SheetForm = () => {
     const closeModal = () => {
         modal.classList.remove('active')
         overlay.classList.remove('active')
-        document.querySelector('.dice-roll-gif').setAttribute('src', "../images/d20-dice.gif")
+        document.querySelector('.dice-roll-gif').setAttribute('src', "../images/brushed-alum.png")
         document.querySelector('.dice-text').classList.remove('text-active')
     }
 

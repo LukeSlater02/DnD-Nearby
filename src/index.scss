@@ -916,7 +916,7 @@ footer {
   z-index: 15;
   flex-direction: column;
   justify-content: flex-end;
-  color: whitesmoke;
+  color: transparent;
 
   .roll-result {
     position: absolute;
@@ -993,6 +993,7 @@ footer {
 
 .dice-modal.active {
   transform: translate(-50%, -50%) scale(1);
+  color: whitesmoke;
 }
 
 .roster {
