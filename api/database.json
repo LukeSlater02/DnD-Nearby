@@ -163,6 +163,56 @@
       "hitDieSides": 10,
       "icon": "./images/paladin.svg",
       "desc": "A holy warrior bound to a sacred oath, who swears to uphold justice and righteousness."
+    },
+    {
+      "classId": 4,
+      "userId": 1,
+      "name": "Xabys Orva",
+      "level": 17,
+      "background": "Acolyte",
+      "alignment": "Lawful Good",
+      "race": "Loxodon",
+      "armorClass": "10",
+      "str": 12,
+      "dex": 10,
+      "con": 14,
+      "int": 10,
+      "wis": 20,
+      "cha": 10,
+      "hitPoints": "",
+      "speed": 30,
+      "initiative": 0,
+      "acrobatics": false,
+      "animalHandling": false,
+      "arcana": false,
+      "athletics": false,
+      "deception": false,
+      "history": false,
+      "insight": true,
+      "intimidation": false,
+      "investigation": false,
+      "medicine": true,
+      "nature": false,
+      "perception": true,
+      "performance": false,
+      "persuasion": false,
+      "religion": true,
+      "sleightOfHand": false,
+      "stealth": false,
+      "survival": false,
+      "id": 5,
+      "className": "Cleric",
+      "dexSave": false,
+      "strSave": false,
+      "conSave": false,
+      "intSave": false,
+      "wisSave": true,
+      "chaSave": true,
+      "hpPerLevel": 5,
+      "hpLevelOne": 8,
+      "hitDieSides": 8,
+      "icon": "./images/cleric.svg",
+      "desc": "A priestly champion who wields divine magic in service of a higher power."
     }
   ],
   "classes": [
@@ -9132,6 +9182,31 @@
       "characterId": 3,
       "spellId": 237,
       "id": 25
+    },
+    {
+      "characterId": 5,
+      "spellId": 252,
+      "id": 34
+    },
+    {
+      "characterId": 5,
+      "spellId": 154,
+      "id": 35
+    },
+    {
+      "characterId": 5,
+      "spellId": 264,
+      "id": 36
+    },
+    {
+      "characterId": 5,
+      "spellId": 279,
+      "id": 37
+    },
+    {
+      "characterId": 5,
+      "spellId": 280,
+      "id": 38
     }
   ]
 }

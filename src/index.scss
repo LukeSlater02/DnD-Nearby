@@ -13,6 +13,11 @@
   src: url(../fonts/Rumi-Regular.ttf);
 }
 
+@font-face {
+  font-family: arcane;
+  src: url(../fonts/Iokharic.otf);
+}
+
 $red: #DF0000;
 $darkgray: rgb(31, 31, 31);
 $midgray: #353535;
@@ -1399,6 +1404,7 @@ footer {
   background-position: absolute;
   font-family: rumi;
   font-size: x-large;
+  overflow: hidden;
 
   .details-card-container {
     margin: 10px;
@@ -1416,9 +1422,44 @@ footer {
     width: 30em;
     line-height: 1.6em;
     left: 31.7em;
+    height: 700px;
     max-height: 700px;
     overflow-y: auto;
     margin-bottom: -2em;
+    transition: opacity 3s ease-in;
+    border-radius: 10px;
+    opacity: 0;
+    z-index: 10;
+
+    &:hover{
+      opacity: 1;
+    }
+
+    p {
+      margin: 0;
+      margin-top: 9px;
+    }
+  }
+
+  .spell-card-arcane {
+    color: black;
+    padding-right: 1em;
+    position: absolute;
+    top: 6em;
+    width: 30em;
+    line-height: 1.6em;
+    left: 31.7em;
+    max-height: 700px;
+    overflow-y: auto;
+    margin-bottom: -2em;
+    opacity: 1;
+    z-index: 5;
+    transition: opacity 1s ease-in-out;
+    font-family: arcane;
+
+    &:hover{
+      opacity: 0;
+    }
 
     p {
       margin: 0;
