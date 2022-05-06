@@ -13,6 +13,11 @@
   src: url(../fonts/Rumi-Regular.ttf);
 }
 
+@font-face {
+  font-family: arcane;
+  src: url(../fonts/Iokharic.otf);
+}
+
 button {
   font-family: 'Spectral', serif;
 }
@@ -1196,7 +1201,7 @@ footer {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  color: whitesmoke;
+  color: transparent;
 }
 
 .dice-modal .roll-result {
@@ -1277,6 +1282,7 @@ footer {
 .dice-modal.active {
   -webkit-transform: translate(-50%, -50%) scale(1);
           transform: translate(-50%, -50%) scale(1);
+  color: whitesmoke;
 }
 
 .roster section {
@@ -1754,6 +1760,7 @@ footer {
   background-position: absolute;
   font-family: rumi;
   font-size: x-large;
+  overflow: hidden;
 }
 
 .spell-card-container .details-card-container {
@@ -1778,12 +1785,49 @@ footer {
   width: 30em;
   line-height: 1.6em;
   left: 31.7em;
+  height: 700px;
   max-height: 700px;
   overflow-y: auto;
   margin-bottom: -2em;
+  -webkit-transition: opacity 3s ease-in;
+  transition: opacity 3s ease-in;
+  border-radius: 10px;
+  opacity: 0;
+  z-index: 10;
+}
+
+.spell-card-container .spell-card:hover {
+  opacity: 1;
 }
 
 .spell-card-container .spell-card p {
+  margin: 0;
+  margin-top: 9px;
+}
+
+.spell-card-container .spell-card-arcane {
+  color: black;
+  padding-right: 1em;
+  position: absolute;
+  top: 6em;
+  width: 30em;
+  line-height: 1.6em;
+  left: 31.7em;
+  max-height: 700px;
+  overflow-y: auto;
+  margin-bottom: -2em;
+  opacity: 1;
+  z-index: 5;
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  font-family: arcane;
+}
+
+.spell-card-container .spell-card-arcane:hover {
+  opacity: 0;
+}
+
+.spell-card-container .spell-card-arcane p {
   margin: 0;
   margin-top: 9px;
 }
