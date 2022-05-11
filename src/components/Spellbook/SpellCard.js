@@ -7,10 +7,22 @@ export const SpellCard = () => {
     const navigate = useNavigate()
     const params = useParams()
 
+    const translateSpell = () => {
+        document.querySelector('.spell-card-arcane').classList.remove('active')
+        document.querySelector('.spell-card').classList.add('active')
+    }
+    const translateTimeout = () => {
+        setTimeout(translateSpell, 500)
+    }
+
     const [spell, setSpell] = useState({})
 
     useEffect(() => {
         getSpellBySlug(params.spellSlug).then(data => setSpell(data[0]))
+    }, [])
+
+    useEffect(() => {
+        translateTimeout()
     }, [])
 
     const newDesc = spell.desc?.replaceAll("-", " ").replaceAll(".",
@@ -31,7 +43,7 @@ export const SpellCard = () => {
         <>
             <section className="spell-card-container">
                 <button className="back-button" onClick={() => navigate(`/character/${params.characterId}/spellbook`)}><IoMdArrowRoundBack /></button>
-                <div className="spell-card-arcane">
+                <div className="spell-card-arcane active">
                     <strong>{spell.name}</strong>
                     <p>{newLevel} {spell.school} {spell.ritual === "yes" ? "(ritual)" : ""}</p>
                     <p>{newDesc}</p>
