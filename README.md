@@ -2,7 +2,7 @@
 #### why go all the way to the Beyond when you've got what you need right here?
 
 ### Project Description
-This React app was built from scratch by me as the capstone project for my first 3 months at Nashville Software School. I learned a lot in that time and had a lot of fun putting all that knowledge to use to create my first real larger-scale personal project.
+This React app was built from scratch by me as the capstone project for my first 3 months at Nashville Software School. I learned a lot in that time and had a lot of fun putting all that knowledge to use to create my first real large-scale solo project.
 
 The purpose of this app is to provide a useful digital tool for players of 5th Edition Dungeons & Dragons.
 Features include:
