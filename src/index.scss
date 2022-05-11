@@ -1392,7 +1392,7 @@ footer {
 }
 
 .spell-card-container {
-  background-color: #080808;
+  background-color: black;
   width: 90vw;
   margin-left: auto;
   height: 100vh;
@@ -1418,7 +1418,7 @@ footer {
     color: black;
     padding-right: 1em;
     position: absolute;
-    top: 6em;
+    top: 7em;
     width: 30em;
     line-height: 1.6em;
     left: 31.7em;
@@ -1429,11 +1429,6 @@ footer {
     transition: opacity 3s ease-in;
     border-radius: 10px;
     opacity: 0;
-    z-index: 10;
-
-    &:hover{
-      opacity: 1;
-    }
 
     p {
       margin: 0;
@@ -1441,25 +1436,25 @@ footer {
     }
   }
 
+  .active{
+    opacity: 1 !important;
+  }
+
   .spell-card-arcane {
     color: black;
     padding-right: 1em;
     position: absolute;
-    top: 6em;
+    top: 7em;
     width: 30em;
     line-height: 1.6em;
     left: 31.7em;
     max-height: 700px;
     overflow-y: auto;
     margin-bottom: -2em;
-    opacity: 1;
+    opacity: 0;
     z-index: 5;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 3s ease-out;
     font-family: arcane;
-
-    &:hover{
-      opacity: 0;
-    }
 
     p {
       margin: 0;
