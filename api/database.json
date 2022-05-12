@@ -9145,11 +9145,6 @@
     },
     {
       "characterId": 2,
-      "spellId": 14,
-      "id": 12
-    },
-    {
-      "characterId": 2,
       "spellId": 41,
       "id": 13
     },
@@ -9227,6 +9222,11 @@
       "characterId": 5,
       "spellId": 280,
       "id": 38
+    },
+    {
+      "characterId": 2,
+      "spellId": 14,
+      "id": 39
     }
   ]
 }
