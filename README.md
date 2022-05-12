@@ -6,7 +6,7 @@ This React app was built from scratch by me as the capstone project for my first
 
 The purpose of this app is to provide a useful digital tool for players of 5th Edition Dungeons & Dragons.
 Features include:
-* Choosing a Class, which determines your selection of Armor options, your list of weapon attacks and your Hit Points
+* Choosing a Class, which determines your selection of Armor options, your list of Weapon Attacks and your Hit Points.
 * Creating a Character Sheet with persistent data that automatically calculates values for you, such as Proficiency Bonus and Stat Modifiers.
 * Picking skills for your Character which calculate their value based off of your stats.
 * All stats/skills/weapon attacks are buttons which can be clicked on to make rolls that add their modifiers and display on screen in a modal.
