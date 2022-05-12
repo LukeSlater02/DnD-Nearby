@@ -12,7 +12,7 @@ export const SpellCard = () => {
         document.querySelector('.spell-card').classList.add('active')
     }
     const translateTimeout = () => {
-        setTimeout(translateSpell, 500)
+        setTimeout(translateSpell, 800)
     }
 
     const [spell, setSpell] = useState({})
