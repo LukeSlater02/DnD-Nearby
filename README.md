@@ -28,4 +28,16 @@ Features include:
 ![Login page](public/images/readmelogin.png)
 
 #### Class Selection
-![class select page](public/images/readmeclasses.mp4)
+![class select page](public/images/readmeclasses.gif)
+
+#### Character Sheet
+![character sheet](public/images/readmesheet.gif)
+
+#### Tavern
+![tavern](public/images/readmetavern.gif)
+
+#### Spellbook Search
+![spellbook search function](public/images/readmesearch.gif)
+
+#### Spell Description
+![spell description](public/images/readmedesc.gif)
