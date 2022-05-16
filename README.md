@@ -41,3 +41,9 @@ Features include:
 
 #### Spell Description
 ![spell description](public/images/readmedesc.gif)
+
+#### ERD
+![erd](public/images/dndnearbyerd.png)
+
+#### Wireframe
+![wireframe](public/images/dndnearbywireframe.png)
