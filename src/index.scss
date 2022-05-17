@@ -310,12 +310,13 @@ h2 {
 }
 
 nav {
-  height: 145px;
+  height: 160px;
   display: flex;
 
   .logo {
     width: 180px;
     margin: auto;
+    margin-left: 50em;
     font-family: spectral;
 
     a {
@@ -330,19 +331,16 @@ nav {
     }
 
     .header {
-      margin-top: 0;
-      margin-left: 8em;
+      font-family: dragon !important;
+      margin-top: .5em;
+      margin-left: 3.75em;
       font-size: 40px;
-      color: red;
-      font-variant-caps: all-small-caps;
       text-decoration: none !important;
       transition: ease-in-out 1s, text-decoration-color 1s, transform 1s;
 
 
       transform: scale(1.3) !important;
-      color: white;
-      text-decoration: underline !important;
-      text-decoration-color: red !important;
+      color: $red;
 
     }
   }
@@ -350,6 +348,7 @@ nav {
   .logo-no-login {
     width: 180px;
     margin: auto;
+    margin-left: 50em;
     font-family: spectral;
 
     a {
@@ -360,22 +359,20 @@ nav {
       width: 14.6em;
       margin-top: -50px;
       margin-bottom: -100px;
-      margin-left: -4em;
+      margin-left: 6em;
     }
 
     .header {
-      margin-top: 0;
-      margin-left: 4em;
+      font-family: dragon !important;
+      margin-top: .5em;
+      margin-left: 3.75em;
       font-size: 40px;
-      color: red;
-      font-variant-caps: all-small-caps;
       text-decoration: none !important;
       transition: ease-in-out 1s, text-decoration-color 1s, transform 1s;
 
+
       transform: scale(1.3) !important;
-      color: white;
-      text-decoration: underline !important;
-      text-decoration-color: red !important;
+      color: $red;
 
     }
   }
