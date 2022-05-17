@@ -315,8 +315,7 @@ nav {
 
   .logo {
     width: 180px;
-    margin: auto;
-    margin-left: 50em;
+    margin:auto;
     font-family: spectral;
 
     a {
@@ -348,7 +347,6 @@ nav {
   .logo-no-login {
     width: 180px;
     margin: auto;
-    margin-left: 50em;
     font-family: spectral;
 
     a {
@@ -359,13 +357,12 @@ nav {
       width: 14.6em;
       margin-top: -50px;
       margin-bottom: -100px;
-      margin-left: 6em;
     }
 
     .header {
       font-family: dragon !important;
       margin-top: .5em;
-      margin-left: 3.75em;
+      margin-left: 1.55em;
       font-size: 40px;
       text-decoration: none !important;
       transition: ease-in-out 1s, text-decoration-color 1s, transform 1s;

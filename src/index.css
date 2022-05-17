@@ -523,7 +523,6 @@ nav {
 nav .logo {
   width: 180px;
   margin: auto;
-  margin-left: 50em;
   font-family: spectral;
 }
 
@@ -556,7 +555,6 @@ nav .logo .header {
 nav .logo-no-login {
   width: 180px;
   margin: auto;
-  margin-left: 50em;
   font-family: spectral;
 }
 
@@ -568,13 +566,12 @@ nav .logo-no-login img {
   width: 14.6em;
   margin-top: -50px;
   margin-bottom: -100px;
-  margin-left: 6em;
 }
 
 nav .logo-no-login .header {
   font-family: dragon !important;
   margin-top: .5em;
-  margin-left: 3.75em;
+  margin-left: 1.55em;
   font-size: 40px;
   text-decoration: none !important;
   -webkit-transition: ease-in-out 1s, -webkit-text-decoration-color 1s, -webkit-transform 1s;
