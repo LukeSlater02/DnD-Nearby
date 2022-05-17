@@ -587,12 +587,16 @@ nav .banner1 {
   position: absolute;
   width: 16em;
   left: 0em;
+  -webkit-filter: drop-shadow(10px 10px 4px black);
+          filter: drop-shadow(10px 10px 4px black);
 }
 
 nav .banner2 {
   position: absolute;
   width: 16em;
   right: 0em;
+  -webkit-filter: drop-shadow(10px 10px 4px black);
+          filter: drop-shadow(10px 10px 4px black);
 }
 
 nav h1 {

@@ -378,12 +378,14 @@ nav {
     position: absolute;
     width: 16em;
     left: 0em;
+    filter: drop-shadow(10px 10px 4px black);
   }
 
   .banner2 {
     position: absolute;
     width: 16em;
     right: 0em;
+    filter: drop-shadow(10px 10px 4px black);
   }
 
   h1 {
