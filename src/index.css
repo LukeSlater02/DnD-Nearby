@@ -500,7 +500,7 @@ h2 {
 
 #sheet-nav .logo {
   width: 80%;
-  height: 15em;
+  height: 14em;
   margin-top: -4em;
   border-bottom: 3px solid white;
 }
@@ -534,13 +534,13 @@ nav .logo img {
   width: 14.6em;
   margin-top: -50px;
   margin-bottom: -100px;
-  margin-left: 6em;
+  margin-left: 10.5em;
 }
 
 nav .logo .header {
   font-family: dragon !important;
   margin-top: .5em;
-  margin-left: 3.75em;
+  margin-left: 5.3em;
   font-size: 40px;
   text-decoration: none !important;
   -webkit-transition: ease-in-out 1s, -webkit-text-decoration-color 1s, -webkit-transform 1s;
