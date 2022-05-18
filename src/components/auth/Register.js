@@ -39,7 +39,8 @@ export const Register = () => {
 					},
 					body: JSON.stringify({
 						email: registerUser.email,
-						name: `${registerUser.firstName} ${registerUser.lastName}`,
+						firstNname: registerUser.firstName,
+						lastName: registerUser.lastName,
 					}),
 				})
 					.then((res) => res.json())
@@ -57,7 +58,7 @@ export const Register = () => {
 	};
 
 	return (
-		<main style={{ textAlign: "center" }}>
+		<main className="container--register" style={{ textAlign: "center" }}>
 			<dialog className="dialog dialog--password" open={conflictDialog}>
 				<div>Account with that email address already exists</div>
 				<button
@@ -67,11 +68,7 @@ export const Register = () => {
 					Close
 				</button>
 			</dialog>
-
 			<form className="form--login" onSubmit={handleRegister}>
-				<h1 className="h3 mb-3 font-weight-normal">
-					Register
-				</h1>
 				<fieldset>
 					<label htmlFor="firstName"> First Name </label>
 					<input
@@ -113,7 +110,7 @@ export const Register = () => {
 					/>
 				</fieldset>
 				<fieldset>
-					<button type="submit"> Sign in </button>
+					<button type="submit"> Register </button>
 				</fieldset>
 			</form>
 		</main>

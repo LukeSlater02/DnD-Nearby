@@ -1067,6 +1067,95 @@ footer {
   }
 }
 
+.container--register {
+  width: 45em;
+  padding: 2em;
+  margin-top: 2em !important;
+  margin: auto;
+  text-align: center;
+
+  h1 {
+    text-align: center;
+    font-variant-caps: all-small-caps;
+    margin: 0;
+    padding: 0;
+    font-size: 60px;
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-decoration-color: $red;
+  }
+
+  .form--login {
+    border: 5px solid $darkgray;
+    border-radius: 200px;
+    // border-top: 7px solid $darkgray;
+    height: 17em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    fieldset {
+      width: 20em;
+      border: none;
+      font-size: larger;
+
+      label{
+        text-align: left;
+        display: inline-block;
+        width: 140px;
+      }
+
+      input[type=email] {
+        margin-top: 1em;
+        border: none;
+        border-bottom: 2px solid $vamp;
+        font-size: large;
+
+        &::placeholder {
+          text-align: center;
+        }
+
+        &:focus {
+          border: none;
+          border-bottom: 2px solid $vamp;
+          outline: none;
+        }
+      }
+      input[type=text] {
+        margin-top: 1em;
+        border: none;
+        border-bottom: 2px solid $vamp;
+        font-size: large;
+
+        &::placeholder {
+          text-align: center;
+        }
+
+        &:focus {
+          border: none;
+          border-bottom: 2px solid $vamp;
+          outline: none;
+        }
+      }
+
+
+    }
+  }
+
+
+  button {
+    @include classButton($red)
+  }
+
+  a {
+    color: $vamp;
+  }
+
+  a:hover {
+    color: $red;
+  }
+}
+
 .roster {
   width: 100vw;
   height: 100vh;

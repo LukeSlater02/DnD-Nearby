@@ -31,7 +31,7 @@ export const ApplicationViews = ({ setAuthUser, clearUser, isAuthenticated }) =>
         </Route>
 
         <Route path="/login" element={<><NavBar clearUser={clearUser} isAuthenticated={isAuthenticated} /><Login setAuthUser={setAuthUser} /></>} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<><NavBar clearUser={clearUser} isAuthenticated={isAuthenticated} /><Register /></>} />
       </Routes>
     </>
   )

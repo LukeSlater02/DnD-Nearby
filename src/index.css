@@ -31,7 +31,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+ monospace;
 }
 
 h2,
@@ -1380,6 +1381,143 @@ footer {
 }
 
 .container--login a:hover {
+  color: #DF0000;
+}
+
+.container--register {
+  width: 45em;
+  padding: 2em;
+  margin-top: 8em !important;
+  margin: auto;
+  text-align: center;
+}
+
+.container--register h1 {
+  text-align: center;
+  font-variant-caps: all-small-caps;
+  margin: 0;
+  padding: 0;
+  font-size: 60px;
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  -webkit-text-decoration-color: #DF0000;
+          text-decoration-color: #DF0000;
+}
+
+.container--register .form--login {
+  border: 5px solid #1f1f1f;
+  border-radius: 200px;
+  height: 17em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container--register .form--login fieldset {
+  width: 20em;
+  border: none;
+  font-size: larger;
+}
+
+.container--register .form--login fieldset label {
+  text-align: left;
+  display: inline-block;
+  width: 140px;
+}
+
+.container--register .form--login fieldset input[type=email] {
+  margin-top: 1em;
+  border: none;
+  border-bottom: 2px solid #080808;
+  font-size: large;
+}
+
+.container--register .form--login fieldset input[type=email]::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.container--register .form--login fieldset input[type=email]:-ms-input-placeholder {
+  text-align: center;
+}
+
+.container--register .form--login fieldset input[type=email]::-ms-input-placeholder {
+  text-align: center;
+}
+
+.container--register .form--login fieldset input[type=email]::placeholder {
+  text-align: center;
+}
+
+.container--register .form--login fieldset input[type=email]:focus {
+  border: none;
+  border-bottom: 2px solid #080808;
+  outline: none;
+}
+
+.container--register .form--login fieldset input[type=text] {
+  margin-top: 1em;
+  border: none;
+  border-bottom: 2px solid #080808;
+  font-size: large;
+}
+
+.container--register .form--login fieldset input[type=text]::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.container--register .form--login fieldset input[type=text]:-ms-input-placeholder {
+  text-align: center;
+}
+
+.container--register .form--login fieldset input[type=text]::-ms-input-placeholder {
+  text-align: center;
+}
+
+.container--register .form--login fieldset input[type=text]::placeholder {
+  text-align: center;
+}
+
+.container--register .form--login fieldset input[type=text]:focus {
+  border: none;
+  border-bottom: 2px solid #080808;
+  outline: none;
+}
+
+.container--register button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 10em;
+  height: 4em;
+  border: #080808 solid 4px;
+  border-radius: 10px;
+  font-family: 'Spectral', serif;
+  font-weight: bold;
+  -webkit-transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+  transition: background-color 1s, color .7s, border-radius 1s, font-size 1s, border-color 1s, background-image 1s;
+}
+
+.container--register button:hover {
+  background-color: #DF0000;
+  background-image: none;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-color: #DF0000;
+  border-radius: 10px;
+}
+
+.container--register a {
+  color: #080808;
+}
+
+.container--register a:hover {
   color: #DF0000;
 }
 
