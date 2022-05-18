@@ -1,5 +1,5 @@
 //const spellData = "http://localhost:7077"
-const data = 'http://localhost:8088'
+const data = 'https://dnd-nearby-data.herokuapp.com'
 
 // export const getAllSpells = () => {
 //     return fetch(`https://api.open5e.com/spells?page=7`).then(res => res.json()).then(data => {

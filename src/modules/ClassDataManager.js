@@ -1,4 +1,4 @@
-const data = 'http://localhost:8088'
+const data = 'https://dnd-nearby-data.herokuapp.com'
 
 // export const getRogueWeapons = () => {
 //     return fetch(`${data}/classWeapons?classId=8&_expand=weapon&_expand=class`)
