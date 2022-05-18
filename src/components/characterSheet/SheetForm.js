@@ -341,7 +341,7 @@ export const SheetForm = () => {
                         <section className="edit"><button onClick={() => navigate(`/character-edit/${characterId}`)}>Edit</button> </section>
 
                         <section className="delete">
-                            <button onClick={() => deleteSheet(character.id).then(() => navigate("/home"))}>Delete</button>
+                            <button onClick={() => deleteSheet(character.id).then(() => navigate("/home") )}>Delete</button>
                         </section>
                     </section>
 
