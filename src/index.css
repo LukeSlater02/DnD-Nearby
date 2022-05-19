@@ -31,8 +31,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
- monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 h2,
@@ -556,6 +555,7 @@ nav .logo .header {
 nav .logo-no-login {
   width: 180px;
   margin: auto;
+  margin-right: 57em;
   font-family: spectral;
 }
 
@@ -1387,7 +1387,7 @@ footer {
 .container--register {
   width: 45em;
   padding: 2em;
-  margin-top: 8em !important;
+  margin-top: 2em !important;
   margin: auto;
   text-align: center;
 }
