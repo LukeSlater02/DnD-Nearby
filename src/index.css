@@ -1386,7 +1386,7 @@ footer {
 .container--register {
   width: 45em;
   padding: 2em;
-  margin-top: 2em !important;
+  margin-top: 10em !important;
   margin: auto;
   text-align: center;
 }
