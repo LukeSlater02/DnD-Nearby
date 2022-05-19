@@ -51,6 +51,8 @@ export const calcPB = charLvl => {
             return 5
         case charLvl < 21:
             return 6
+        case charLvl > 21:
+            return 6
         default:
             return 0
     }

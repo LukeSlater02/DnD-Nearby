@@ -1,4 +1,5 @@
 # D&D Nearby
+#### try it out @ http://www.dndnearby.com/ 
 #### why go all the way to the Beyond when you've got what you need right here?
 
 ### Project Description
@@ -25,10 +26,10 @@ Features include:
 ### Image Gallery
 
 #### Login
-![Login page](public/images/readmelogin.png)
+![Login page](public/images/readmelog.png)
 
 #### Class Selection
-![class select page](public/images/readmeclasses.gif)
+![class select page](public/images/readmeclass.gif)
 
 #### Character Sheet
 ![character sheet](public/images/readmesheet.gif)
