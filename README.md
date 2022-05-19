@@ -26,10 +26,10 @@ Features include:
 ### Image Gallery
 
 #### Login
-![Login page](public/images/readmelogin.png)
+![Login page](public/images/readmelog.png)
 
 #### Class Selection
-![class select page](public/images/readmeclasses.gif)
+![class select page](public/images/readmeclass.gif)
 
 #### Character Sheet
 ![character sheet](public/images/readmesheet.gif)
