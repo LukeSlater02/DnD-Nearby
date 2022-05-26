@@ -27,7 +27,6 @@ body {
   font-family: 'Spectral', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
 }
 
 code {
@@ -437,12 +436,10 @@ h2 {
   display: -ms-flexbox;
   display: flex;
   width: 280px;
-  overflow: hidden;
   position: fixed;
   top: 0;
   left: 0;
   background-color: #080808;
-  overflow-x: hidden;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;

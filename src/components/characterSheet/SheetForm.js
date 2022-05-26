@@ -105,6 +105,7 @@ export const SheetForm = () => {
     }
 
     const rolld20 = (stat) => {
+        console.log(stat);
         setDamageRollResult('')
         document.querySelector(".d20-roll").classList.remove("nat20", "nat1")
         let total = 0
