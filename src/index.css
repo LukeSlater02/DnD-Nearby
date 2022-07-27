@@ -549,6 +549,10 @@ nav .logo .header {
   color: #DF0000;
 }
 
+nav .logo h3 {
+  font-size: small;
+}
+
 nav .logo-no-login {
   width: 180px;
   margin: auto;

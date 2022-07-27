@@ -12,11 +12,11 @@ export const NavBar = ({ }) => {
       {sessionStorage.getItem("dnd_user") != null
         ?
         <section className="logo">
-          <Link to="/home"><img src="/images/logo.svg"></img><h3 className="header">Nearby</h3></Link>
+          <img src="/images/logo.svg"></img><h3 className="header">NEARBY</h3>
         </section>
         :
         <section className="logo-no-login">
-          <Link to="/home"><img src="/images/logo.svg"></img><h3 className="header">Nearby</h3></Link>
+          <img src="/images/logo.svg"></img><h3 className="header">NEARBY</h3>
         </section>
       }
 

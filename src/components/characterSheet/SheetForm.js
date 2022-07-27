@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { deleteSheet, getSheetById } from "../../modules/SheetDataManager";
 import { calcPB, calcMod, DeathSaveFail, DeathSaveSuccess } from "./SheetHelpers";
 import { getWeaponsByClass } from "../../modules/WeaponDataManager";
 
-// create a form that the user can input 1) Name, 2) Date and 3) City, then Click submit. 
-//on submit, we want to use the EventManager to add new event to DB, then route to the eventList.
 export const SheetForm = () => {
     const [character, setCharacter] = useState(
         {
@@ -105,7 +103,6 @@ export const SheetForm = () => {
     }
 
     const rolld20 = (stat) => {
-        console.log(stat);
         setDamageRollResult('')
         document.querySelector(".d20-roll").classList.remove("nat20", "nat1")
         let total = 0
@@ -131,17 +128,17 @@ export const SheetForm = () => {
         }
     }
 
-    const modal = document.querySelector('.dice-modal')
+    const modal = useRef()
     const overlay = document.getElementById('overlay')
 
     const activateModal = () => {
-        modal.classList.add('active')
+        modal.current.classList.add('active')
         overlay.classList.add('active')
         document.querySelector('.dice-roll-gif').setAttribute('src', "../images/d20-dice.gif")
     }
 
     const closeModal = () => {
-        modal.classList.remove('active')
+        modal.current.classList.remove('active')
         overlay.classList.remove('active')
         document.querySelector('.dice-roll-gif').setAttribute('src', "../images/brushed-alum.png")
         document.querySelector('.dice-text').classList.remove('text-active')
@@ -369,7 +366,7 @@ export const SheetForm = () => {
                         })}
                     </section>
 
-                    <div className="dice-modal" id="dice-modal">
+                    <div className="dice-modal" id="dice-modal" ref={modal}>
                         <img className="dice-roll-gif"></img>
                         <button data-close-button className="close-button" onClick={closeModal}>&times;</button>
                         <div className="dice-text" id="dice-text">

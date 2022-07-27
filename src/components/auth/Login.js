@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
@@ -15,7 +15,6 @@ export const Login = ({setAuthUser}) => {
 	};
 
 	 const existingUserCheck = () => {
-		// If your json-server URL is different, please change it below!
 		return fetch(`http://localhost:8088/users?email=${loginUser.email}`)
 			.then((res) => res.json())
 			.then((user) => (user.length ? user[0] : false));
@@ -26,7 +25,6 @@ export const Login = ({setAuthUser}) => {
 
 		existingUserCheck().then((exists) => {
 			if (exists) {
-				// The user id is saved under the key nutshell_user in session Storage. Change below if needed!
 				setAuthUser(exists)
 				navigate("/home");
 			} else {

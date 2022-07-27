@@ -38,12 +38,6 @@ export const CharacterInfo = () => {
         </div>
         <div id="overlay" className=""></div>
         <input type="text" className="alignment" value={alignment} onChange={handleInput}></input>
-        {console.log(alignment)}
         </>
     )
 }
-
-
-
-
-// const modal = document.querySelector(button.dataset.modalTarget)

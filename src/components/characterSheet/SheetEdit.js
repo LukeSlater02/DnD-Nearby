@@ -161,13 +161,6 @@ export const SheetEdit = () => {
         editedCharacter.id = character.id
         updateSheet(editedCharacter).then(data => navigate(`/character/${data.id}`))
     }
-     
-    const handleSelectChange = e => {
-        e.preventDefault()
-        console.log(e.target.value);
-    }
-
-
     return (
         <div className="character-sheet">
             <div className="sheet-container">
