@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getSpellBySlug } from "../../modules/SpellDataManager";
 import { IoMdArrowRoundBack } from 'react-icons/io'
@@ -6,10 +6,12 @@ import { IoMdArrowRoundBack } from 'react-icons/io'
 export const SpellCard = () => {
     const navigate = useNavigate()
     const params = useParams()
+    const spellCard = useRef()
+    const spellCardArcane = useRef()
 
     const translateSpell = () => {
-        document.querySelector('.spell-card-arcane').classList.remove('active')
-        document.querySelector('.spell-card').classList.add('active')
+        spellCardArcane.current.classList.remove('active')
+        spellCard.current.classList.add('active')
     }
     const translateTimeout = () => {
         setTimeout(translateSpell, 800)
@@ -43,7 +45,7 @@ export const SpellCard = () => {
         <>
             <section className="spell-card-container">
                 <button className="back-button" onClick={() => navigate(`/character/${params.characterId}/spellbook`)}><IoMdArrowRoundBack /></button>
-                <div className="spell-card-arcane active">
+                <div className="spell-card-arcane active" ref={spellCardArcane}>
                     <strong>{spell.name}</strong>
                     <p>{newLevel} {spell.school} {spell.ritual === "yes" ? "(ritual)" : ""}</p>
                     <p>{newDesc}</p>
@@ -64,7 +66,7 @@ export const SpellCard = () => {
                     </div>
                 </div>
 
-                <div className="spell-card">
+                <div className="spell-card" ref={spellCard}>
                     <strong>{spell.name}</strong>
                     <p>{spell.level} {spell.school} {spell.ritual === "yes" ? "(ritual)" : ""}</p>
                     <p>{spell.desc}</p>

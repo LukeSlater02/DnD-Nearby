@@ -98,20 +98,22 @@ export const SheetForm = () => {
         setd20Result(total += parseInt(stat) + customMod) 
     }
 
+    const diceText = useRef()
     const addDiceText = () => {
-        document.querySelector('.dice-text').classList.add('text-active')
+        diceText.current.classList.add('text-active')
     }
 
+    const d20Roll = useRef()
     const rolld20 = (stat) => {
         setDamageRollResult('')
-        document.querySelector(".d20-roll").classList.remove("nat20", "nat1")
+        d20Roll.current.classList.remove("nat20", "nat1")
         let total = 0
         total += Math.floor(Math.random() * 20) + 1
         if (total == 20) {
-            document.querySelector(".d20-roll").classList.add("nat20")
+            d20Roll.current.classList.add("nat20")
             setd20Result(total += parseInt(stat) + customMod)
         } else if (total === 1) {
-            document.querySelector(".d20-roll").classList.add("nat1")
+            d20Roll.current.classList.add("nat1")
             setd20Result(total += parseInt(stat) + customMod)
         } else {
             setd20Result(total += parseInt(stat) + customMod)
@@ -129,19 +131,20 @@ export const SheetForm = () => {
     }
 
     const modal = useRef()
-    const overlay = document.getElementById('overlay')
+    const overlay = useRef()
+    const diceRollGif = useRef()
 
     const activateModal = () => {
         modal.current.classList.add('active')
-        overlay.classList.add('active')
-        document.querySelector('.dice-roll-gif').setAttribute('src', "../images/d20-dice.gif")
+        overlay.current.classList.add('active')
+        diceRollGif.current.setAttribute('src', "../images/d20-dice.gif")
     }
 
     const closeModal = () => {
         modal.current.classList.remove('active')
-        overlay.classList.remove('active')
-        document.querySelector('.dice-roll-gif').setAttribute('src', "../images/brushed-alum.png")
-        document.querySelector('.dice-text').classList.remove('text-active')
+        overlay.current.classList.remove('active')
+        diceRollGif.current.setAttribute('src', "../images/brushed-alum.png")
+        diceText.current.classList.remove('text-active')
     }
 
     const weaponAttack = (weapStat, weapSides, weapCount) => {
@@ -367,16 +370,16 @@ export const SheetForm = () => {
                     </section>
 
                     <div className="dice-modal" id="dice-modal" ref={modal}>
-                        <img className="dice-roll-gif"></img>
+                        <img className="dice-roll-gif" ref={diceRollGif}></img>
                         <button data-close-button className="close-button" onClick={closeModal}>&times;</button>
-                        <div className="dice-text" id="dice-text">
-                            <span className="d20-roll">{d20Result}</span>
+                        <div className="dice-text" ref={diceText} id="dice-text">
+                            <span className="d20-roll" ref={d20Roll}>{d20Result}</span>
                         </div>
                         {damageRollResult ? <div className="roll-result"><strong>Damage: {damageRollResult}</strong></div> : ''}
                     </div>
                 </div>
             </div>
-            <div id="overlay" className=""></div>
+            <div id="overlay" ref={overlay}></div>
         </>
     )
 }

@@ -9146,6 +9146,11 @@
       "characterId": 2,
       "spellId": 14,
       "id": 39
+    },
+    {
+      "characterId": 1,
+      "spellId": 1,
+      "id": 40
     }
   ]
 }
