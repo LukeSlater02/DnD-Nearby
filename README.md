@@ -1,5 +1,4 @@
 # D&D Nearby
-#### try it out @ http://www.dndnearby.com/ (give it a second to boot up, its sleepy sometimes)
 #### why go all the way to the Beyond when you've got what you need right here?
 
 ### Project Description
